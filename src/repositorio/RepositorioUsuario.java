@@ -48,4 +48,9 @@ public class RepositorioUsuario implements RepositorioInterface<Usuario>{
         int indice = recuperarIndice(cpf);
         this.usuarios.set(indice, usuario);
     }
+
+    @Override
+    public ArrayList<Usuario> recuoertarTudo() {
+        return this.usuarios;
+    }
 }

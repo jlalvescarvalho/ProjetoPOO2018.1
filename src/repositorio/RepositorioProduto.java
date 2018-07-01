@@ -22,6 +22,7 @@ public class RepositorioProduto implements RepositorioInterface<Produto> {
         return -1;
     }
 
+
     @Override
     public void cadastrar(Produto produto) {
         this.produtos.add(produto);
@@ -45,8 +46,13 @@ public class RepositorioProduto implements RepositorioInterface<Produto> {
     }
 
     @Override
-    public void atualizar(long cpf, Produto produto) {
-        int indice = recuperarIndice(cpf);
+    public void atualizar(long id, Produto produto) {
+        int indice = recuperarIndice(id);
         this.produtos.set(indice, produto);
+    }
+
+    @Override
+    public ArrayList<Produto> recuoertarTudo() {
+        return this.produtos;
     }
 }

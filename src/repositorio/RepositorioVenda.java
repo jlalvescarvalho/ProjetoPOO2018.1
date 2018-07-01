@@ -49,4 +49,9 @@ public class RepositorioVenda implements RepositorioInterface<Venda>{
         int indice = recuperarIndice(id);
         this.vendas.set(indice, venda);
     }
+
+    @Override
+    public ArrayList<Venda> recuoertarTudo() {
+        return this.vendas;
+    }
 }

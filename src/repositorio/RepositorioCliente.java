@@ -49,4 +49,9 @@ public class RepositorioCliente implements RepositorioInterface<Cliente>{
         int indice = recuperarIndice(cpf);
         this.listaCliente.set(indice, cliente);
     }
+
+    @Override
+    public ArrayList<Cliente> recuoertarTudo() {
+        return this.listaCliente;
+    }
 }
