@@ -21,7 +21,7 @@ public class NegocioCliente {
         return mySelf;
     }
 
-    public void Cadastrar(Cliente cliente){
+    public void cadastrar(Cliente cliente){
         if (cliente != null){
             repositorioCliente.cadastrar(cliente);
         }
