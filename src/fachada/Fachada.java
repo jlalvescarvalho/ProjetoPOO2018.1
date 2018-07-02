@@ -8,6 +8,10 @@ import negocio.entidade.*;
 
 import java.util.ArrayList;
 
+/**
+ * @author Luciano/Giudicelli
+ * Fachada é uma ligação entre a interface e o codigo;
+ */
 public class Fachada {
 
     private NegocioProduto negocioProduto;
@@ -40,19 +44,17 @@ public class Fachada {
         return negocioProduto.getInstance().recuperar(id);
     }
 
-    public void removerProduto(Produto produto) {
-       negocioProduto.getInstance().remover(produto);
-    }
+    public void removerProduto(Produto produto) { negocioProduto.getInstance().remover(produto); }
 
     public void atualizarProduto(long id, Produto produto) {
         negocioProduto.getInstance().atualizar(id, produto);
     }
 
-    public ArrayList<Produto> recuperarTudosProdutos() {
+    public ArrayList<Produto> recuperarTodosProdutos() {
         return negocioProduto.getInstance().recuperarTodos();
     }
 
-    //-----------------------------------------
+    //------------------------------------------------------------------------------------------------------
     //Cliente
 
     public void cadastrarCliente(String nome, long cpf, char genero, String rua, int numero, String cidade) {
@@ -66,53 +68,50 @@ public class Fachada {
         return negocioCliente.getInstance().recuperar(cpf);
     }
 
-    public void removerCliente(Cliente cliente) {
-        negocioCliente.getInstance().remover(cliente);
-    }
+    public void removerCliente(Cliente cliente) { negocioCliente.getInstance().remover(cliente); }
 
     public void atualizarProduto(long cpf, Cliente cliente) {
         negocioCliente.getInstance().atualizar(cpf, cliente);
     }
 
-    public ArrayList<Cliente> recuperarTudosCliente() {
+    public ArrayList<Cliente> recuperarTodosCliente() {
         return negocioCliente.getInstance().recuperarTodos();
     }
 
     //-----------------------------------------------
     // Usuario
 
-    public void cadastrarUsuario(Usuario usuario) {
-        negocioUsuario.getInstance().cadastrar(usuario);
+    public void cadastrarUsuario(String nome, long cpf, String rua, int numero, String cidade, String cargo, String senha) {
+
+        Endereco end = new Endereco(rua, numero, cidade);
+        Usuario usuFun = new Funcionario(nome, cpf, end, cargo, senha);
+        negocioUsuario.getInstance().cadastrar(usuFun);
     }
 
-    public Usuario recuperarUsuario(long cpf) {
-        return negocioUsuario.getInstance().recuperar(cpf);
-    }
+    public Usuario recuperarUsuario(long cpf) { return negocioUsuario.getInstance().recuperar(cpf); }
 
-    public void removerUsuario(Usuario usuario) {
-        negocioUsuario.getInstance().remover(usuario);
+    public void removerUsuario(long cpf) {
+        Usuario usu = recuperarUsuario(cpf);
+        negocioUsuario.getInstance().remover(usu);
     }
 
     public void atualizarUsuario(long cpf, Usuario usuario) {
         negocioUsuario.getInstance().atualizar(cpf, usuario);
     }
 
-    public ArrayList<Usuario> recuperarTudosUsuarios() {
+    public ArrayList<Usuario> recuperarTodosUsuarios() {
         return negocioUsuario.getInstance().recuperarTodos();
     }
 
     //--------------------------------------------------------
     //Venda
 
-    public void cadastrarVenda(Venda venda) {
-        negocioVenda.getInstance().cadastrar(venda);
-    }
+    public void cadastrarVenda(Venda venda) { negocioVenda.getInstance().cadastrar(venda); }
 
-    public Venda recuperarVenda(long id) {
-        return negocioVenda.getInstance().recuperar(id);
-    }
+    public Venda recuperarVenda(long id) { return negocioVenda.getInstance().recuperar(id); }
 
-    public void removerVenda(Venda venda) {
+    public void removerVenda(Long id) {
+        Venda venda = recuperarVenda(id);
         negocioVenda.getInstance().remover(venda);
     }
 
@@ -120,7 +119,7 @@ public class Fachada {
         negocioVenda.getInstance().atualizar(id, venda);
     }
 
-    public ArrayList<Venda> recuperarTudasVendas() {
+    public ArrayList<Venda> recuperarTodasVendas() {
         return negocioVenda.getInstance().recuperarTodos();
     }
 

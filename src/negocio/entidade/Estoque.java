@@ -2,6 +2,10 @@ package negocio.entidade;
 
 import java.util.ArrayList;
 
+/**
+ * @author Luciano/Giudicelli
+ * Essa classe representa o estoque do mercado.
+ */
 public class Estoque {
 
     private int id;
@@ -9,8 +13,11 @@ public class Estoque {
     private String descricao;
     private int Quant;
     private Produto produto;
+    private int cont;
+
 
     public Estoque(long codigo, String descricao, int quant, Produto produto) {
+        this.id = cont++;
         Codigo = codigo;
         this.descricao = descricao;
         Quant = quant;

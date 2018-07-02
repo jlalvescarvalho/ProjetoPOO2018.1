@@ -1,5 +1,10 @@
 package negocio.entidade;
 
+/**
+ * @author luciano/Giudicelli
+ * Representação de um cliente.
+ */
+
 public class Cliente {
 
     private String nome;

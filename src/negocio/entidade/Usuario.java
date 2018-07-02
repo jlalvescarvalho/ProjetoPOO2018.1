@@ -1,5 +1,9 @@
 package negocio.entidade;
 
+/**
+ * @author Luciano/Giudicelli
+ * Esta classe representa um usuario que pode ser funcionario ou gerente.
+ */
 public class Usuario {
 
     private String nome;

@@ -1,14 +1,22 @@
 package negocio.entidade;
 
+/**
+ * @author Luciano/Giudicelli
+ * Esta classe representa cada item de entrada, cada produto e sua quantidade.
+ * Servirá também para ter o controle de o que está entrando e saindo
+ * do estoque e ter o controle disso.
+ */
+
 public class ItemEntrada {
 
     private int id;
     private String descricao;
     private int quantidade;
     private Produto produto;
-    private Entrada entrada;
+    private int cont;
 
     public ItemEntrada(int quantidade, Produto produto) {
+        this.id = cont++;
         this.quantidade = quantidade;
         this.produto = produto;
     }
@@ -41,11 +49,4 @@ public class ItemEntrada {
         this.produto = produto;
     }
 
-    public Entrada getEntrada() {
-        return entrada;
-    }
-
-    public void setEntrada(Entrada entrada) {
-        this.entrada = entrada;
-    }
 }

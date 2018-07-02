@@ -15,7 +15,7 @@ public class RepositorioProduto implements RepositorioInterface<Produto> {
 
     public int recuperarIndice(long id){
         for(int i = 0; i < this.produtos.size(); i++){
-            if (this.produtos.get(i).getId() == id){
+            if (this.produtos.get(i).getCodigo() == id){
                 return i;
             }
         }
@@ -31,7 +31,7 @@ public class RepositorioProduto implements RepositorioInterface<Produto> {
     @Override
     public Produto recuperar(long id) {
         for (int i = 0; i < this.produtos.size();i++){
-            if (this.produtos.get(i).getId() == id){
+            if (this.produtos.get(i).getCodigo() == id){
                 return this.produtos.get(i);
             }
         }

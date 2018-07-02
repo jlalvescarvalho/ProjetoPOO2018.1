@@ -1,5 +1,10 @@
 package negocio.entidade;
 
+/**
+ * @author luciano/Giudiceli
+ * Esta classe representa o endereço do cliente ou Usuario
+ */
+
 public class Endereco {
 
     private String rua;

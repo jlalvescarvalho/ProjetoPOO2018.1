@@ -1,21 +1,25 @@
 package negocio.entidade;
 
+/**
+ * @author Luciano/Giudicelli
+ * Classe representa um produto;
+ */
 public class Produto {
 
-    private int id;
+    private long codigo;
     private String descricao;
     private double preco;
     private String marca;
 
-    public Produto(int id, String descricao, double preco, String marca) {
-        this.id = id;
+    public Produto(long codigo, String descricao, double preco, String marca) {
+        this.codigo = codigo;
         this.descricao = descricao;
         this.preco = preco;
         this.marca = marca;
     }
 
-    public int getId() {
-        return id;
+    public long getCodigo() {
+        return codigo;
     }
 
     public String getDescricao() {
