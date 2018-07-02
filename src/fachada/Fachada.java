@@ -4,10 +4,7 @@ import negocio.NegocioCliente;
 import negocio.NegocioProduto;
 import negocio.NegocioUsuario;
 import negocio.NegocioVenda;
-import negocio.entidade.Cliente;
-import negocio.entidade.Produto;
-import negocio.entidade.Usuario;
-import negocio.entidade.Venda;
+import negocio.entidade.*;
 
 import java.util.ArrayList;
 
@@ -51,14 +48,17 @@ public class Fachada {
         negocioProduto.getInstance().atualizar(id, produto);
     }
 
-    public ArrayList<Produto> recupertarTudosProdutos() {
+    public ArrayList<Produto> recuperarTudosProdutos() {
         return negocioProduto.getInstance().recuperarTodos();
     }
 
     //-----------------------------------------
     //Cliente
 
-    public void cadastrarCliente(Cliente cliente) {
+    public void cadastrarCliente(String nome, long cpf, char genero, String rua, int numero, String cidade) {
+        Endereco end = new Endereco(rua, numero, cidade);
+        Cliente cliente = new Cliente(nome,cpf,genero,end);
+
         negocioCliente.getInstance().cadastrar(cliente);
     }
 
@@ -74,7 +74,7 @@ public class Fachada {
         negocioCliente.getInstance().atualizar(cpf, cliente);
     }
 
-    public ArrayList<Cliente> recuoertarTudosCliente() {
+    public ArrayList<Cliente> recuperarTudosCliente() {
         return negocioCliente.getInstance().recuperarTodos();
     }
 
@@ -97,7 +97,7 @@ public class Fachada {
         negocioUsuario.getInstance().atualizar(cpf, usuario);
     }
 
-    public ArrayList<Usuario> recuoertarTudosUsuarios() {
+    public ArrayList<Usuario> recuperarTudosUsuarios() {
         return negocioUsuario.getInstance().recuperarTodos();
     }
 
@@ -120,7 +120,7 @@ public class Fachada {
         negocioVenda.getInstance().atualizar(id, venda);
     }
 
-    public ArrayList<Venda> recuoertarTudasVendas() {
+    public ArrayList<Venda> recuperarTudasVendas() {
         return negocioVenda.getInstance().recuperarTodos();
     }
 
