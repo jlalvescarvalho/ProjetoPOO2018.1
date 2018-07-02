@@ -55,4 +55,9 @@ public class Cliente {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Cpf: "+this.cpf+" Nome: "+this.nome+" Genero: "+this.genero;
+    }
 }

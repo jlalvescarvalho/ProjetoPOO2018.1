@@ -14,12 +14,14 @@ public class Main {
          int opcao= 1;
          while(opcao != 0) {
              System.out.println("Digite sua opcao:");
+             System.out.println("1 - Cadastrar Produto!");
+             System.out.println("2 - Remover Produto!");
+             System.out.println("3 - Recuperar todos os produtos! ");
+             System.out.println("4 - Cadastrar Cliente!");
+             System.out.println("5 - Remover Cliente!");
+             System.out.println("6 - Recupear todos os Cliente");
+             System.out.println("0 - Sair");
              opcao = sc.nextInt();
-             System.out.println("1; Cadastrar Produto!");
-             System.out.println("2; Remover Produto!");
-             System.out.println("3; Recuperar todos os produtos! ");
-             System.out.println("4; Cadastrar Cliente!");
-             System.out.println("5; Remover Cliente!");
              switch (opcao) {
                  case 1:
                      System.out.println("Cadastrar Produto:");
@@ -76,6 +78,13 @@ public class Main {
                      Cliente c = Fachada.getInstance().recuperarCliente(cpf);
                      Fachada.getInstance().removerCliente(c);
                      break;
+
+                 case 6:
+                     ArrayList<Cliente> clientes = Fachada.getInstance().recuperarTudosCliente();
+
+                     for (Cliente cliente : clientes) {
+                         System.out.println(cliente.toString());
+                     }
 
              }
 
