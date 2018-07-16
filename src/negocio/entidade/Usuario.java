@@ -4,19 +4,17 @@ package negocio.entidade;
  * @author Luciano/Giudicelli
  * Esta classe representa um usuario que pode ser funcionario ou gerente.
  */
-public class Usuario {
+public abstract class Usuario {
 
     private String nome;
     private String cpf;
     private Endereco endereco;
-    private String cargo;//desnecessario
     private String senha;
 
-    public Usuario(String nome, String cpf, Endereco endereco, String cargo, String senha) {
+    public Usuario(String nome, String cpf, Endereco endereco, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
-        this.cargo = cargo;
         this.senha = senha;
     }
 
@@ -42,13 +40,5 @@ public class Usuario {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
-    }
-
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
     }
 }

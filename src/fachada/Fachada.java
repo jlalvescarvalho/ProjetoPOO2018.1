@@ -35,56 +35,17 @@ public class Fachada {
         return mySelf;
     }
 
-    //Produto
-    public void cadastrarProduto(Produto produto) {
-        negocioProduto.getInstance().cadastrar(produto);
-    }
 
-    public Produto recuperarProduto(long id) {
-        return negocioProduto.getInstance().recuperar(id);
-    }
 
-    public void removerProduto(Produto produto) { negocioProduto.getInstance().remover(produto); }
 
-    public void atualizarProduto(long id, Produto produto) {
-        negocioProduto.getInstance().atualizar(id, produto);
-    }
-
-    public ArrayList<Produto> recuperarTodosProdutos() {
-        return negocioProduto.getInstance().recuperarTodos();
-    }
-
-    //------------------------------------------------------------------------------------------------------
-    //Cliente
-
-    public void cadastrarCliente(String nome, long cpf, char genero, String rua, int numero, String cidade) {
-        Endereco end = new Endereco(rua, numero, cidade);
-        Cliente cliente = new Cliente(nome,cpf,genero,end);
-
-        negocioCliente.getInstance().cadastrar(cliente);
-    }
-
-    public Cliente recuperarCliente(long cpf) {
-        return negocioCliente.getInstance().recuperar(cpf);
-    }
-
-    public void removerCliente(Cliente cliente) { negocioCliente.getInstance().remover(cliente); }
-
-    public void atualizarProduto(long cpf, Cliente cliente) {
-        negocioCliente.getInstance().atualizar(cpf, cliente);
-    }
-
-    public ArrayList<Cliente> recuperarTodosCliente() {
-        return negocioCliente.getInstance().recuperarTodos();
-    }
 
     //-----------------------------------------------
     // Usuario
 
-    public void cadastrarUsuario(String nome, long cpf, String rua, int numero, String cidade, String cargo, String senha) {
+    public void cadastrarUsuario(String nome, String cpf, String rua, int numero, String cidade, String cargo, String senha) {
 
         Endereco end = new Endereco(rua, numero, cidade);
-        Usuario usuFun = new Funcionario(nome, cpf, end, cargo, senha);
+        Usuario usuFun = new Funcionario(nome, cpf, end, senha);
         negocioUsuario.getInstance().cadastrar(usuFun);
     }
 
@@ -103,24 +64,8 @@ public class Fachada {
         return negocioUsuario.getInstance().recuperarTodos();
     }
 
-    //--------------------------------------------------------
-    //Venda
 
-    public void cadastrarVenda(Venda venda) { negocioVenda.getInstance().cadastrar(venda); }
 
-    public Venda recuperarVenda(long id) { return negocioVenda.getInstance().recuperar(id); }
 
-    public void removerVenda(Long id) {
-        Venda venda = recuperarVenda(id);
-        negocioVenda.getInstance().remover(venda);
-    }
-
-    public void atualizarVenda(long id, Venda venda) {
-        negocioVenda.getInstance().atualizar(id, venda);
-    }
-
-    public ArrayList<Venda> recuperarTodasVendas() {
-        return negocioVenda.getInstance().recuperarTodos();
-    }
 
 }

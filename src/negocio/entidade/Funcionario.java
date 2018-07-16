@@ -3,14 +3,12 @@ package negocio.entidade;
 public class Funcionario extends Usuario {
 
 
-    public Funcionario(String nome, String cpf, Endereco endereco, String cargo, String senha) {
-        super(nome, cpf, endereco, cargo, senha);
+    public Funcionario(String nome, String cpf, Endereco endereco, String senha) {
+        super(nome, cpf, endereco, senha);
     }
 
-    public void realizarVenda() {
 
 
-    }
 
 
 }
