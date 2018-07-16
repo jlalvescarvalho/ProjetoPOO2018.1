@@ -6,19 +6,19 @@ package negocio.entidade;
  */
 public class Produto {
 
-    private long codigo;
+    private String codigo;
     private String descricao;
     private double preco;
     private String marca;
 
-    public Produto(long codigo, String descricao, double preco, String marca) {
+    public Produto(String codigo, String descricao, double preco, String marca) {
         this.codigo = codigo;
         this.descricao = descricao;
         this.preco = preco;
         this.marca = marca;
     }
 
-    public long getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 

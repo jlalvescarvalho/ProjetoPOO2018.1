@@ -19,6 +19,15 @@ public abstract class Usuario {
         this.endereco = endereco;
         this.senha = senha;
     }
+    public boolean verificarLogin(String cpf, String senha){
+        Usuario f = NegocioUsuario.getInstance().recuperar(cpf);
+
+        if(cpf.equals(f.getCpf()) && senha.equals(f.getSenha())){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public String getNome() {
         return nome;
