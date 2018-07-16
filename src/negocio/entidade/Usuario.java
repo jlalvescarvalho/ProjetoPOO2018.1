@@ -7,12 +7,12 @@ package negocio.entidade;
 public class Usuario {
 
     private String nome;
-    private long cpf;
+    private String cpf;
     private Endereco endereco;
-    private String cargo;
+    private String cargo;//desnecessario
     private String senha;
 
-    public Usuario(String nome, long cpf, Endereco endereco, String cargo, String senha) {
+    public Usuario(String nome, String cpf, Endereco endereco, String cargo, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -28,11 +28,11 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

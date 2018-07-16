@@ -8,11 +8,11 @@ package negocio.entidade;
 public class Cliente {
 
     private String nome;
-    private long cpf;
+    private String cpf;
     private char genero;
     private Endereco endereco;
 
-    public Cliente(String nome, long cpf, char genero, Endereco endereco) {
+    public Cliente(String nome, String cpf, char genero, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.genero = genero;
@@ -27,11 +27,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -55,7 +55,7 @@ public class Cliente {
     public boolean equals(Object obj) {
         Cliente c = (Cliente)obj;
 
-        if(c.getCpf() == this.cpf){
+        if(c.getCpf().equals(this.cpf)){
             return true;
         }
         return false;
