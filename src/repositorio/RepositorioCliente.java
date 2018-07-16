@@ -13,9 +13,10 @@ public class RepositorioCliente implements RepositorioInterface<Cliente>{
     }
 
 
-    public int recuperarIndice(long cpf){
+   @Override
+    public int recuperarIndice(String cpf){
         for(int i = 0; i < this.listaCliente.size(); i++){
-            if (this.listaCliente.get(i).getCpf() == cpf){
+            if (this.listaCliente.get(i).getCpf().equals(cpf)){
                 return i;
             }
         }
@@ -28,7 +29,7 @@ public class RepositorioCliente implements RepositorioInterface<Cliente>{
     }
 
     @Override
-    public Cliente recuperar(long cpf) {
+    public Cliente recuperar(String cpf) {
         for (Cliente c : this.listaCliente) {
             if (c.getCpf() == cpf) {
                 return c;
@@ -45,7 +46,7 @@ public class RepositorioCliente implements RepositorioInterface<Cliente>{
     }
 
     @Override
-    public void atualizar(long cpf, Cliente cliente) {
+    public void atualizar(String cpf, Cliente cliente) {
         int indice = recuperarIndice(cpf);
         this.listaCliente.set(indice, cliente);
     }
