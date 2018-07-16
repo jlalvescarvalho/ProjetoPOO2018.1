@@ -10,27 +10,27 @@ import java.util.ArrayList;
 
 /**
  * @author Luciano/Giudicelli
- * Fachada é uma ligação entre a interface e o codigo;
+ * FachadaGerente é uma ligação entre a interface e o codigo;
  */
-public class Fachada {
+public class FachadaGerente {
 
     private NegocioProduto negocioProduto;
     private NegocioCliente negocioCliente;
     private NegocioUsuario negocioUsuario;
     private NegocioVenda negocioVenda;
 
-    public static Fachada mySelf;
+    public static FachadaGerente mySelf;
 
-    public Fachada(){
+    public FachadaGerente(){
         this.negocioProduto = new NegocioProduto();
         this.negocioCliente = new NegocioCliente();
         this.negocioUsuario = new NegocioUsuario();
         this.negocioVenda = new NegocioVenda();
     }
 
-    public static Fachada getInstance(){
+    public static FachadaGerente getInstance(){
         if (mySelf == null){
-            mySelf = new Fachada();
+            mySelf = new FachadaGerente();
         }
         return mySelf;
     }
@@ -40,8 +40,7 @@ public class Fachada {
 
 
     //-----------------------------------------------
-    // Usuario
-
+    // Funcionario
     public void cadastrarUsuario(String nome, String cpf, String rua, int numero, String cidade, String cargo, String senha) {
 
         Endereco end = new Endereco(rua, numero, cidade);

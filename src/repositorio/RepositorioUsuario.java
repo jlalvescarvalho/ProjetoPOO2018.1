@@ -12,9 +12,9 @@ public class RepositorioUsuario implements RepositorioInterface<Usuario>{
         this.usuarios = new ArrayList<>();
     }
 
-    public int recuperarIndice(long cpf){
+    public int recuperarIndice(String cpf){
         for(int i = 0; i < this.usuarios.size(); i++){
-            if (this.usuarios.get(i).getCpf() == cpf){
+            if (this.usuarios.get(i).getCpf().equals(cpf)){
                 return i;
             }
         }
@@ -27,9 +27,9 @@ public class RepositorioUsuario implements RepositorioInterface<Usuario>{
     }
 
     @Override
-    public Usuario recuperar(long cpf) {
+    public Usuario recuperar(String cpf) {
         for (int i = 0; i < this.usuarios.size();i++){
-            if (this.usuarios.get(i).getCpf() == cpf){
+            if (this.usuarios.get(i).getCpf().equals(cpf)){
                 return this.usuarios.get(i);
             }
         }
@@ -44,7 +44,7 @@ public class RepositorioUsuario implements RepositorioInterface<Usuario>{
     }
 
     @Override
-    public void atualizar(long cpf, Usuario usuario) {
+    public void atualizar(String cpf, Usuario usuario) {
         int indice = recuperarIndice(cpf);
         this.usuarios.set(indice, usuario);
     }

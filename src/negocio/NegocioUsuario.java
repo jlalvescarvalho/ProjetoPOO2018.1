@@ -27,7 +27,7 @@ public class NegocioUsuario {
         }
     }
 
-    public Usuario recuperar(long cpf){
+    public Usuario recuperar(String cpf){
         return this.repositorioUsuario.recuperar(cpf);
     }
 

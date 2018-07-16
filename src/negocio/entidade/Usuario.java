@@ -41,4 +41,8 @@ public abstract class Usuario {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public String getSenha(){
+        return this.senha;
+    }
 }

@@ -18,7 +18,7 @@ public class FachadaFuncionario {
     private NegocioUsuario negocioUsuario;
     private NegocioVenda negocioVenda;
 
-    public static Fachada mySelf;
+    public static FachadaGerente mySelf;
 
     public FachadaFuncionario(){
         this.negocioProduto = new NegocioProduto();
@@ -27,9 +27,9 @@ public class FachadaFuncionario {
         this.negocioVenda = new NegocioVenda();
     }
 
-    public static Fachada getInstance(){
+    public static FachadaGerente getInstance(){
         if (mySelf == null){
-            mySelf = new Fachada();
+            mySelf = new FachadaGerente();
         }
         return mySelf;
     }
