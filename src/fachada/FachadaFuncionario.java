@@ -15,7 +15,6 @@ public class FachadaFuncionario {
 
     private NegocioProduto negocioProduto;
     private NegocioCliente negocioCliente;
-    private NegocioUsuario negocioUsuario;
     private NegocioVenda negocioVenda;
 
     public static Fachada mySelf;
@@ -23,7 +22,6 @@ public class FachadaFuncionario {
     public FachadaFuncionario(){
         this.negocioProduto = new NegocioProduto();
         this.negocioCliente = new NegocioCliente();
-        this.negocioUsuario = new NegocioUsuario();
         this.negocioVenda = new NegocioVenda();
     }
 
@@ -32,6 +30,11 @@ public class FachadaFuncionario {
             mySelf = new Fachada();
         }
         return mySelf;
+    }
+
+    //Estoque
+    public void cadastrarEstoque(){
+        
     }
 
     //Produto
@@ -53,7 +56,7 @@ public class FachadaFuncionario {
         return negocioProduto.getInstance().recuperarTodos();
     }
 
-    
+
     //--------------------------------------------------------
     //Venda
     public void cadastrarVenda(Venda venda) { negocioVenda.getInstance().cadastrar(venda); }
