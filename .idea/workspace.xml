@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fachada/FachadaGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fachada/FachadaGerente.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,11 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
               <folding>
                 <element signature="e#775#776#0" expanded="true" />
                 <element signature="e#802#803#0" expanded="true" />
@@ -80,6 +80,18 @@
                 <element signature="e#1156#1157#0" expanded="true" />
                 <element signature="e#1187#1188#0" expanded="true" />
                 <element signature="e#1220#1221#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FachadaGerente.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/fachada/FachadaGerente.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/negocio/NegocioUsuario.java" />
         <option value="$PROJECT_DIR$/src/repositorio/RepositorioUsuario.java" />
         <option value="$PROJECT_DIR$/src/negocio/entidade/Login.java" />
-        <option value="$PROJECT_DIR$/src/fachada/FachadaGerente.java" />
         <option value="$PROJECT_DIR$/src/negocio/entidade/Produto.java" />
         <option value="$PROJECT_DIR$/src/repositorio/RepositorioProduto.java" />
         <option value="$PROJECT_DIR$/src/negocio/entidade/Estoque.java" />
@@ -138,6 +149,7 @@
         <option value="$PROJECT_DIR$/src/repositorio/RepositorioCliente.java" />
         <option value="$PROJECT_DIR$/src/repositorio/ReposotorioEstoque.java" />
         <option value="$PROJECT_DIR$/src/negocio/entidade/Usuario.java" />
+        <option value="$PROJECT_DIR$/src/fachada/FachadaGerente.java" />
       </list>
     </option>
   </component>
@@ -555,20 +567,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Login.java" />
-    <entry file="file://$PROJECT_DIR$/src/fachada/FachadaGerente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="52" column="44" lean-forward="true" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1586#1587#0" expanded="true" />
-            <element signature="e#1654#1655#0" expanded="true" />
-            <element signature="e#1712#1713#0" expanded="true" />
-            <element signature="e#1780#1781#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/negocio/NegocioUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -720,7 +718,7 @@
     <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
           <folding>
             <element signature="e#775#776#0" expanded="true" />
             <element signature="e#802#803#0" expanded="true" />
@@ -736,6 +734,16 @@
             <element signature="e#1156#1157#0" expanded="true" />
             <element signature="e#1187#1188#0" expanded="true" />
             <element signature="e#1220#1221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fachada/FachadaGerente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

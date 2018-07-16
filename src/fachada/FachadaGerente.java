@@ -1,9 +1,6 @@
 package fachada;
 
-import negocio.NegocioCliente;
-import negocio.NegocioProduto;
 import negocio.NegocioUsuario;
-import negocio.NegocioVenda;
 import negocio.entidade.*;
 
 import java.util.ArrayList;
@@ -14,18 +11,14 @@ import java.util.ArrayList;
  */
 public class FachadaGerente {
 
-    private NegocioProduto negocioProduto;
-    private NegocioCliente negocioCliente;
     private NegocioUsuario negocioUsuario;
-    private NegocioVenda negocioVenda;
 
     public static FachadaGerente mySelf;
 
     public FachadaGerente(){
-        this.negocioProduto = new NegocioProduto();
-        this.negocioCliente = new NegocioCliente();
+
         this.negocioUsuario = new NegocioUsuario();
-        this.negocioVenda = new NegocioVenda();
+
     }
 
     public static FachadaGerente getInstance(){
@@ -34,10 +27,6 @@ public class FachadaGerente {
         }
         return mySelf;
     }
-
-
-
-
 
     //-----------------------------------------------
     // Funcionario
@@ -55,7 +44,7 @@ public class FachadaGerente {
         negocioUsuario.getInstance().remover(usu);
     }
 
-    public void atualizarUsuario(long cpf, Usuario usuario) {
+    public void atualizarUsuario(String cpf, Usuario usuario) {
         negocioUsuario.getInstance().atualizar(cpf, usuario);
     }
 
