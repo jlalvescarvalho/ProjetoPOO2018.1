@@ -1,5 +1,7 @@
 package negocio.entidade;
 
+import negocio.NegocioUsuario;
+
 /**
  * @author Luciano/Giudicelli
  * Esta classe representa um usuario que pode ser funcionario ou gerente.
@@ -44,5 +46,14 @@ public abstract class Usuario {
 
     public String getSenha(){
         return this.senha;
+    }
+
+    public Usuario verificarLogin(String cpf, String senha){
+        Usuario f = NegocioUsuario.getInstance().recuperar(cpf);
+
+        if(cpf.equals(f.getCpf()) && senha.equals(f.getSenha())){
+            return f;
+        }
+        return null;
     }
 }

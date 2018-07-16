@@ -48,9 +48,9 @@ public class FachadaGerente {
         negocioUsuario.getInstance().cadastrar(usuFun);
     }
 
-    public Usuario recuperarUsuario(long cpf) { return negocioUsuario.getInstance().recuperar(cpf); }
+    public Usuario recuperarUsuario(String cpf) { return negocioUsuario.getInstance().recuperar(cpf); }
 
-    public void removerUsuario(long cpf) {
+    public void removerUsuario(String cpf) {
         Usuario usu = recuperarUsuario(cpf);
         negocioUsuario.getInstance().remover(usu);
     }

@@ -7,31 +7,16 @@ package negocio.entidade;
  * do estoque e ter o controle disso.
  */
 
-public class ItemEntrada {
+public class ItemEstoque {
 
-    private int id;
-    private String descricao;
     private int quantidade;
     private Produto produto;
-    private int cont;
 
-    public ItemEntrada(int quantidade, Produto produto) {
-        this.id = cont++;
+    public ItemEstoque(int quantidade, Produto produto) {
         this.quantidade = quantidade;
         this.produto = produto;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
 
     public int getQuantidade() {
         return quantidade;

@@ -35,7 +35,7 @@ public class NegocioUsuario {
         this.repositorioUsuario.remover(usuario);
     }
 
-    public void atualizar(long cpf, Usuario usuarioNew){
+    public void atualizar(String cpf, Usuario usuarioNew){
         this.repositorioUsuario.atualizar(cpf, usuarioNew);
     }
 

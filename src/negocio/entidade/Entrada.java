@@ -14,11 +14,11 @@ public class Entrada {
 
     private int id;
     private int cont;
-    private ArrayList<ItemEntrada> itensEntrada;
+    private ArrayList<ItemEstoque> itensEntrada;
     private Date data;
     private Funcionario func;
 
-    public Entrada(ArrayList<ItemEntrada> itensEntrada, Date date, Funcionario func) {
+    public Entrada(ArrayList<ItemEstoque> itensEntrada, Date date, Funcionario func) {
         this.id = cont++;
         this.itensEntrada = itensEntrada;
         this.data = date;
@@ -29,11 +29,11 @@ public class Entrada {
         return id;
     }
 
-    public ArrayList<ItemEntrada> getItensEntrada() {
+    public ArrayList<ItemEstoque> getItensEntrada() {
         return itensEntrada;
     }
 
-    public void setItensEntrada(ArrayList<ItemEntrada> itensEntrada) {
+    public void setItensEntrada(ArrayList<ItemEstoque> itensEntrada) {
         this.itensEntrada = itensEntrada;
     }
 
