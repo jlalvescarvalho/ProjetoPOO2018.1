@@ -4,7 +4,7 @@ import negocio.entidade.Cliente;
 
 import java.util.ArrayList;
 
-public class RepositorioCliente implements RepositorioInterface<Cliente>{
+public class RepositorioCliente implements IRepositorio<Cliente> {
 
     private ArrayList<Cliente> listaCliente;
 
@@ -31,7 +31,7 @@ public class RepositorioCliente implements RepositorioInterface<Cliente>{
     @Override
     public Cliente recuperar(String cpf) {
         for (Cliente c : this.listaCliente) {
-            if (c.getCpf() == cpf) {
+            if (c.getCpf().equals(cpf)) {
                 return c;
             }
         }
@@ -52,7 +52,7 @@ public class RepositorioCliente implements RepositorioInterface<Cliente>{
     }
 
     @Override
-    public ArrayList<Cliente> recuoertarTudo() {
+    public ArrayList<Cliente> recupertarTudo() {
         return this.listaCliente;
     }
 }

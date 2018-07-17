@@ -40,7 +40,7 @@ public class NegocioVenda {
     }
 
     public ArrayList<Venda> recuperarTodos(){
-        return this.repositorioVenda.recuoertarTudo();
+        return this.repositorioVenda.recupertarTudo();
     }
 
 }

@@ -4,11 +4,11 @@ import negocio.entidade.Estoque;
 
 import java.util.ArrayList;
 
-public class ReposotorioEstoque implements RepositorioInterface<Estoque> {
+public class RepositorioEstoque implements IRepositorio<Estoque> {
 
 private ArrayList<Estoque> listaEstoque;
 
-public ReposotorioEstoque(){
+public RepositorioEstoque(){
     this.listaEstoque = new ArrayList<>();
 
 }
@@ -16,7 +16,7 @@ public ReposotorioEstoque(){
     @Override
     public int recuperarIndice(String id) {
         for(int i = 0; i < this.listaEstoque.size(); i++){
-            if (this.listaEstoque.get(i).getId().equals(id)){
+            if (this.listaEstoque.get(i).getNome().equals(id)){
                 return i;
             }
         }
@@ -29,9 +29,9 @@ public ReposotorioEstoque(){
     }
 
     @Override
-    public Estoque recuperar(String x) {
+    public Estoque recuperar(String nome) {
         for (Estoque estoque: this.listaEstoque) {
-            if (estoque.getId().equals(x)) {
+            if (estoque.getNome().equals(nome)) {
                 return estoque;
             }
         }
@@ -52,7 +52,7 @@ public ReposotorioEstoque(){
     }
 
     @Override
-    public ArrayList<Estoque> recuoertarTudo() {
+    public ArrayList<Estoque> recupertarTudo() {
         return this.listaEstoque;
     }
 }

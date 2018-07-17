@@ -1,13 +1,14 @@
 package negocio;
 
 import negocio.entidade.Cliente;
+import repositorio.IRepositorio;
 import repositorio.RepositorioCliente;
 
 import java.util.ArrayList;
 
 public class NegocioCliente {
 
-    private RepositorioCliente repositorioCliente;
+    private IRepositorio repositorioCliente;
     private static NegocioCliente mySelf;
 
     public NegocioCliente() {
@@ -27,19 +28,19 @@ public class NegocioCliente {
         }
     }
 
-    public Cliente recuperar(long cpf){
-        return repositorioCliente.recuperar(cpf);
+    public Cliente recuperar(String cpf){
+        return (Cliente) repositorioCliente.recuperar(cpf);
     }
 
     public ArrayList<Cliente> recuperarTodos(){
-        return repositorioCliente.recuoertarTudo();
+        return repositorioCliente.recupertarTudo();
     }
 
     public void remover(Cliente cliente){
         repositorioCliente.remover(cliente);
     }
 
-    public void atualizar(long cpf, Cliente clienteNew){
+    public void atualizar(String cpf, Cliente clienteNew){
         repositorioCliente.atualizar(cpf, clienteNew);
     }
 

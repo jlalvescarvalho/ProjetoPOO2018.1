@@ -4,20 +4,20 @@ import java.util.ArrayList;
 
 public class Estoque {
 
-    private String id;
+    private String nome;
     private ArrayList<ItemEstoque> itemEstoque;
 
-    public Estoque(String id, ArrayList<ItemEstoque> itemEstoque) {
-        this.id = id;
+    public Estoque(String nome, ArrayList<ItemEstoque> itemEstoque) {
+        this.nome = nome;
         this.itemEstoque = itemEstoque;
     }
 
-    public String getId() {
-        return id;
+    public String getNome() {
+        return nome;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public ArrayList<ItemEstoque> getItemEstoque() { return itemEstoque; }
