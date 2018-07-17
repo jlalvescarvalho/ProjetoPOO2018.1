@@ -20,9 +20,7 @@ public class Estoque {
         this.id = id;
     }
 
-    public ArrayList<ItemEstoque> getItemEstoque() {
-        return itemEstoque;
-    }
+    public ArrayList<ItemEstoque> getItemEstoque() { return itemEstoque; }
 
     public void setItemEstoque(ArrayList<ItemEstoque> itemEstoque) {
         this.itemEstoque = itemEstoque;
