@@ -4,7 +4,7 @@ import negocio.entidade.Venda;
 
 import java.util.ArrayList;
 
-public class RepositorioVenda implements RepositorioInterface<Venda>{
+public class RepositorioVenda implements IRepositorio<Venda> {
 
     private ArrayList<Venda> vendas;
 
@@ -51,7 +51,7 @@ public class RepositorioVenda implements RepositorioInterface<Venda>{
     }
 
     @Override
-    public ArrayList<Venda> recuoertarTudo() {
+    public ArrayList<Venda> recupertarTudo() {
         return this.vendas;
     }
 }

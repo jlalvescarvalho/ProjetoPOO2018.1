@@ -4,7 +4,7 @@ import negocio.entidade.Usuario;
 
 import java.util.ArrayList;
 
-public class RepositorioUsuario implements RepositorioInterface<Usuario>{
+public class RepositorioUsuario implements IRepositorio<Usuario> {
 
     private ArrayList<Usuario> usuarios;
 
@@ -50,7 +50,7 @@ public class RepositorioUsuario implements RepositorioInterface<Usuario>{
     }
 
     @Override
-    public ArrayList<Usuario> recuoertarTudo() {
+    public ArrayList<Usuario> recupertarTudo() {
         return this.usuarios;
     }
 }

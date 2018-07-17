@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class NegocioUsuario {
 
     private RepositorioUsuario repositorioUsuario;
-    public static NegocioUsuario mySelf;
+    private static NegocioUsuario mySelf;
 
     public NegocioUsuario(){
         this.repositorioUsuario = new RepositorioUsuario();
@@ -40,6 +40,6 @@ public class NegocioUsuario {
     }
 
     public ArrayList<Usuario> recuperarTodos(){
-        return this.repositorioUsuario.recuoertarTudo();
+        return this.repositorioUsuario.recupertarTudo();
     }
 }

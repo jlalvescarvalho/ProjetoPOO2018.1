@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class NegocioProduto {
 
     private RepositorioProduto repositorioProduto;
-    public static NegocioProduto mySelf;
+    private static NegocioProduto mySelf;
 
     public NegocioProduto(){
         this.repositorioProduto = new RepositorioProduto();
@@ -27,19 +27,19 @@ public class NegocioProduto {
         }
     }
 
-    public Produto recuperar(long id){
-        return repositorioProduto.recuperar(id);
+    public Produto recuperar(String codigo){
+        return repositorioProduto.recuperar(codigo);
     }
 
     public ArrayList<Produto> recuperarTodos(){
-        return repositorioProduto.recuoertarTudo();
+        return repositorioProduto.recupertarTudo();
     }
 
     public void remover(Produto produto){
         repositorioProduto.remover(produto);
     }
 
-    public void atualizar(long id, Produto produto){
-        repositorioProduto.atualizar(id, produto);
+    public void atualizar(String codigo, Produto produto){
+        repositorioProduto.atualizar(codigo, produto);
     }
 }

@@ -1,6 +1,7 @@
 package negocio.entidade;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author Luciano/Giudicelli
@@ -14,22 +15,37 @@ public class Venda {
     private ArrayList<ItemVenda> listaVenda;
     private Funcionario funcionario;
     private Cliente cliente;
+    private Date data;
     private int cont;
 
-    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente) {
+    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente, Date data) {
         this.id = cont++;
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
         this.cliente = cliente;
+        this.data = data;
     }
 
-    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario) {
+    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Date data) {
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
+        this.data = data;
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setListaVenda(ArrayList<ItemVenda> listaVenda) {
+        this.listaVenda = listaVenda;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public ArrayList<ItemVenda> getListaVenda() {
