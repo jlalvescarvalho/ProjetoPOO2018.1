@@ -27,7 +27,7 @@ public class NegocioVenda {
         }
     }
 
-    public Venda recuperar(long id){
+    public Venda recuperar(String  id){
         return this.repositorioVenda.recuperar(id);
     }
 
@@ -35,7 +35,7 @@ public class NegocioVenda {
         this.repositorioVenda.remover(venda);
     }
 
-    public void atualizar(long id, Venda venda){
+    public void atualizar(String id, Venda venda){
         this.repositorioVenda.atualizar(id, venda);
     }
 
