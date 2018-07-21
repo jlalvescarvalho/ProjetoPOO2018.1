@@ -59,11 +59,11 @@ public class FachadaGerente {
 
     //Venda
 
-    public Venda recuperarVenda(long id) {
+    public Venda recuperarVenda(String id) {
         return negocioVenda.getInstance().recuperar(id);
     }
 
-    public void removerVenda(Long id) {
+    public void removerVenda(String id) {
 
         Venda venda = recuperarVenda(id);
         negocioVenda.getInstance().remover(venda);

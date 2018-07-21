@@ -20,15 +20,6 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
-    public Usuario verificarLogin(String cpf, String senha){
-        Usuario f = NegocioUsuario.getInstance().recuperar(cpf);
-
-        if(cpf.equals(f.getCpf()) && senha.equals(f.getSenha())) {
-            return f;
-        }
-        return null;
-    }
-
     public String getNome() {
         return nome;
     }

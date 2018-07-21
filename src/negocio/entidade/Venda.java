@@ -1,4 +1,4 @@
-package negocio.entidade;
+﻿package negocio.entidade;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +19,6 @@ public class Venda {
     private int cont;
 
     public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente, Date data) {
-
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
         this.cliente = cliente;

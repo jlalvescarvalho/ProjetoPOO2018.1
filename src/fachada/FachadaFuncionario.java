@@ -11,9 +11,11 @@ public class FachadaFuncionario {
     private NegocioCliente negocioCliente;
     private NegocioVenda negocioVenda;
     private NegocioEstoque negocioEstoque;
+    private NegocioUsuario negocioUsuario;
 
-
-
+    public int verificarLogin(String login, String senha){
+       return negocioUsuario.verificarLogin(login, senha);
+    }
 
     //Estoque
     public void cadastrarEstoque(String nome, ArrayList<ItemEstoque> itemEstoque){
@@ -59,7 +61,7 @@ public class FachadaFuncionario {
     //Venda
 //    public void cadastrarVenda(Venda venda) { negocioVenda.getInstance().cadastrar(venda); }
 
-    public void atualizarVenda(long id, Venda venda) {
+    public void atualizarVenda(String id, Venda venda) {
         negocioVenda.getInstance().atualizar(id, venda);
     }
 

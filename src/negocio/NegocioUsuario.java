@@ -1,5 +1,7 @@
 package negocio;
 
+import negocio.entidade.Funcionario;
+import negocio.entidade.Gerente;
 import negocio.entidade.Usuario;
 import repositorio.RepositorioUsuario;
 
@@ -41,5 +43,19 @@ public class NegocioUsuario {
 
     public ArrayList<Usuario> recuperarTodos(){
         return this.repositorioUsuario.recupertarTudo();
+    }
+
+    public int verificarLogin(String cpf, String senha) {
+        final int funcionario = 0;
+        final int gerente = 1;
+
+        Usuario usuario = recuperar(cpf);
+        if (usuario instanceof Funcionario && usuario.getSenha().equals(senha)){
+            return funcionario;
+        }else if(usuario instanceof Gerente && usuario.getSenha().equals(senha)){
+            return gerente;
+        }else{
+            return -1;
+        }
     }
 }
