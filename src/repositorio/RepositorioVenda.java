@@ -13,9 +13,9 @@ public class RepositorioVenda implements IRepositorio<Venda> {
     }
 
 
-    public int recuperarIndice(long id){
+    public int recuperarIndice(String id){
         for(int i = 0; i < this.vendas.size(); i++){
-            if (this.vendas.get(i).getId() == id){
+            if (this.vendas.get(i).getId().equals(id)){
                 return i;
             }
         }
@@ -28,9 +28,9 @@ public class RepositorioVenda implements IRepositorio<Venda> {
     }
 
     @Override
-    public Venda recuperar(long id) {
+    public Venda recuperar(String id) {
         for (int i = 0; i < this.vendas.size();i++){
-            if (this.vendas.get(i).getId() == id){
+            if (this.vendas.get(i).getId().equals(id)){
                 return this.vendas.get(i);
             }
         }
@@ -45,7 +45,7 @@ public class RepositorioVenda implements IRepositorio<Venda> {
     }
 
     @Override
-    public void atualizar(long id, Venda venda) {
+    public void atualizar(String id, Venda venda) {
         int indice = recuperarIndice(id);
         this.vendas.set(indice, venda);
     }

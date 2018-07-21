@@ -6,7 +6,7 @@ package negocio.entidade;
  * cada item é composto por um produto a quantidade desse produto
  * e o valor total desse item;
  */
-public class ItemVenda {
+    public class ItemVenda {
 
     private Produto produto;
     private int quantidade;

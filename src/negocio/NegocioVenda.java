@@ -1,5 +1,6 @@
 package negocio;
 
+import negocio.entidade.ItemVenda;
 import negocio.entidade.Venda;
 import repositorio.RepositorioVenda;
 
@@ -21,7 +22,15 @@ public class NegocioVenda {
         return mySelf;
     }
 
-    public void cadastrar(Venda venda){
+    public void adicionarItem(ItemVenda itemVenda){
+
+
+
+    }
+
+
+    public void cadastrarVenda(Venda venda){
+
         if(venda != null){
             this.repositorioVenda.cadastrar(venda);
         }

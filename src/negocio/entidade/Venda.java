@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class Venda {
 
-    private long id;
+    private String id;
     private ArrayList<ItemVenda> listaVenda;
     private Funcionario funcionario;
     private Cliente cliente;
@@ -19,7 +19,7 @@ public class Venda {
     private int cont;
 
     public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente, Date data) {
-        this.id = cont++;
+
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
         this.cliente = cliente;
@@ -32,7 +32,7 @@ public class Venda {
         this.data = data;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 

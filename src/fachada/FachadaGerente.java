@@ -69,7 +69,9 @@ public class FachadaGerente {
         negocioVenda.getInstance().remover(venda);
     }
 
-//Cliente
+
+
+    //Cliente
 
     public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade) {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
@@ -91,5 +93,6 @@ public class FachadaGerente {
     public ArrayList<Cliente> recuperarTodosCliente() {
         return negocioCliente.getInstance().recuperarTodos();
     }
+
 
 }

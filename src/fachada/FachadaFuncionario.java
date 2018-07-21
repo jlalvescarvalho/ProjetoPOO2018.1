@@ -12,6 +12,9 @@ public class FachadaFuncionario {
     private NegocioVenda negocioVenda;
     private NegocioEstoque negocioEstoque;
 
+
+
+
     //Estoque
     public void cadastrarEstoque(String nome, ArrayList<ItemEstoque> itemEstoque){
         this.negocioEstoque.getInstance().cadastrarEstoque(nome, itemEstoque);
@@ -54,7 +57,7 @@ public class FachadaFuncionario {
 
     //--------------------------------------------------------
     //Venda
-    public void cadastrarVenda(Venda venda) { negocioVenda.getInstance().cadastrar(venda); }
+//    public void cadastrarVenda(Venda venda) { negocioVenda.getInstance().cadastrar(venda); }
 
     public void atualizarVenda(long id, Venda venda) {
         negocioVenda.getInstance().atualizar(id, venda);
