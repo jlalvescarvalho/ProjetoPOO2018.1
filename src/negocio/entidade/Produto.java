@@ -45,4 +45,23 @@ public class Produto {
     public void setMarca(String marca) {
         this.marca = marca;
     }
+
+    @Override
+    public String toString() {
+        return this.getCodigo()+" "+this.getDescricao()+" "+this.preco;
+    }
+
+    /**
+     * Neste metodo 'p' referencia um produto;
+     * @param obj
+     * @return
+     */
+    @Override
+    public boolean equals(Object obj) {
+        Produto p = (Produto) obj;
+        if(this.codigo.equals(p.getCodigo())){
+            return true;
+        }
+        return false;
+    }
 }

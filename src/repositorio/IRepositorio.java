@@ -10,4 +10,5 @@ public interface IRepositorio<T>{
     void remover(T t);
     void atualizar(String x, T t);
     ArrayList<T> recupertarTudo();
+
 }

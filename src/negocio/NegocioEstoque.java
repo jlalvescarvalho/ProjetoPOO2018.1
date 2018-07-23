@@ -1,7 +1,7 @@
 package negocio;
 
-import negocio.entidade.Estoque;
 import negocio.entidade.ItemEstoque;
+import negocio.entidade.Produto;
 import repositorio.IRepositorio;
 import repositorio.RepositorioEstoque;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class NegocioEstoque {
 
-    private IRepositorio repositorioEstoque;
+    private RepositorioEstoque repositorioEstoque;
     private static NegocioEstoque mySelf;
 
     public NegocioEstoque() {
@@ -24,7 +24,22 @@ public class NegocioEstoque {
     }
 
     public void cadastrarEstoque(ItemEstoque itemEstoque){
+        if (itemEstoque != null && itemEstoque.getProduto() != null && itemEstoque.getQuantidade() >= 0){
+            repositorioEstoque.cadastrar(itemEstoque);
+        }
+    }
 
+    public void realizarSaidaEstoque(Produto produto, int quantidadeVendida){
+        if(produto != null && quantidadeVendida > 0){
+            repositorioEstoque.realizarSaidaEstoque(produto,quantidadeVendida);
+        }
+    }
+
+
+    public void realizarEntradaEstoque(Produto produto, int quantidade){
+        if(produto != null && quantidade > 0){
+            repositorioEstoque.realizarEntradaEstoque(produto,quantidade);
+        }
     }
 
     public ItemEstoque recuperarItemEstoque(String codigo){

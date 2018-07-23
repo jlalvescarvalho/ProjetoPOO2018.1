@@ -1,7 +1,8 @@
 package repositorio;
 
-import negocio.entidade.Estoque;
 import negocio.entidade.ItemEstoque;
+import negocio.entidade.ItemVenda;
+import negocio.entidade.Produto;
 
 import java.util.ArrayList;
 
@@ -26,7 +27,9 @@ public RepositorioEstoque(){
 
     @Override
     public void cadastrar(ItemEstoque itemEstoque) {
+    if (!listaEstoque.contains(itemEstoque)) {
         this.listaEstoque.add(itemEstoque);
+    }
     }
 
     @Override
@@ -50,6 +53,22 @@ public RepositorioEstoque(){
     public void atualizar(String codigo, ItemEstoque itemEstoque) {
         int indice = recuperarIndice(codigo);
         this.listaEstoque.set(indice, itemEstoque);
+    }
+
+    public void realizarSaidaEstoque(Produto produto, int quantidadeVendida){
+        for (ItemEstoque ie: listaEstoque){
+            if (ie.getProduto().equals(produto)){
+                ie.setQuantidade(ie.getQuantidade()-quantidadeVendida);
+            }
+        }
+    }
+
+    public void realizarEntradaEstoque(Produto produto, int quantidade){
+            for (ItemEstoque ie: listaEstoque){
+                if (ie.getProduto().equals(produto)){
+                    ie.setQuantidade(ie.getQuantidade()+quantidade);
+                }
+            }
     }
 
     @Override
