@@ -4,10 +4,10 @@ import fachada.FachadaFuncionario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,17 +16,15 @@ import static gui.Main.*;
 public class ControladorTelaLogin implements Initializable {
 
     FachadaFuncionario fachadaFuncionario = new FachadaFuncionario();
-    @FXML
-    private Stage tela;
 
     @FXML
     private Pane pane;
 
     @FXML
-    private TextField txtUsuario;
+    private TextField login;
 
     @FXML
-    private TextField txtSenha;
+    private PasswordField senha;
 
 
 
@@ -41,9 +39,9 @@ public class ControladorTelaLogin implements Initializable {
 
     public void logar(ActionEvent actionEvent) {
 
-        if(fachadaFuncionario.verificarLogin(txtUsuario.getText(), txtSenha.getText()) == 1){
-            Main.chamarTela("TelaGerente.fxml", 600, 400);
-        }else if(fachadaFuncionario.verificarLogin(txtUsuario.getText(), txtSenha.getText()) == 0){
+        if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 1){
+            Main.chamarTela("telaGerente.fxml", 600, 400);
+        }else if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 0){
             chamarTela("TelaFuncionario.fxml",600,400);
         }else{
 

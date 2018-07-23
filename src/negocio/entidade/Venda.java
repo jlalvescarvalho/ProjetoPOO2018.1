@@ -1,8 +1,6 @@
-﻿package negocio.entidade;
-
+package negocio.entidade;
 import java.util.ArrayList;
 import java.util.Date;
-
 /**
  * @author Luciano/Giudicelli
  * Esta classe representa a venda
@@ -16,7 +14,6 @@ public class Venda {
     private Funcionario funcionario;
     private Cliente cliente;
     private Date data;
-    private int cont;
 
     public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente, Date data) {
         this.listaVenda = listaVenda;

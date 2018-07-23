@@ -34,7 +34,7 @@ public class Main extends Application{
             stage.setScene(new Scene(root, largura, altura));
             stage.show();
         } catch (IOException e) {
-
+            System.out.println(e.getMessage());
         }
 
     }
