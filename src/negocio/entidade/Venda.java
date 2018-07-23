@@ -15,17 +15,17 @@ public class Venda {
     private Cliente cliente;
     private Date data;
 
-    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente, Date data) {
+    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente) {
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
         this.cliente = cliente;
-        this.data = data;
+        this.data = new Date();
     }
 
-    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Date data) {
+    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario) {
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
-        this.data = data;
+        this.data = new Date();
     }
 
     public String getId() {
@@ -40,20 +40,12 @@ public class Venda {
         return data;
     }
 
-    public void setData(Date data) {
-        this.data = data;
-    }
-
     public ArrayList<ItemVenda> getListaVenda() {
         return listaVenda;
     }
 
     public Funcionario getFuncionario() {
         return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
     }
 
     public Cliente getCliente() {

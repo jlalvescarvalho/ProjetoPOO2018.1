@@ -1,6 +1,8 @@
 package negocio;
 
+import negocio.entidade.ItemEstoque;
 import negocio.entidade.ItemVenda;
+import negocio.entidade.Produto;
 import negocio.entidade.Venda;
 import repositorio.RepositorioVenda;
 
@@ -9,9 +11,13 @@ import java.util.ArrayList;
 public class NegocioVenda {
 
     private RepositorioVenda repositorioVenda;
+    private NegocioProduto negocioProduto;
+    private NegocioEstoque negocioEstoque;
     public static NegocioVenda mySelf;
+    private ArrayList<ItemVenda> listaItensdaVenda;
 
     public NegocioVenda(){
+        this.listaItensdaVenda = new ArrayList<>();
         this.repositorioVenda = new RepositorioVenda();
     }
 
@@ -22,11 +28,28 @@ public class NegocioVenda {
         return mySelf;
     }
 
-    public void adicionarItem(ItemVenda itemVenda){
-
-
-
+    public void adicionarItem(String codigoProduto, int quantidade){
+        Produto produto = recuperarProduto(codigoProduto);
+        if(produto != null && verificarDisponibilidade(produto, quantidade)){
+            ItemVenda itemVenda = new ItemVenda(produto,quantidade);
+            listaItensdaVenda.add(itemVenda);
+        }
     }
+
+    public Produto recuperarProduto(String codigo){
+        return negocioProduto.getInstance().recuperar(codigo);
+    }
+
+    public boolean verificarDisponibilidade(Produto produto, int quantidade){
+        ItemEstoque item = negocioEstoque.getInstance().recuperarItemEstoque(produto.getCodigo());
+        if(item != null){
+            if (item.getQuantidade() >= quantidade){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
     public void cadastrarVenda(Venda venda){

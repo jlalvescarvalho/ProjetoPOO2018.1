@@ -23,33 +23,28 @@ public class NegocioEstoque {
         return mySelf;
     }
 
-    public void cadastrarEstoque(String nome, ArrayList<ItemEstoque> itens){
-        if(itens.size() > 0 && nome.length() > 3) {
-            if (recuperarEstoque(nome) == null) {
-                Estoque estoque = new Estoque(nome, itens);
-                repositorioEstoque.cadastrar(estoque);
-            }
-        }
+    public void cadastrarEstoque(ItemEstoque itemEstoque){
+
     }
 
-    public Estoque recuperarEstoque(String nome){
-        if(!nome.equals(" ")) return (Estoque) repositorioEstoque.recuperar(nome);
+    public ItemEstoque recuperarItemEstoque(String codigo){
+        if(!codigo.equals(" ")) return (ItemEstoque) repositorioEstoque.recuperar(codigo);
         return null;
     }
 
-    public void removerEstoque(String nome){
-        if(!nome.equals(" ") && nome.length() > 3){
-            Estoque estoque = recuperarEstoque(nome);
-            repositorioEstoque.remover(estoque);
+    public void removerItemEstoque(String codigo){
+        if(!codigo.equals(" ") && codigo.length() > 3){
+            ItemEstoque itemEstoque = recuperarItemEstoque(codigo);
+            repositorioEstoque.remover(itemEstoque);
         }
 
     }
 
-    public void atualizarEstoque(String nome, Estoque estoque){
-        if(estoque != null && nome.length() > 3) repositorioEstoque.atualizar(nome, estoque);
+    public void atualizarEstoque(String codigoProduto, ItemEstoque itemEstoque){
+        if(itemEstoque != null && !codigoProduto.equals(" ")) repositorioEstoque.atualizar(codigoProduto, itemEstoque);
     }
 
-    public ArrayList<Estoque> recuperarTudo(){
+    public ArrayList<ItemEstoque> recuperarTudo(){
         return repositorioEstoque.recupertarTudo();
     }
 

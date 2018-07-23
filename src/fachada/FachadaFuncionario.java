@@ -13,8 +13,9 @@ public class FachadaFuncionario {
     private NegocioEstoque negocioEstoque;
     private NegocioUsuario negocioUsuario;
 
+
     public int verificarLogin(String login, String senha){
-       return negocioUsuario.verificarLogin(login, senha);
+       return negocioUsuario.getInstance().verificarLogin(login, senha);
     }
 
     //Estoque
