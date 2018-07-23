@@ -16,6 +16,7 @@ import static gui.Main.*;
 
 public class ControladorTelaLogin implements Initializable {
 
+
     FachadaFuncionario fachadaFuncionario = new FachadaFuncionario();
 
     @FXML
