@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ControllerTelaVendas">
+   <children>
+      <Button layoutX="236.0" layoutY="325.0" mnemonicParsing="false" text="Filalizar!">
+         <font>
+            <Font size="21.0" />
+         </font></Button>
+      <Label layoutX="130.0" layoutY="61.0" text="ID do produto" />
+      <TextField layoutX="94.0" layoutY="90.0" />
+      <Label layoutX="269.0" layoutY="61.0" text="Quantidade" />
+      <TextField layoutX="287.0" layoutY="90.0" prefHeight="25.0" prefWidth="26.0" />
+      <ListView layoutX="386.0" layoutY="70.0" prefHeight="208.0" prefWidth="200.0" />
+      <Label layoutX="386.0" layoutY="291.0" text="Total:" />
+      <Label layoutX="472.0" layoutY="291.0" text="2122" visible="false" />
+   </children>
+</AnchorPane>

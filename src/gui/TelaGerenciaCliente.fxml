@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControladorTelaGerenciaCliente">
+   <children>
+      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Cadastrar Cliente">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="264.0" layoutY="281.0" mnemonicParsing="false" text="Cadastrar!" />
+                        <Label layoutX="135.0" layoutY="59.0" text="Nome:" />
+                        <TextField layoutX="255.0" layoutY="55.0" />
+                        <Label layoutX="139.0" layoutY="100.0" text="CPF:" />
+                        <TextField layoutX="255.0" layoutY="96.0" />
+                        <Label layoutX="224.0" layoutY="134.0" text="Endereço" />
+                        <Label layoutX="96.0" layoutY="169.0" text="Rua:" />
+                        <TextField layoutX="150.0" layoutY="165.0" />
+                        <Label layoutX="323.0" layoutY="169.0" text="N°" />
+                        <TextField layoutX="346.0" layoutY="165.0" prefHeight="25.0" prefWidth="37.0" />
+                        <Label layoutX="99.0" layoutY="208.0" text="Cidade:" />
+                        <TextField layoutX="150.0" layoutY="204.0" />
+                        <Label layoutX="404.0" layoutY="169.0" text="Cep:" />
+                        <TextField layoutX="437.0" layoutY="165.0" prefHeight="25.0" prefWidth="114.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Remover Clinte">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField layoutX="300.0" layoutY="85.0" />
+                        <Button layoutX="263.0" layoutY="226.0" mnemonicParsing="false" text="Remover!" />
+                        <Label layoutX="138.0" layoutY="89.0" text="CPF para remoção do tal:" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="AtualizarCliente">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="264.0" layoutY="297.0" mnemonicParsing="false" text="Atualizar!" />
+                        <Label layoutX="132.0" layoutY="128.0" text="Nome:" />
+                        <TextField layoutX="255.0" layoutY="124.0" />
+                        <Label layoutX="272.0" layoutY="177.0" text="Endereço" />
+                        <Label layoutX="97.0" layoutY="210.0" text="Rua:" />
+                        <TextField layoutX="150.0" layoutY="206.0" />
+                        <Label layoutX="323.0" layoutY="210.0" text="N°" />
+                        <TextField layoutX="349.0" layoutY="206.0" prefHeight="25.0" prefWidth="37.0" />
+                        <Label layoutX="88.0" layoutY="250.0" text="Cidade:" />
+                        <TextField layoutX="150.0" layoutY="246.0" />
+                        <Label layoutX="404.0" layoutY="210.0" text="Cep:" />
+                        <TextField layoutX="441.0" layoutY="206.0" prefHeight="25.0" prefWidth="114.0" />
+                        <Label layoutX="96.0" layoutY="25.0" text="CPF para atualização" />
+                        <TextField layoutX="255.0" layoutY="21.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Lista de Clientes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="232.0" layoutY="51.0" mnemonicParsing="false" text="Mostrar lista de clintes" />
+                        <Label layoutX="138.0" layoutY="89.0" />
+                        <TextArea layoutX="116.0" layoutY="106.0" prefHeight="200.0" prefWidth="379.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
