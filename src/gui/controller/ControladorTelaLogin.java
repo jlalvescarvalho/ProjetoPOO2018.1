@@ -1,6 +1,7 @@
-package gui;
+package gui.controller;
 
 import fachada.FachadaFuncionario;
+import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
