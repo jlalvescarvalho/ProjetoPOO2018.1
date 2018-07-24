@@ -15,7 +15,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("view/TelaLogin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/TelaGerenciaUsuario.fxml"));
         primaryStage.setTitle("Mercado");
         primaryStage.setScene(new Scene(root,600,434));
         primaryStage.show();

@@ -48,4 +48,8 @@ public abstract class Usuario {
         return this.senha;
     }
 
+    @Override
+    public String toString() {
+        return "Nome: "+this.nome+" Cpf: "+this.cpf;
+    }
 }
