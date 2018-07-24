@@ -46,7 +46,7 @@
                         </Label>
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="191.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Desktop/images%20(2).png" />
+                              <Image url="@../../imagens/fundo2.jpeg" />
                            </image>
                         </ImageView>
                      </children>
@@ -64,7 +64,7 @@
                         </Label>
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="190.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Desktop/images%20(2).png" />
+                              <Image url="@../../imagens/fundo2.jpeg" />
                            </image>
                         </ImageView>
                         <TextField layoutX="346.0" layoutY="89.0" />
@@ -86,7 +86,7 @@
                         <Button layoutX="251.0" layoutY="250.0" mnemonicParsing="false" text="Atualizar!" />
                         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="184.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../Desktop/images%20(2).png" />
+                              <Image url="@../../imagens/fundo2.jpeg" />
                            </image>
                         </ImageView>
                         <Label layoutX="169.0" layoutY="117.0" text="Descrição:">
