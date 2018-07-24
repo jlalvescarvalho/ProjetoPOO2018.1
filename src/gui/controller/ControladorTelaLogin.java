@@ -38,7 +38,7 @@ public class ControladorTelaLogin implements Initializable {
     public void logar(ActionEvent actionEvent) {
 
         if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 1){
-            Main.chamarTela("view/telaGerente.fxml", 600, 400);
+            Main.chamarTela("view/TelaGerente.fxml", 600, 400);
         }else if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 0){
             chamarTela("view/TelaFuncionario.fxml",600,400);
         }else{
