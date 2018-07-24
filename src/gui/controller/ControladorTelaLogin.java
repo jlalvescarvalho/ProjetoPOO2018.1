@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +20,7 @@ public class ControladorTelaLogin implements Initializable {
     FachadaFuncionario fachadaFuncionario = new FachadaFuncionario();
 
     @FXML
-    private TextArea login;
+    private TextField login;
 
     @FXML
     private PasswordField senha;
@@ -39,9 +38,9 @@ public class ControladorTelaLogin implements Initializable {
     public void logar(ActionEvent actionEvent) {
 
         if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 1){
-            Main.chamarTela("telaGerente.fxml", 600, 400);
+            Main.chamarTela("view/telaGerente.fxml", 600, 400);
         }else if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 0){
-            chamarTela("TelaFuncionario.fxml",600,400);
+            chamarTela("view/TelaFuncionario.fxml",600,400);
         }else{
 
         }

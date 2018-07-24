@@ -25,6 +25,7 @@ public class RepositorioCliente implements IRepositorio<Cliente> {
 
     @Override
     public void cadastrar(Cliente cliente) {
+        if (!this.listaCliente.contains(cliente))
         this.listaCliente.add(cliente);
     }
 
@@ -39,7 +40,7 @@ public class RepositorioCliente implements IRepositorio<Cliente> {
     }
 
     @Override
-    public void remover(Cliente cliente) {
+    public void remover(Cliente cliente) throws NullPointerException{
         if(this.listaCliente.contains(cliente)){
             this.listaCliente.remove(cliente);
         }

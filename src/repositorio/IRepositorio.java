@@ -7,7 +7,7 @@ public interface IRepositorio<T>{
     int recuperarIndice(String t);
     void cadastrar(T t);
     T recuperar(String t);
-    void remover(T t);
+    void remover(T t) throws NullPointerException;
     void atualizar(String x, T t);
     ArrayList<T> recupertarTudo();
 

@@ -4,6 +4,7 @@ import negocio.entidade.Cliente;
 import repositorio.IRepositorio;
 import repositorio.RepositorioCliente;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class NegocioCliente {
@@ -37,7 +38,12 @@ public class NegocioCliente {
     }
 
     public void remover(Cliente cliente){
-        repositorioCliente.remover(cliente);
+        try {
+            repositorioCliente.remover(cliente);
+        }catch (NullPointerException ne){
+            JOptionPane.showMessageDialog(null,ne.getMessage());
+            ne.setStackTrace(ne.getStackTrace());
+        }
     }
 
     public void atualizar(String cpf, Cliente clienteNew){
