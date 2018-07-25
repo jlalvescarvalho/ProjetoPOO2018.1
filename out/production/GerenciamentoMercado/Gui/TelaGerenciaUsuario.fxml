@@ -41,17 +41,15 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Mostar Usuarios">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <Tab text="Remover Usuario">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="248.0" layoutY="287.0" mnemonicParsing="false" text="Remover!" />
-                        <Label layoutX="151.0" layoutY="76.0" text="CPF para remoção: " />
-                        <TextField layoutX="300.0" layoutY="72.0" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
+                        <Button layoutX="227.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Lista de Usuarios" />
+                        <ListView layoutX="98.0" layoutY="100.0" prefHeight="200.0" prefWidth="374.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
           <Tab text="Atualizar Usuario">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -76,15 +74,17 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Remover Usuario">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Tab text="Mostar Usuarios">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="227.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="Lista de Usuarios" />
-                        <ListView layoutX="98.0" layoutY="100.0" prefHeight="200.0" prefWidth="374.0" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
+                        <Button layoutX="248.0" layoutY="287.0" mnemonicParsing="false" text="Remover!" />
+                        <Label layoutX="151.0" layoutY="76.0" text="CPF para remoção: " />
+                        <TextField layoutX="300.0" layoutY="72.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

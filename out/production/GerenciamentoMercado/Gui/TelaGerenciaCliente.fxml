@@ -16,7 +16,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="264.0" layoutY="281.0" mnemonicParsing="false" text="Cadastrar!" />
+                        <Button layoutX="204.0" layoutY="281.0" mnemonicParsing="false" text="Cadastrar!" />
                         <Label layoutX="135.0" layoutY="59.0" text="Nome:" />
                         <TextField layoutX="255.0" layoutY="55.0" />
                         <Label layoutX="139.0" layoutY="100.0" text="CPF:" />
@@ -30,6 +30,7 @@
                         <TextField layoutX="150.0" layoutY="204.0" />
                         <Label layoutX="404.0" layoutY="169.0" text="Cep:" />
                         <TextField layoutX="437.0" layoutY="165.0" prefHeight="25.0" prefWidth="114.0" />
+                        <Button layoutX="331.0" layoutY="281.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" text="Cancelar" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -61,6 +62,7 @@
                         <TextField layoutX="441.0" layoutY="206.0" prefHeight="25.0" prefWidth="114.0" />
                         <Label layoutX="96.0" layoutY="25.0" text="CPF para atualização" />
                         <TextField layoutX="255.0" layoutY="21.0" />
+                        <Button layoutX="441.0" layoutY="21.0" mnemonicParsing="false" text="OK" />
                      </children>
                   </AnchorPane>
                </content>

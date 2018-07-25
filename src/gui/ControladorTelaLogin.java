@@ -20,7 +20,7 @@ public class ControladorTelaLogin implements Initializable {
     FachadaFuncionario fachadaFuncionario = new FachadaFuncionario();
 
     @FXML
-    private TextArea login;
+    private TextField login;
 
     @FXML
     private PasswordField senha;
@@ -38,7 +38,7 @@ public class ControladorTelaLogin implements Initializable {
     public void logar(ActionEvent actionEvent) {
 
         if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 1){
-            Main.chamarTela("telaGerente.fxml", 600, 400);
+            chamarTela("telaGerente.fxml", 600, 400);
         }else if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 0){
             chamarTela("TelaFuncionario.fxml",600,400);
         }else{
