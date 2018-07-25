@@ -1,5 +1,7 @@
 package negocio;
 
+import execoes.UsuarioInvalidoException;
+import execoes.UsuarioJaExisteException;
 import negocio.entidade.Funcionario;
 import negocio.entidade.Gerente;
 import negocio.entidade.Usuario;
@@ -23,8 +25,12 @@ public class NegocioUsuario {
         return mySelf;
     }
 
-    public void cadastrar(Usuario usuario){
-        if(usuario != null){
+    public void cadastrar(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException {
+        if(usuario != null && usuario.getCpf().equals("") && usuario.getNome().equals("")){
+            throw new UsuarioInvalidoException();
+        }else if(recuperar(usuario.getCpf()) != null) {
+            throw new UsuarioJaExisteException();
+        }else{
             this.repositorioUsuario.cadastrar(usuario);
         }
     }

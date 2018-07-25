@@ -1,5 +1,6 @@
 package fachada;
 
+import execoes.*;
 import negocio.NegocioCliente;
 import negocio.NegocioUsuario;
 import negocio.NegocioVenda;
@@ -16,13 +17,13 @@ public class FachadaGerente {
 
 
     // Funcionario
-    public void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, String senha) {
+    public void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, String senha) throws UsuarioJaExisteException, UsuarioInvalidoException {
 
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Usuario funcionario = new Funcionario(nome, cpf, end, senha);
         NegocioUsuario.getInstance().cadastrar(funcionario);
     }
-    public void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, String senha){
+    public void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, String senha) throws UsuarioJaExisteException, UsuarioInvalidoException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Usuario gerente = new Gerente(nome, cpf, end, senha);
         NegocioUsuario.getInstance().cadastrar(gerente);
@@ -63,7 +64,7 @@ public class FachadaGerente {
 
     //Cliente
 
-    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade) {
+    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade) throws CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Cliente cliente = new Cliente(nome,cpf,end);
 
@@ -75,10 +76,6 @@ public class FachadaGerente {
     }
 
     public void removerCliente(Cliente cliente) { NegocioCliente.getInstance().remover(cliente); }
-
-    public void atualizarProduto(String cpf, Cliente cliente) {
-        NegocioCliente.getInstance().atualizar(cpf, cliente);
-    }
 
     public ArrayList<Cliente> recuperarTodosCliente() {
         return NegocioCliente.getInstance().recuperarTodos();

@@ -6,10 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import negocio.entidade.Endereco;
-import negocio.entidade.Funcionario;
-import negocio.entidade.Gerente;
-import negocio.entidade.Usuario;
 
 import java.io.IOException;
 
@@ -19,7 +15,7 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Parent root = FXMLLoader.load(getClass().getResource("telalogin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/TelaGerenciaUsuario.fxml"));
         primaryStage.setTitle("Mercado");
         primaryStage.setScene(new Scene(root,600,434));
         primaryStage.show();

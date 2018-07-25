@@ -25,15 +25,12 @@ public class NegocioVenda {
     }
 
     public void adicionarItem(String codigoProduto, int quantidade){
-        try {
             Produto produto = recuperarProduto(codigoProduto);
             if (produto != null && verificarDisponibilidade(produto, quantidade)) {
                 ItemVenda itemVenda = new ItemVenda(produto, quantidade);
                 listaItensdaVenda.add(itemVenda);
             }
-        }catch (Exception ex){
-            System.out.println(ex.getMessage());
-        }
+
     }
 
     private Produto recuperarProduto(String codigo){

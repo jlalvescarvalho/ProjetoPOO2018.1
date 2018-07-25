@@ -43,7 +43,7 @@ public RepositorioEstoque(){
     }
 
     @Override
-    public void remover(ItemEstoque itemEstoque) {
+    public void remover(ItemEstoque itemEstoque) throws NullPointerException{
         if(this.listaEstoque.contains(itemEstoque)){
             this.listaEstoque.remove(itemEstoque);
         }

@@ -48,4 +48,17 @@ public abstract class Usuario {
         return this.senha;
     }
 
+    @Override
+    public String toString() {
+        return "Nome: "+this.nome+" Cpf: "+this.cpf;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Usuario usuario = (Usuario)obj;
+        if(this.cpf.equals(usuario.getCpf())){
+            return true;
+        }
+        return true;
+    }
 }
