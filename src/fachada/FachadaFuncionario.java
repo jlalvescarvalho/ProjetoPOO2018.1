@@ -1,5 +1,8 @@
 package fachada;
 
+import execoes.CPFApenasNumerosException;
+import execoes.CPFTamanhoException;
+import execoes.NomeInvalidoException;
 import negocio.*;
 import negocio.entidade.*;
 
@@ -31,13 +34,10 @@ public class FachadaFuncionario {
    public void realizarSaidaEstoque(Produto produto, int quantidade){
         NegocioEstoque.getInstance().realizarSaidaEstoque(produto, quantidade);
    }
-   public void atualizarItemEstoque(String codigoProduto, ItemEstoque itemEstoque){
-        NegocioEstoque.getInstance().atualizarEstoque(codigoProduto,itemEstoque);
-   }
     //------------------------------------------------------------------------------------------------------
     //Cliente
 
-    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade) {
+    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade) throws CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Cliente cliente = new Cliente(nome,cpf,end);
 
@@ -66,4 +66,7 @@ public class FachadaFuncionario {
         NegocioVenda.getInstance().adicionarItem(codigoProduto, quantidade);
     }
 
+    public void atualizarProduto(String cpf, Cliente cliente) {
+        NegocioCliente.getInstance().atualizar(cpf, cliente);
+    }
 }

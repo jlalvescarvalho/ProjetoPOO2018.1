@@ -1,5 +1,9 @@
 package negocio.entidade;
 
+import execoes.CPFApenasNumerosException;
+import execoes.CPFTamanhoException;
+import execoes.NomeInvalidoException;
+
 /**
  * @author luciano/Giudicelli
  * Representação de um cliente.
@@ -11,7 +15,9 @@ public class Cliente {
     private String cpf;
     private Endereco endereco;
 
-    public Cliente(String nome, String cpf, Endereco endereco) {
+    public Cliente(String nome, String cpf, Endereco endereco) throws NomeInvalidoException, CPFApenasNumerosException, CPFTamanhoException {
+        verificarCpf(cpf);
+        verificarNome(nome);
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -21,7 +27,8 @@ public class Cliente {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws NomeInvalidoException {
+        verificarNome(nome);
         this.nome = nome;
     }
 
@@ -29,7 +36,8 @@ public class Cliente {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf) throws CPFApenasNumerosException, CPFTamanhoException {
+        verificarCpf(cpf);
         this.cpf = cpf;
     }
 
@@ -40,6 +48,23 @@ public class Cliente {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public void verificarCpf(String cpf) throws CPFApenasNumerosException, CPFTamanhoException {
+        char[] cpfChar = cpf.toCharArray();
+        for(int i = 0; i < cpfChar.length; i++){
+            if (!Character.isDigit(cpfChar[i])){
+                throw new CPFApenasNumerosException();
+            }
+        }
+        if (cpf.length() != 11){
+            throw new CPFTamanhoException(cpf.length());
+        }
+
+    }
+
+    public void verificarNome(String nome) throws NomeInvalidoException {
+        if(nome.equals(" ") || nome.length() < 3) throw new NomeInvalidoException();
     }
 
     @Override

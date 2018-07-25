@@ -8,10 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import negocio.entidade.Endereco;
 import negocio.entidade.Usuario;
 
-import javax.swing.*;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
