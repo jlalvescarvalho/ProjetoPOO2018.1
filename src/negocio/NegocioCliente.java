@@ -12,11 +12,11 @@ public class NegocioCliente {
     private IRepositorio repositorioCliente;
     private static NegocioCliente mySelf;
 
-    public NegocioCliente() {
+    private NegocioCliente() {
         repositorioCliente = new RepositorioCliente();
     }
 
-    public static NegocioCliente getInstance() {
+    public static NegocioCliente getInstace(){
         if(mySelf == null){
             mySelf = new NegocioCliente();
         }

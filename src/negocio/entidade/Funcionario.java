@@ -1,15 +1,25 @@
 package negocio.entidade;
 
-import negocio.NegocioUsuario;
 
 public class Funcionario extends Usuario {
 
+    public Funcionario(String nome, String cpf, Endereco endereco, double salario, String senha) {
+        super(nome, cpf, endereco, salario, senha);
+    }
 
-    public Funcionario(String nome, String cpf, Endereco endereco, String senha) {
-        super(nome, cpf, endereco, senha);
+    @Override
+    public boolean verificarSenha(String senha) {
+        if (this.getSenha().equals(senha)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
+    public double getBonificacao(){
+        return this.getSalario()*0.10;
+    }
 
 
 

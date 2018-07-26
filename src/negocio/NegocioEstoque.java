@@ -12,12 +12,12 @@ public class NegocioEstoque {
     private RepositorioEstoque repositorioEstoque;
     private static NegocioEstoque mySelf;
 
-    public NegocioEstoque() {
+    private NegocioEstoque() {
         this.repositorioEstoque = new RepositorioEstoque();
     }
 
-    public static NegocioEstoque getInstance(){
-        if (mySelf == null){
+    public static NegocioEstoque getInstace(){
+        if(mySelf == null){
             mySelf = new NegocioEstoque();
         }
         return mySelf;

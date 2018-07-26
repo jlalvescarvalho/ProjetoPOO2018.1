@@ -64,4 +64,9 @@ public class Venda {
         }
         return tt;
     }
+
+    @Override
+    public String toString() {
+        return "Valor da venda: "+this.getTotal()+" Funcionario: "+this.funcionario;
+    }
 }

@@ -9,15 +9,17 @@ import java.util.Date;
 public class NegocioVenda {
 
     private RepositorioVenda repositorioVenda;
-    public static NegocioVenda mySelf;
     private ArrayList<ItemVenda> listaItensdaVenda;
+    private static NegocioVenda mySelf;
 
-    public NegocioVenda(){
+
+    private NegocioVenda(){
         this.listaItensdaVenda = new ArrayList<>();
         this.repositorioVenda = new RepositorioVenda();
+
     }
 
-    public static NegocioVenda getInstance(){
+    public static NegocioVenda getInstace(){
         if (mySelf == null){
             mySelf = new NegocioVenda();
         }
@@ -38,7 +40,7 @@ public class NegocioVenda {
     }
 
     private boolean verificarDisponibilidade(Produto produto, int quantidade){
-        ItemEstoque item = NegocioEstoque.getInstance().recuperarItemEstoque(produto.getCodigo());
+        ItemEstoque item = NegocioEstoque.getInstace().recuperarItemEstoque(produto.getCodigo());
         if(item != null){
             if (item.getQuantidade() >= quantidade){
                 return true;
@@ -61,11 +63,19 @@ public class NegocioVenda {
 
 
 
-    public void cadastrarVenda(Funcionario funcionario, Cliente cliente){
+    public void cadastrarVendaCliente(Funcionario funcionario, Cliente cliente){
         Venda venda = new Venda(this.listaItensdaVenda, funcionario, cliente);
         this.repositorioVenda.cadastrar(venda);
         for(ItemVenda iv: listaItensdaVenda){
-            NegocioEstoque.getInstance().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
+            NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
+        }
+
+    }
+    public void cadastrarVendaNormal(Funcionario funcionario){
+        Venda venda = new Venda(this.listaItensdaVenda, funcionario);
+        this.repositorioVenda.cadastrar(venda);
+        for(ItemVenda iv: listaItensdaVenda){
+            NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
         }
 
     }

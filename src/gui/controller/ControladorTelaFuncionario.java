@@ -1,12 +1,12 @@
-package gui;
+package gui.controller;
 
+import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static gui.Main.*;
 
 
 public class ControladorTelaFuncionario implements Initializable {
@@ -18,19 +18,19 @@ public class ControladorTelaFuncionario implements Initializable {
     }
 
     public void gerenciarEstoque(ActionEvent actionEvent) {
-
+        Main.chamarTela("view/TelaGerenciaEstoque.fxml",600,400);
     }
 
 
     public void gerenciarProduto(ActionEvent actionEvent){
-        Main.chamarTela("TelaGerenciaProduto.fxml",600,400);
+        Main.chamarTela("view/TelaGerenciaProduto.fxml",600,400);
     }
 
     public void realizarVenda(ActionEvent actionEvent) {
-        Main.chamarTela("TelaGerenciaVenda.fxml", 600, 400);
+        Main.chamarTela("view/TelaGerenciaVenda.fxml", 600, 400);
     }
     public void gerenciarCliente(ActionEvent actionEvent){
-        Main.chamarTela("TelagerenciaCliente.fxml",600,400);
+        Main.chamarTela("view/TelagerenciaCliente.fxml",600,400);
     }
 }
 

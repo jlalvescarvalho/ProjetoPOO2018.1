@@ -1,12 +1,13 @@
 package gui.controller;
 
-import fachada.FachadaFuncionario;
+import fachada.Fachada;
+import fachada.IFachadaFuncionario;
+import fachada.IFachadaGerente;
 import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -15,9 +16,8 @@ import java.util.ResourceBundle;
 import static gui.Main.*;
 
 public class ControladorTelaLogin implements Initializable {
+    IFachadaGerente gerente = new Fachada();
 
-
-    FachadaFuncionario fachadaFuncionario = new FachadaFuncionario();
 
     @FXML
     private TextField login;
@@ -37,9 +37,9 @@ public class ControladorTelaLogin implements Initializable {
 
     public void logar(ActionEvent actionEvent) {
 
-        if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 1){
+        if(gerente.verificarLogin(login.getText(), senha.getText()) == 1){
             Main.chamarTela("view/TelaGerente.fxml", 600, 400);
-        }else if(fachadaFuncionario.verificarLogin(login.getText(), senha.getText()) == 0){
+        }else if(gerente.verificarLogin(login.getText(), senha.getText()) == 0){
             chamarTela("view/TelaFuncionario.fxml",600,400);
         }else{
 

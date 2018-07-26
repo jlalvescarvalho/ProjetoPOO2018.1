@@ -14,16 +14,16 @@ public class NegocioUsuario {
     private RepositorioUsuario repositorioUsuario;
     private static NegocioUsuario mySelf;
 
-    public NegocioUsuario(){
+    private NegocioUsuario(){
         this.repositorioUsuario = new RepositorioUsuario();
     }
-
-    public static NegocioUsuario getInstance(){
-        if (mySelf == null){
+    public static NegocioUsuario getInstace(){
+        if(mySelf == null){
             mySelf = new NegocioUsuario();
         }
         return mySelf;
     }
+
 
     public void cadastrar(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException {
         if(usuario != null && usuario.getCpf().equals("") && usuario.getNome().equals("")){
@@ -56,10 +56,10 @@ public class NegocioUsuario {
         final int gerente = 1;
 
         Usuario usuario = recuperar(cpf);
-        if (usuario instanceof Funcionario && usuario.getSenha().equals(senha)){
-            return funcionario;
-        }else if(usuario instanceof Gerente && usuario.getSenha().equals(senha)){
+        if(usuario instanceof Gerente && usuario.verificarSenha(senha)) {
             return gerente;
+        }else if (usuario instanceof Funcionario && usuario.verificarSenha(senha)){
+            return funcionario;
         }else{
             return -1;
         }
