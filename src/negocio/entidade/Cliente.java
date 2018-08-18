@@ -14,6 +14,7 @@ public class Cliente {
     private String nome;
     private String cpf;
     private Endereco endereco;
+    private int frequencia = 0;
 
     public Cliente(String nome, String cpf, Endereco endereco) throws NomeInvalidoException, CPFApenasNumerosException, CPFTamanhoException {
         verificarCpf(cpf);
@@ -21,6 +22,10 @@ public class Cliente {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
+    }
+
+    public void incrementarFrequencia(){
+        this.frequencia++;
     }
 
     public String getNome() {
@@ -36,21 +41,16 @@ public class Cliente {
         return cpf;
     }
 
-    public void setCpf(String cpf) throws CPFApenasNumerosException, CPFTamanhoException {
-        verificarCpf(cpf);
-        this.cpf = cpf;
-    }
-
 
     public Endereco getEndereco() {
         return endereco;
     }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public int getFrequencia(){
+        return frequencia;
     }
 
-    public void verificarCpf(String cpf) throws CPFApenasNumerosException, CPFTamanhoException {
+
+    private void verificarCpf(String cpf) throws CPFApenasNumerosException, CPFTamanhoException {
         char[] cpfChar = cpf.toCharArray();
         for(int i = 0; i < cpfChar.length; i++){
             if (!Character.isDigit(cpfChar[i])){
@@ -63,7 +63,7 @@ public class Cliente {
 
     }
 
-    public void verificarNome(String nome) throws NomeInvalidoException {
+    private void verificarNome(String nome) throws NomeInvalidoException {
         if(nome.equals(" ") || nome.length() < 3) throw new NomeInvalidoException();
     }
 

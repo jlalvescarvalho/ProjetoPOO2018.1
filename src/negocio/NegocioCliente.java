@@ -23,6 +23,14 @@ public class NegocioCliente {
         return mySelf;
     }
 
+    public double verificarFrequencia(String cpf) {
+        Cliente cliente = recuperar(cpf);
+        if (cliente.getFrequencia() == 10){
+            return 0.10;
+        }
+        return 0.0;
+    }
+
     public void cadastrar(Cliente cliente){
         if (cliente != null){
             repositorioCliente.cadastrar(cliente);

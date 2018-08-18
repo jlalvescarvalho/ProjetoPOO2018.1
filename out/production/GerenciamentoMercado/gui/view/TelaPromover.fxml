@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaPromover">
+   <children>
+      <Label layoutX="178.0" layoutY="25.0" prefHeight="28.0" prefWidth="202.0" text="Promover Funcionario" textAlignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <TextField fx:id="txtCpfPromover" layoutX="65.0" layoutY="79.0" />
+      <Button layoutX="238.0" layoutY="79.0" mnemonicParsing="false" onAction="#buscarFuncionario" text="Ok" />
+      <Label fx:id="labelNome" layoutX="71.0" layoutY="124.0" prefHeight="25.0" prefWidth="277.0" text="Nome" />
+      <Label fx:id="labelSalario" layoutX="71.0" layoutY="158.0" prefHeight="25.0" prefWidth="149.0" text="Salario" />
+      <Label layoutX="71.0" layoutY="192.0" text="Promover para:" />
+      <ComboBox fx:id="comboCargos" layoutX="163.0" layoutY="188.0" prefWidth="150.0" />
+      <Button layoutX="100.0" layoutY="298.0" mnemonicParsing="false" onAction="#promoverFuncionario" text="Salvar" />
+      <Button layoutX="244.0" layoutY="298.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+   </children>
+</AnchorPane>

@@ -1,8 +1,11 @@
 package negocio;
 
+import execoes.CodigoInvalidoException;
+import execoes.ItemDeEstoqueInvalidoException;
+import execoes.ProdutoNaoExisteException;
+import execoes.QuantidadeInvalidaException;
 import negocio.entidade.ItemEstoque;
 import negocio.entidade.Produto;
-import repositorio.IRepositorio;
 import repositorio.RepositorioEstoque;
 
 import java.util.ArrayList;
@@ -29,17 +32,30 @@ public class NegocioEstoque {
         }
     }
 
-    public void realizarSaidaEstoque(Produto produto, int quantidadeVendida){
+    protected void realizarSaidaEstoque(Produto produto, int quantidadeVendida){
         if(produto != null && quantidadeVendida > 0){
             repositorioEstoque.realizarSaidaEstoque(produto,quantidadeVendida);
         }
     }
 
 
-    public void realizarEntradaEstoque(Produto produto, int quantidade){
-        if(produto != null && quantidade > 0){
-            repositorioEstoque.realizarEntradaEstoque(produto,quantidade);
+    public void realizarEntradaEstoque(String codigo, int quantidade) throws ProdutoNaoExisteException, CodigoInvalidoException, QuantidadeInvalidaException {
+
+        Produto produto;
+        if (codigo.equals("") || codigo.equals(" ")){
+            throw new CodigoInvalidoException();
+        }else{
+            produto = NegocioProduto.getInstance().recuperar(codigo);
         }
+        if (produto == null){
+            throw new ProdutoNaoExisteException();
+        }else if(quantidade <= 0){
+            throw new QuantidadeInvalidaException();
+        }else{
+            ItemEstoque itemEstoque = new ItemEstoque(quantidade, produto);
+            repositorioEstoque.realizarEntradaEstoque(itemEstoque);
+        }
+
     }
 
     public ItemEstoque recuperarItemEstoque(String codigo){
@@ -53,10 +69,6 @@ public class NegocioEstoque {
             repositorioEstoque.remover(itemEstoque);
         }
 
-    }
-
-    public void atualizarEstoque(String codigoProduto, ItemEstoque itemEstoque){
-        if(itemEstoque != null && !codigoProduto.equals(" ")) repositorioEstoque.atualizar(codigoProduto, itemEstoque);
     }
 
     public ArrayList<ItemEstoque> recuperarTudo(){

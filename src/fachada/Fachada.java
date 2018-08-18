@@ -8,6 +8,15 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Fachada implements IFachadaGerente, IFachadaFuncionario{
+
+
+    public int verificarLogin(String login, String senha) throws UsuarioInvalidoException {
+        return Login.getInstance().verificarLogin(login, senha);
+    }
+    public void logoff(){
+        Login.getInstance().logoff();
+    }
+
      /**
      * Metodos referentes a Funcionario
      */
@@ -19,8 +28,8 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void realizarEntradaEstoque(Produto produto, int quantidade) {
-        NegocioEstoque.getInstace().realizarEntradaEstoque(produto, quantidade);
+    public void realizarEntradaEstoque(String codigo, int quantidade) throws QuantidadeInvalidaException, ProdutoNaoExisteException, CodigoInvalidoException {
+        NegocioEstoque.getInstace().realizarEntradaEstoque(codigo, quantidade);
     }
 
     @Override
@@ -39,12 +48,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void realizarSaidaEstoque(Produto produto, int quantidade) {
-        NegocioEstoque.getInstace().realizarSaidaEstoque(produto, quantidade);
-    }
-
-    @Override
-    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade) throws CPFApenasNumerosException, CPFTamanhoException, NomeInvalidoException {
+    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade) throws CPFApenasNumerosException, CPFTamanhoException, NomeInvalidoException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Cliente cliente = new Cliente(nome,cpf,end);
 
@@ -71,35 +75,34 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void cadastrarVendaCliente(Funcionario funcionario, Cliente cliente) {
-        NegocioVenda.getInstace().cadastrarVendaCliente(funcionario, cliente);
+    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente) {
+        NegocioVenda.getInstace().cadastrarVendaComCliente(funcionario, cliente);
     }
 
     @Override
     public void cadastrarVendaSemCliente(Funcionario funcionario) {
-        NegocioVenda.getInstace().cadastrarVendaNormal(funcionario);
+        NegocioVenda.getInstace().cadastrarVendaSemCliente(funcionario);
     }
 
     @Override
-    public void adicionarItem(String codigoProduto, int quantidade) {
+    public void adicionarItem(String codigoProduto, int quantidade) throws ProdutoNaoExisteException, CodigoInvalidoException, QuantidadeNaoDisponivelException {
         NegocioVenda.getInstace().adicionarItem(codigoProduto, quantidade);
     }
 
     @Override
-    public void cadastrarProduto(String codigo, String descricao, double preco, String marca) {
+    public void cadastrarProduto(String codigo, String descricao, double preco, String marca) throws DescricaoInvalidaException, TamanhoInvalidoException, ApenasNumerosException, CodigoInvalidoException {
         Produto produto = new Produto(codigo, descricao,preco, marca);
         NegocioProduto.getInstance().cadastrar(produto);
     }
 
     @Override
-    public Produto recuperarProduto(String codigo) {
+    public Produto recuperarProduto(String codigo) throws CodigoInvalidoException, ProdutoNaoExisteException {
         return NegocioProduto.getInstance().recuperar(codigo);
     }
 
     @Override
-    public void removerProduto(String codigo) {
-        Produto p = recuperarProduto(codigo);
-        NegocioProduto.getInstance().remover(p);
+    public void removerProduto(String codigo) throws CodigoInvalidoException, ProdutoNaoExisteException {
+        NegocioProduto.getInstance().remover(codigo);
     }
 
     @Override
@@ -108,40 +111,59 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void atualizarProduto(String cpf, Produto produto) {
-        NegocioProduto.getInstance().atualizar(cpf, produto);
+    public void atualizarProduto(String codigo, Produto produto) {
+        NegocioProduto.getInstance().atualizar(codigo, produto);
     }
+
+    @Override
+    public ArrayList<ItemVenda> getListarItens(){
+        return NegocioVenda.getInstace().listaItensdaVenda;
+    }
+
+    @Override
+    public double verificarFrequencia(String cpf){
+        return NegocioCliente.getInstace().verificarFrequencia(cpf);
+    }
+
+
 
     /**
      * Apartir daqui metodos referentes a Gerente
     */
 
     @Override
-    public int verificarLogin(String login, String senha) {
-        return NegocioUsuario.getInstace().verificarLogin(login, senha);
-    }
-
-    @Override
-    public void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, double salario, String senha) throws UsuarioJaExisteException, UsuarioInvalidoException {
+    public void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade,
+                                     String senha)
+            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
-        Usuario funcionario = new Funcionario(nome, cpf, end, salario, senha);
+        Usuario funcionario = new Funcionario(nome, cpf, end, SalarioCargoEnum.Funcionario.getSalario(), senha);
         NegocioUsuario.getInstace().cadastrar(funcionario);
     }
 
     @Override
-    public void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, double salario, String senha, int numFuncGerenciados) throws UsuarioJaExisteException, UsuarioInvalidoException  {
+    public void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, String numero,
+                                 String cidade, String senha, int numFuncGerenciados)
+            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
-        Usuario gerente = new Gerente(nome, cpf, end, salario, senha, numFuncGerenciados);
+        Usuario gerente = new Gerente(nome, cpf, end, SalarioCargoEnum.Gerente.getSalario(), senha, numFuncGerenciados);
         NegocioUsuario.getInstace().cadastrar(gerente);
     }
 
     @Override
-    public Usuario recuperarUsuario(String cpf) {
+    public void promoverParaGerente(Usuario usuario) throws UsuarioNaoExisteException, UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException {
+        removerUsuario(usuario.getCpf());
+
+        cadastrarGerente(usuario.getNome(), usuario.getCpf(), usuario.getEndereco().getRua(),usuario.getEndereco().getBairro(),
+                usuario.getEndereco().getCep(),usuario.getEndereco().getNumero(),usuario.getEndereco().getCidade(),usuario.getSenha(),5);
+    }
+
+    @Override
+    public Usuario recuperarUsuario(String cpf) throws UsuarioNaoExisteException {
         return NegocioUsuario.getInstace().recuperar(cpf);
     }
 
     @Override
-    public void removerUsuario(String cpf) {
+    public void removerUsuario(String cpf) throws UsuarioNaoExisteException {
         Usuario usu = recuperarUsuario(cpf);
         NegocioUsuario.getInstace().remover(usu);
     }
@@ -175,6 +197,12 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     @Override
     public ArrayList<Venda> gerarRelatorioPorDatas(Date dataInicial, Date dataFinal) {
         return NegocioVenda.getInstace().gerarRelatorioVendas(dataInicial, dataFinal);
+    }
+
+
+    @Override
+    public double darDesconto(String cpfGerente, String senha, double valorVenda, int desconto) throws DescontoInvalidoException, UsuarioInvalidoException {
+        return NegocioUsuario.getInstace().darDesconto(cpfGerente,senha,valorVenda,desconto);
     }
 
 

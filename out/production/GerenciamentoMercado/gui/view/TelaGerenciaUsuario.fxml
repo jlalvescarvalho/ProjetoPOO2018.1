@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaGerenciaUsuario">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaGerenciaUsuario">
    <children>
       <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -37,12 +37,10 @@
                         <TextField fx:id="txtCidadeCad" layoutX="125.0" layoutY="286.0" />
                         <TextField fx:id="txtCepCad" layoutX="325.0" layoutY="286.0" prefHeight="25.0" prefWidth="90.0" />
                          <Button fx:id="btCadastrar" layoutX="191.0" layoutY="326.0" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadsatrar" />
-                        <Button fx:id="btCancelarCad" layoutX="299.0" layoutY="326.0" mnemonicParsing="false" text="Cancelar" />
+                        <Button fx:id="btCancelarCad" layoutX="299.0" layoutY="326.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar/Sair" />
                         <Label layoutX="387.0" layoutY="246.0" text="Bairro:" />
                         <Label layoutX="59.0" layoutY="165.0" text="Tipo de usuario" />
-                        <Label layoutX="314.0" layoutY="47.0" text="Salario:" />
                         <Label fx:id="labelNumFunc" layoutX="317.0" layoutY="93.0" text="Número de funcionarios gerenciados" visible="false" />
-                        <TextField fx:id="txtSalario" layoutX="370.0" layoutY="43.0" />
                         <TextField fx:id="txtNumFunc" layoutX="518.0" layoutY="89.0" prefHeight="25.0" prefWidth="53.0" visible="false" />
                      </children>
                   </AnchorPane>
@@ -60,16 +58,16 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="txtCpfAtualizar" layoutX="241.0" layoutY="43.0" />
-                        <Label layoutX="72.0" layoutY="95.0" text="Nome:" />
-                        <TextField fx:id="txtNomeAtualizar" layoutX="157.0" layoutY="91.0" />
+                        <TextField fx:id="txtCpfAtualizar" layoutX="208.0" layoutY="31.0" />
+                        <Label layoutX="79.0" layoutY="77.0" text="Nome:" />
+                        <TextField fx:id="txtNomeAtualizar" layoutX="158.0" layoutY="73.0" />
                          <ComboBox fx:id="comBoxUp" layoutX="370.0" layoutY="91.0" onAction="#actionComboBoxUpdate" prefWidth="150.0" />
-                        <PasswordField fx:id="txtSenhaAtualizar" layoutX="157.0" layoutY="144.0" />
+                        <TextField fx:id="txtSenhaAtualizar" layoutX="158.0" layoutY="113.0" />
                         <TextField fx:id="txtRuaAtualizar" layoutX="125.0" layoutY="242.0" />
                         <TextField fx:id="txtNumAtualizar" layoutX="315.0" layoutY="242.0" prefHeight="25.0" prefWidth="37.0" />
                         <TextField fx:id="txtBairroAtualizar" layoutX="415.0" layoutY="242.0" prefHeight="25.0" prefWidth="177.0" />
-                        <Label layoutX="69.0" layoutY="47.0" text="CPF para atualização:" />
-                        <Label layoutX="73.0" layoutY="148.0" text="Senha:" />
+                        <Label layoutX="69.0" layoutY="35.0" text="CPF para atualização:" />
+                        <Label layoutX="80.0" layoutY="117.0" text="Senha:" />
                         <Label layoutX="207.0" layoutY="209.0" text="Endereço" />
                         <Label layoutX="78.0" layoutY="246.0" text="Rua:" />
                         <Label layoutX="286.0" layoutY="246.0" text="N°" />
@@ -77,12 +75,15 @@
                         <Label layoutX="77.0" layoutY="290.0" text="Cidade:" />
                         <TextField fx:id="txtCidadeAtualizar" layoutX="125.0" layoutY="286.0" />
                         <TextField fx:id="txtCepAtualizar" layoutX="325.0" layoutY="286.0" prefHeight="25.0" prefWidth="90.0" />
-                        <Button fx:id="btAtualizar" layoutX="157.0" layoutY="325.0" mnemonicParsing="false" text="Atualizar!" />
+                        <Button fx:id="btAtualizar" layoutX="157.0" layoutY="325.0" mnemonicParsing="false" onAction="#atualuzarUsuario" text="Atualizar!" />
                         <Label layoutX="376.0" layoutY="246.0" text="Bairro:" />
-                        <Button layoutX="284.0" layoutY="325.0" mnemonicParsing="false" text="Cancelar" />
+                        <Button layoutX="284.0" layoutY="325.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar/Sair" />
                         <Label layoutX="393.0" layoutY="68.0" text="Tipo de funcionario" />
                         <TextField fx:id="txtNumFuncUP" layoutX="520.0" layoutY="144.0" prefHeight="25.0" prefWidth="44.0" visible="false" />
                         <Label fx:id="labelNumFuncUP" layoutX="313.0" layoutY="143.0" prefHeight="28.0" prefWidth="204.0" text="Número de funcionario gerendiados:" visible="false" />
+                        <Button layoutX="390.0" layoutY="31.0" mnemonicParsing="false" onAction="#preencherCamposAtualizar" text="Buscar" />
+                        <TextField fx:id="txtSalarioUP" editable="false" layoutX="158.0" layoutY="157.0" opacity="0.85" />
+                        <Label layoutX="83.0" layoutY="161.0" text="Salario:" />
 
                      </children>
                   </AnchorPane>
@@ -92,7 +93,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="btRemover" layoutX="248.0" layoutY="287.0" mnemonicParsing="false" text="Remover!" />
+                        <Button fx:id="btRemover" layoutX="400.0" layoutY="50.0" mnemonicParsing="false" onAction="#removerUsuario" text="Remover!" />
                         <Label layoutX="94.0" layoutY="55.0" text="CPF para remoção: " />
                         <TextField fx:id="txtCpfRemover" layoutX="226.0" layoutY="51.0" />
                      </children>

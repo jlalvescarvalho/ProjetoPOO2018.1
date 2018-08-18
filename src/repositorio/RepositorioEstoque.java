@@ -59,14 +59,16 @@ public RepositorioEstoque(){
         for (ItemEstoque ie: listaEstoque){
             if (ie.getProduto().equals(produto)){
                 ie.setQuantidade(ie.getQuantidade()-quantidadeVendida);
+                break;
             }
         }
     }
 
-    public void realizarEntradaEstoque(Produto produto, int quantidade){
-            for (ItemEstoque ie: listaEstoque){
-                if (ie.getProduto().equals(produto)){
-                    ie.setQuantidade(ie.getQuantidade()+quantidade);
+    public void realizarEntradaEstoque(ItemEstoque itemEstoque){
+            for (ItemEstoque ie : listaEstoque) {
+                if (ie.getProduto().equals(itemEstoque.getProduto())) {
+                    ie.setQuantidade(ie.getQuantidade() + itemEstoque.getQuantidade());
+                    break;
                 }
             }
     }

@@ -4,7 +4,7 @@ import java.util.Date;
 /**
  * @author Luciano/Giudicelli
  * Esta classe representa a venda
- * tal venda deve ser constituida por uma lista de itens, por um funcionario e um cliente.
+ * tal venda deve ser constituida por uma lista de itens, por um Funcionario e um cliente.
  * deve ser possivel também realizar uma venda avulsa(sem declarar cliente cliente).
  */
 public class Venda {

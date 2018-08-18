@@ -1,9 +1,13 @@
 package negocio.entidade;
 
 
+import execoes.CPFApenasNumerosException;
+import execoes.CPFTamanhoException;
+import execoes.NomeInvalidoException;
+
 public class Funcionario extends Usuario {
 
-    public Funcionario(String nome, String cpf, Endereco endereco, double salario, String senha) {
+    public Funcionario(String nome, String cpf, Endereco endereco, double salario, String senha) throws CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException {
         super(nome, cpf, endereco, salario, senha);
     }
 
@@ -21,7 +25,13 @@ public class Funcionario extends Usuario {
         return this.getSalario()*0.10;
     }
 
+    @Override
+    public void verificarCpf() throws CPFApenasNumerosException, CPFTamanhoException {
+        super.verificarCpf();
+    }
 
-
-
+    @Override
+    public void verificarNome() throws NomeInvalidoException {
+        super.verificarNome();
+    }
 }

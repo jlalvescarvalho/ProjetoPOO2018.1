@@ -8,19 +8,29 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaGerenciaEstoque">
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaGerenciaEstoque">
    <children>
       <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Adicionar itens">
+            <Tab text="Realizar Entrada em Estoque">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="24.0" layoutY="66.0" text="Codigo Produto:" />
+                        <TextField fx:id="txtCodigoEntrada" layoutX="137.0" layoutY="62.0" />
+                        <Label layoutX="24.0" layoutY="112.0" text="Quantidade recebida:" />
+                        <TextField fx:id="txtQuantidadeEntrada" layoutX="145.0" layoutY="108.0" prefHeight="25.0" prefWidth="71.0" />
+                        <Button layoutX="55.0" layoutY="202.0" mnemonicParsing="false" onAction="#realizarEntradaEmEstoque" text="Ok" />
+                        <Button layoutX="155.0" layoutY="202.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="abaEstoque" onSelectionChanged="#listarEstoque" text="Estoque">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="200.0" layoutY="280.0" mnemonicParsing="false" text="Adicionar!" />
-                        <Label layoutX="82.0" layoutY="78.0" text="ID do produto:" />
-                        <TextField layoutX="200.0" layoutY="74.0" />
-                        <Label layoutX="82.0" layoutY="124.0" text="Quantidade:" />
-                        <TextField layoutX="200.0" layoutY="120.0" prefHeight="25.0" prefWidth="40.0" />
+                        <ListView fx:id="lstEstoque" layoutX="10.0" layoutY="5.0" prefHeight="350.0" prefWidth="580.0" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -28,23 +38,14 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="200.0" layoutY="280.0" mnemonicParsing="false" text="Remover!" />
+                        <Button layoutX="200.0" layoutY="280.0" mnemonicParsing="false" onAction="#removerItemEstoque" text="Remover!" />
                         <Label layoutX="82.0" layoutY="78.0" text="ID do produto:" />
-                        <TextField layoutX="200.0" layoutY="74.0" />
-                        <Label layoutX="82.0" layoutY="124.0" text="Quantidade:" />
-                        <TextField layoutX="200.0" layoutY="120.0" prefHeight="25.0" prefWidth="40.0" />
+                        <TextField fx:id="txtCodigoRemover" layoutX="184.0" layoutY="74.0" />
+                        <Button layoutX="287.0" layoutY="280.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
                      </children>
                   </AnchorPane>
                </content>
             </Tab>
-          <Tab text="Estoque">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <ListView layoutX="55.0" layoutY="52.0" prefHeight="301.0" prefWidth="495.0" />
-                     </children></AnchorPane>
-            </content>
-          </Tab>
         </tabs>
       </TabPane>
    </children>

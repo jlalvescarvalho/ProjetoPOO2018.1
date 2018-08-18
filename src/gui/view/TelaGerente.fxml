@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaGerente">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: silver;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaGerente">
    <children>
       <Label layoutX="254.0" layoutY="44.0" text="Gerente">
          <font>
@@ -14,7 +14,8 @@
       </Label>
       <Button fx:id="btGerFuncionario" layoutX="102.0" layoutY="114.0" mnemonicParsing="false" onAction="#abrirTelaGerenciarFuncionario" prefHeight="38.0" prefWidth="151.0" text="Gerenciar Funcionario" />
       <Button layoutX="313.0" layoutY="114.0" mnemonicParsing="false" onAction="#abrirTelaRelatoriosVenda" prefHeight="38.0" prefWidth="151.0" text="Relatorios de vendas" />
-      <Button layoutX="313.0" layoutY="181.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="151.0" text="Promover" />
+      <Button layoutX="313.0" layoutY="181.0" mnemonicParsing="false" onAction="#abrirTelaPromover" prefHeight="38.0" prefWidth="151.0" text="Promover" />
       <Button layoutX="102.0" layoutY="181.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="151.0" text="Relatorio de bonificações" />
+      <Button layoutX="503.0" layoutY="19.0" mnemonicParsing="false" onAction="#deslogar" text="Sair" />
    </children>
 </Pane>

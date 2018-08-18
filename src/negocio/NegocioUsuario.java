@@ -1,18 +1,23 @@
 package negocio;
 
+import execoes.DescontoInvalidoException;
 import execoes.UsuarioInvalidoException;
 import execoes.UsuarioJaExisteException;
+import execoes.UsuarioNaoExisteException;
 import negocio.entidade.Funcionario;
 import negocio.entidade.Gerente;
 import negocio.entidade.Usuario;
+import repositorio.IRepositorio;
 import repositorio.RepositorioUsuario;
 
 import java.util.ArrayList;
 
 public class NegocioUsuario {
 
-    private RepositorioUsuario repositorioUsuario;
+    private IRepositorio repositorioUsuario;
     private static NegocioUsuario mySelf;
+
+
 
     private NegocioUsuario(){
         this.repositorioUsuario = new RepositorioUsuario();
@@ -26,7 +31,8 @@ public class NegocioUsuario {
 
 
     public void cadastrar(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException {
-        if(usuario != null && usuario.getCpf().equals("") && usuario.getNome().equals("")){
+
+        if(usuario.getCpf().equals("") || usuario.getNome().equals("")){
             throw new UsuarioInvalidoException();
         }else if(recuperar(usuario.getCpf()) != null) {
             throw new UsuarioJaExisteException();
@@ -35,8 +41,11 @@ public class NegocioUsuario {
         }
     }
 
-    public Usuario recuperar(String cpf){
-        return this.repositorioUsuario.recuperar(cpf);
+    public Usuario recuperar(String cpf) {
+        if(this.repositorioUsuario.recuperar(cpf) != null){
+            return (Usuario) this.repositorioUsuario.recuperar(cpf);
+        }
+        return null;
     }
 
     public void remover(Usuario usuario){
@@ -51,17 +60,18 @@ public class NegocioUsuario {
         return this.repositorioUsuario.recupertarTudo();
     }
 
-    public int verificarLogin(String cpf, String senha) {
-        final int funcionario = 0;
-        final int gerente = 1;
 
-        Usuario usuario = recuperar(cpf);
-        if(usuario instanceof Gerente && usuario.verificarSenha(senha)) {
-            return gerente;
-        }else if (usuario instanceof Funcionario && usuario.verificarSenha(senha)){
-            return funcionario;
+
+    public double darDesconto(String cpfGerente, String senha, double valorVenda, int desconto) throws DescontoInvalidoException, UsuarioInvalidoException {
+        Gerente gerente = (Gerente) repositorioUsuario.recuperar(cpfGerente);
+        if(gerente.getSenha().equals(senha)) {
+            if (valorVenda > 100 && desconto > 0) {
+                return gerente.darDesconto(desconto);
+            } else {
+                throw new DescontoInvalidoException(desconto);
+            }
         }else{
-            return -1;
+           throw new UsuarioInvalidoException();
         }
     }
 }

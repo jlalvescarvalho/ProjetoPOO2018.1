@@ -1,8 +1,11 @@
 package negocio.entidade;
+import execoes.CPFApenasNumerosException;
+import execoes.CPFTamanhoException;
+import execoes.NomeInvalidoException;
 
 /**
  * @author Luciano/Giudicelli
- * Esta classe representa um usuario que pode ser funcionario ou gerente.
+ * Esta classe representa um usuario que pode ser Funcionario ou Gerente.
  */
 public abstract class Usuario {
 
@@ -12,7 +15,9 @@ public abstract class Usuario {
     private double salario;
     private String senha;
 
-    public Usuario(String nome, String cpf, Endereco endereco, double salario, String senha) {
+    public Usuario(String nome, String cpf, Endereco endereco, double salario, String senha) throws CPFApenasNumerosException, CPFTamanhoException, NomeInvalidoException {
+        verificarCpf();
+        verificarNome();
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
@@ -40,12 +45,12 @@ public abstract class Usuario {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public String getSenha() {
+        return this.senha;
     }
 
-    public String getSenha(){
-        return this.senha;
+    public void setSenha(String senha){
+        this.senha = senha;
     }
 
     public double getSalario() {
@@ -71,4 +76,19 @@ public abstract class Usuario {
     }
 
     public abstract boolean verificarSenha(String senha);
+
+    public void verificarCpf() throws CPFApenasNumerosException, CPFTamanhoException {
+        char[] cpfChar = this.cpf.toCharArray();
+        for(int i = 0; i < cpfChar.length; i++){
+            if (!Character.isDigit(cpfChar[i])){
+                throw new CPFApenasNumerosException();
+            }
+        }
+        if (this.cpf.length() != 11){
+            throw new CPFTamanhoException(this.cpf.length());
+        }
+    }
+    public void verificarNome() throws NomeInvalidoException {
+        if(this.nome.equals(" ") || this.nome.length() < 3) throw new NomeInvalidoException();
+    }
 }

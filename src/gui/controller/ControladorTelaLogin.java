@@ -1,5 +1,7 @@
 package gui.controller;
 
+import execoes.UsuarioInvalidoException;
+import execoes.UsuarioNaoExisteException;
 import fachada.Fachada;
 import fachada.IFachadaFuncionario;
 import fachada.IFachadaGerente;
@@ -9,14 +11,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static gui.Main.*;
 
 public class ControladorTelaLogin implements Initializable {
-    IFachadaGerente gerente = new Fachada();
+    Fachada fachada = new Fachada();
 
 
     @FXML
@@ -24,6 +29,11 @@ public class ControladorTelaLogin implements Initializable {
 
     @FXML
     private PasswordField senha;
+
+    private Stage tela;
+
+    @FXML
+    private Pane pane;
 
 
     @Override
@@ -37,12 +47,19 @@ public class ControladorTelaLogin implements Initializable {
 
     public void logar(ActionEvent actionEvent) {
 
-        if(gerente.verificarLogin(login.getText(), senha.getText()) == 1){
-            Main.chamarTela("view/TelaGerente.fxml", 600, 400);
-        }else if(gerente.verificarLogin(login.getText(), senha.getText()) == 0){
-            chamarTela("view/TelaFuncionario.fxml",600,400);
-        }else{
+        try {
+            if(fachada.verificarLogin(login.getText(), senha.getText()) == 1){
 
+                Main.chamarTela("view/TelaGerente.fxml", 600, 400);
+                tela = (Stage) this.pane.getScene().getWindow();
+                tela.close();
+            }else if(fachada.verificarLogin(login.getText(), senha.getText()) == 0){
+                chamarTela("view/TelaFuncionario.fxml",600,400);
+                tela = (Stage) this.pane.getScene().getWindow();
+                tela.close();
+            }
+        } catch (UsuarioInvalidoException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 }

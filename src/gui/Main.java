@@ -1,12 +1,12 @@
 package gui;
-import execoes.UsuarioInvalidoException;
-import execoes.UsuarioJaExisteException;
+import execoes.*;
 import fachada.Fachada;
 import fachada.IFachadaGerente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -40,20 +40,32 @@ public class Main extends Application{
         IFachadaGerente gerente = new Fachada();
 
         try {
-            gerente.cadastrarFuncionario("Luciano", "0000", "Aqui", "centro","00000", 0,"Não interessa",500.00,"0000");
+            gerente.cadastrarGerente("Admin", "11122233345", "centro","centro","09090","0","ai dentro","0000",8);
         } catch (UsuarioJaExisteException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         } catch (UsuarioInvalidoException e) {
-            e.printStackTrace();
-        }
-        try {
-            gerente.cadastrarGerente("Gil", "123", "centro","centro","09090",0,"ai dentro", 2000.00,"0000",8);
-        } catch (UsuarioJaExisteException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
-        } catch (UsuarioInvalidoException e) {
-            e.printStackTrace();
-            System.out.println(e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFApenasNumerosException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (NomeInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
 
         launch(args);

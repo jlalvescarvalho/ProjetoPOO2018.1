@@ -1,12 +1,5 @@
 package negocio.entidade;
 
-/**
- * @author Luciano/Giudicelli
- * Esta classe representa cada item de entrada, cada produto e sua quantidade.
- * Servirá também para ter o controle de o que está entrando e saindo
- * do estoque e ter o controle disso.
- */
-
 public class ItemEstoque {
 
     private int quantidade;
@@ -34,4 +27,8 @@ public class ItemEstoque {
         this.produto = produto;
     }
 
+    @Override
+    public String toString() {
+        return "Produto: "+this.produto.getDescricao()+" -codigo: "+this.getProduto().getCodigo()+" -Quant.: "+this.quantidade;
+    }
 }

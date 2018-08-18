@@ -8,14 +8,21 @@ package negocio.entidade;
  */
     public class ItemVenda {
 
-    private Produto produto;
-    private int quantidade;
-    private double totalItem;
+        private int id;
+        private static int CONTADOR = 0;
+        private Produto produto;
+        private int quantidade;
+        private double totalItem;
 
     public ItemVenda(Produto produto, int quantidade) {
+        this.id = CONTADOR++;
         this.produto = produto;
         this.quantidade = quantidade;
         this.totalItem = quantidade*produto.getPreco();
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Produto getProduto() {
@@ -31,14 +38,15 @@ package negocio.entidade;
     }
 
     public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+        this.quantidade += quantidade;
+        atualizarTotalItem();
     }
 
     public double getTotalItem() {
         return totalItem;
     }
 
-    public void setTotalItem(double totalItem) {
-        this.totalItem = totalItem;
+    private void atualizarTotalItem(){
+        this.totalItem = this.quantidade*this.produto.getPreco();
     }
 }

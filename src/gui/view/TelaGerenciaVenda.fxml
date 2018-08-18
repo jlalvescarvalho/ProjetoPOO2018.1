@@ -2,23 +2,42 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControllerTelaVendas">
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaVendas">
    <children>
-      <Button layoutX="236.0" layoutY="325.0" mnemonicParsing="false" text="Filalizar!">
+      <Button layoutX="82.0" layoutY="345.0" mnemonicParsing="false" onAction="#finalizarVenda" text="Finalizar Venda">
          <font>
-            <Font size="21.0" />
+            <Font size="13.0" />
          </font></Button>
-      <Label layoutX="130.0" layoutY="61.0" text="ID do produto" />
-      <TextField layoutX="94.0" layoutY="90.0" />
-      <Label layoutX="269.0" layoutY="61.0" text="Quantidade" />
-      <TextField layoutX="287.0" layoutY="90.0" prefHeight="25.0" prefWidth="26.0" />
-      <ListView layoutX="386.0" layoutY="70.0" prefHeight="208.0" prefWidth="200.0" />
-      <Label layoutX="386.0" layoutY="291.0" text="Total:" />
-      <Label layoutX="472.0" layoutY="291.0" text="2122" visible="false" />
+      <Label layoutX="36.0" layoutY="271.0" text="ID do produto" />
+      <TextField fx:id="codigoProdutoVenda" layoutX="14.0" layoutY="293.0" prefHeight="25.0" prefWidth="161.0" />
+      <Label layoutX="206.0" layoutY="271.0" text="Quantidade" />
+      <TextField fx:id="quantProdutoVenda" layoutX="206.0" layoutY="293.0" prefHeight="25.0" prefWidth="44.0" />
+      <Label layoutX="359.0" layoutY="254.0" text="Total:" />
+      <Label fx:id="subTotalVenda" layoutX="400.0" layoutY="250.0" prefHeight="25.0" prefWidth="76.0" />
+      <Button layoutX="280.0" layoutY="345.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar Venda">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="274.0" layoutY="293.0" mnemonicParsing="false" onAction="#adicionarProduto" text="Adicionar" />
+      <TableView fx:id="tableVenda" layoutX="4.0" layoutY="7.0" prefHeight="261.0" prefWidth="352.0">
+        <columns>
+          <TableColumn fx:id="tcItem" prefWidth="35.0" text="Item" />
+          <TableColumn fx:id="tcDescricao" prefWidth="144.0" text="Desc" />
+            <TableColumn fx:id="tcQuantidade" prefWidth="49.0" text="Quant" />
+            <TableColumn fx:id="tcPrecoUnit" prefWidth="61.0" text="P.Unit" />
+            <TableColumn fx:id="tcTotalItem" prefWidth="62.0" text="P. Total" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="360.0" layoutY="21.0" prefHeight="29.0" prefWidth="237.0" text="Cliente" textAlignment="CENTER" />
+      <Label fx:id="labelCliente" alignment="CENTER" layoutX="365.0" layoutY="42.0" prefHeight="29.0" prefWidth="237.0" />
+      <Label layoutX="410.0" layoutY="351.0" text="Funcionario:" />
+      <Label fx:id="labelFuncionario" layoutX="484.0" layoutY="351.0" prefHeight="17.0" prefWidth="105.0" />
    </children>
 </AnchorPane>

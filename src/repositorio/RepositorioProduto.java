@@ -31,7 +31,7 @@ public class RepositorioProduto implements IRepositorio<Produto> {
     @Override
     public Produto recuperar(String id) {
         for (int i = 0; i < this.produtos.size();i++){
-            if (this.produtos.get(i).getCodigo() == id){
+            if (this.produtos.get(i).getCodigo().equals(id)){
                 return this.produtos.get(i);
             }
         }

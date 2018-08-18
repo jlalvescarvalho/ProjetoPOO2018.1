@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaRelatorioVendas">
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ControladorTelaRelatorioVendas">
    <children>
       <TabPane prefHeight="407.0" prefWidth="606.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -22,6 +22,7 @@
                         <DatePicker fx:id="dtFim" layoutX="216.0" layoutY="34.0" />
                         <Label layoutX="270.0" layoutY="14.0" text="Data Fim" />
                         <Button layoutX="423.0" layoutY="34.0" mnemonicParsing="false" onAction="#gerarRelatorioPorDatas" text="Buscar" />
+                        <Button layoutX="518.0" layoutY="34.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
                      </children></AnchorPane>
             </content>
           </Tab>

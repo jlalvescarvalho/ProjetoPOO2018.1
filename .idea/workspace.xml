@@ -2,69 +2,99 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaRelatorioVendas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/view/RelatorioVendas.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/CampoTipoUsuarioVazioException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/CodigoInvalidoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/DescontoInvalidoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/DescricaoInvalidaException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/ItemDeEstoqueInvalidoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/ProdutoJaExisteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/ProdutoNaoExisteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/QuantidadeInvalidaException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/QuantidadeNaoDisponivelException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/TamanhoInvalidoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/execoes/UsuarioNaoExisteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaBonificacao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaFinalizaVenda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaProduto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaPromover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaVendas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/view/TelaFinalizaVendaComCliente.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/view/TelaPromover.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/view/TelaRelatorioBonificacao.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/negocio/entidade/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/negocio/entidade/SalarioCargoEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/ControladorTElaGerenciaUsuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/ControladorTelaGerenciaCliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/ControllerTelaVendas.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/TelaFuncionario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/TelaGerenciaUsuario.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/Gui/TelaGerenciaVenda.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/FachadaFuncionario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/FachadaGerente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/Fachada.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/Fachada.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/IFachadaFuncionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/IFachadaFuncionario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/IFachadaGerente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/fachada/IFachadaGerente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTElaGerenciaUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTElaGerenciaUsuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaFuncionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaFuncionario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaGerenciaCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaGerenciaCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaGerenciaEstoque.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaGerenciaEstoque.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaGerente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaGerente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaLogin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaRelatorioVendas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControladorTelaRelatorioVendas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/controller/ControllerTelaVendas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/RelatorioVendas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/RelatorioVendas.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaFuncionario.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaEstoque.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaEstoque.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaProduto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaProduto.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaUsuario.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaVenda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaVenda.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/telaGerente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/telaGerente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/telalogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/telalogin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioCliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioEstoque.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioEstoque.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioProduto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioProduto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioUsuario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioVenda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/NegocioVenda.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Endereco.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Endereco.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Funcionario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Funcionario.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Gerente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Gerente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/ItemEstoque.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/ItemEstoque.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/ItemVenda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/ItemVenda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Produto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Produto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/negocio/entidade/Usuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/IRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/IRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioCliente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioEstoque.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioEstoque.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioProduto.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioProduto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioUsuario.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioVenda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GerenciamentoMercado/repositorio/RepositorioVenda.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fachada/Fachada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fachada/Fachada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fachada/FachadaFuncionario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fachada/FachadaGerente.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fachada/IFachadaFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fachada/IFachadaFuncionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fachada/IFachadaGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fachada/IFachadaGerente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ControladorTelaFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaFuncionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ControladorTelaGerenciaEstoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaEstoque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/TelaGerenciaEstoque.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaGerenciaEstoque.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/TelaGerenciaUsuario.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaFuncionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaFuncionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaEstoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaEstoque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaRelatorioVendas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaRelatorioVendas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/controller/ControllerTelaVendas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/RelatorioVendas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/RelatorioVendas.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/view/TelaFuncionario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaFuncionario.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/view/TelaGerenciaCliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaGerenciaCliente.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/TelaGerenciaEstoque.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaGerenciaEstoque.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/TelaGerenciaProduto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaGerenciaProduto.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/view/TelaGerenciaUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaGerenciaUsuario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/view/TelaGerenciaVenda.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaGerenciaVenda.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/view/TelaGerente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaGerente.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/view/TelaLogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/view/TelaLogin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/NegocioCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/NegocioCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/NegocioEstoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/NegocioEstoque.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/NegocioProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/NegocioProduto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/NegocioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/NegocioUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/NegocioVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/NegocioVenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Endereco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Endereco.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Funcionario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Gerente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Gerente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/negocio/entidade/ItemEstoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/ItemEstoque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/negocio/entidade/ItemVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/ItemVenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Produto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/negocio/entidade/Venda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/negocio/entidade/Venda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositorio/RepositorioEstoque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositorio/RepositorioEstoque.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/repositorio/RepositorioProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/repositorio/RepositorioProduto.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,34 +150,52 @@
     <session id="744073652">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="16" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.24" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.34" value="2" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.39" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.50" value="2" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="21" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="11" />
-          <entry key="java" value="17" />
+          <entry key="fxml" value="69" />
+          <entry key="java" value="278" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="17" />
-          <entry key="XML" value="11" />
+          <entry key="JAVA" value="278" />
+          <entry key="XML" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="21" />
-          <entry key="fxml" value="38" />
-          <entry key="java" value="1863" />
+          <entry key="dummy" value="74" />
+          <entry key="fxml" value="73" />
+          <entry key="java" value="17318" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1863" />
-          <entry key="PLAIN_TEXT" value="21" />
-          <entry key="XML" value="38" />
+          <entry key="JAVA" value="17318" />
+          <entry key="PLAIN_TEXT" value="74" />
+          <entry key="XML" value="73" />
         </counts>
       </usages-collector>
     </session>
@@ -158,20 +206,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaCliente.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Funcionario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Gerente.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaCliente.java">
+        <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+            <state relative-caret-position="-506">
+              <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,6 +254,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>estoq</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -203,63 +273,69 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/gui/ControladorTelaFuncionario.java" />
-        <option value="$PROJECT_DIR$/src/gui/Users/giudi/IdeaProjects/ProjetoPOO2018.1/src/gui.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/TelaGerenciaEstoque.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/telaGerente.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/TelaGerenciaVenda.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/TelaGerenciaUsuario.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/ControladorTElaGerenciaUsuario.java" />
-        <option value="$PROJECT_DIR$/src/repositorio/RepositorioCliente.java" />
-        <option value="$PROJECT_DIR$/src/repositorio/RepositorioEstoque.java" />
-        <option value="$PROJECT_DIR$/src/gui/view/telalogin.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaProduto.fxml" />
-        <option value="$PROJECT_DIR$/src/execoes/execoesRepositorio/UsuarioException.java" />
-        <option value="$PROJECT_DIR$/src/execoes/UsuarioJaExisteException.java" />
-        <option value="$PROJECT_DIR$/src/execoes/UsuarioInvalidoException.java" />
-        <option value="$PROJECT_DIR$/src/repositorio/IRepositorio.java" />
-        <option value="$PROJECT_DIR$/src/execoes/CPFTamanhoException.java" />
-        <option value="$PROJECT_DIR$/src/execoes/CPFApenasNumerosException.java" />
-        <option value="$PROJECT_DIR$/src/execoes/NomeInvalidoException.java" />
-        <option value="$PROJECT_DIR$/src/negocio/entidade/Cliente.java" />
-        <option value="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaFuncionario.fxml" />
-        <option value="$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaLogin.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/view/TelaLogin.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/view/TelaFuncionario.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaBonificacao.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaGerente.fxml" />
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaFuncionario.java" />
-        <option value="$PROJECT_DIR$/src/fachada/FachadaFuncionario.java" />
-        <option value="$PROJECT_DIR$/src/fachada/IFachadaFuncionario.java" />
-        <option value="$PROJECT_DIR$/src/fachada/FachadaGerente.java" />
-        <option value="$PROJECT_DIR$/src/negocio/entidade/Departamento.java" />
-        <option value="$PROJECT_DIR$/src/negocio/entidade/CargosEnum.java" />
-        <option value="$PROJECT_DIR$/src/negocio/entidade/Usuario.java" />
-        <option value="$PROJECT_DIR$/src/negocio/entidade/Funcionario.java" />
-        <option value="$PROJECT_DIR$/src/fachada/IFachadaGerente.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaFuncionario.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaRelatorioVendas.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/RelatorioVendas.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaUsuario.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaPromover.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaEstoque.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaCliente.fxml" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/Login.java" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java" />
+        <option value="$PROJECT_DIR$/src/repositorio/RepositorioProduto.java" />
+        <option value="$PROJECT_DIR$/src/repositorio/RepositorioEstoque.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/VendaModelo.java" />
+        <option value="$PROJECT_DIR$/src/execoes/QuantidadeNaoDisponivelException.java" />
+        <option value="$PROJECT_DIR$/src/execoes/ApenasNumerosException.java" />
+        <option value="$PROJECT_DIR$/src/execoes/ProdutoJaExisteException.java" />
+        <option value="$PROJECT_DIR$/src/execoes/TamanhoInvalidoException.java" />
+        <option value="$PROJECT_DIR$/src/execoes/DescricaoInvalidaException.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/Produto.java" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaProduto.java" />
         <option value="$PROJECT_DIR$/src/negocio/NegocioProduto.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/ItemEstoque.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/ItemVenda.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaFinalizarVenda.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControllerTelaVendas.java" />
         <option value="$PROJECT_DIR$/src/negocio/NegocioCliente.java" />
-        <option value="$PROJECT_DIR$/src/negocio/NegocioEstoque.java" />
-        <option value="$PROJECT_DIR$/src/negocio/NegocioVenda.java" />
-        <option value="$PROJECT_DIR$/src/fachada/Fachada.java" />
-        <option value="$PROJECT_DIR$/src/negocio/entidade/Gerente.java" />
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaLogin.java" />
         <option value="$PROJECT_DIR$/src/negocio/NegocioUsuario.java" />
-        <option value="$PROJECT_DIR$/src/gui/controller/ControllerFuncionario.java" />
-        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java" />
-        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaUsuario.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/view/TelaGerente.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java" />
-        <option value="$PROJECT_DIR$/src/gui/Main.java" />
-        <option value="$PROJECT_DIR$/src/gui/view/RelatorioVendas.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaRelatorioVendas.java" />
-        <option value="$PROJECT_DIR$/src/negocio/entidade/Venda.java" />
-        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaCliente.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaFinalizaVenda.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaFinalizaVenda.fxml" />
+        <option value="$PROJECT_DIR$/src/negocio/NegocioVenda.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaVenda.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaVendas.java" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaEstoque.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaGerenciaProduto.fxml" />
+        <option value="$PROJECT_DIR$/src/execoes/CampoTipoUsuarioVazioException.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/Endereco.java" />
+        <option value="$PROJECT_DIR$/src/fachada/IFachadaFuncionario.java" />
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaCliente.java" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaPromover.java" />
+        <option value="$PROJECT_DIR$/src/negocio/NegocioEstoque.java" />
+        <option value="$PROJECT_DIR$/src/fachada/IFachadaGerente.java" />
+        <option value="$PROJECT_DIR$/src/fachada/Fachada.java" />
+        <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/Cliente.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/Gerente.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/Funcionario.java" />
+        <option value="$PROJECT_DIR$/src/gui/Main.java" />
+        <option value="$PROJECT_DIR$/src/negocio/entidade/Usuario.java" />
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="775" />
   </component>
@@ -274,7 +350,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -286,6 +361,12 @@
               <item name="GerenciamentoMercado" type="b2602c69:ProjectViewProjectNode" />
               <item name="GerenciamentoMercado" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GerenciamentoMercado" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GerenciamentoMercado" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="execoes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GerenciamentoMercado" type="b2602c69:ProjectViewProjectNode" />
@@ -323,13 +404,15 @@
               <item name="GerenciamentoMercado" type="b2602c69:ProjectViewProjectNode" />
               <item name="GerenciamentoMercado" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="repositorio" type="462c0819:PsiDirectoryNode" />
+              <item name="negocio" type="462c0819:PsiDirectoryNode" />
+              <item name="entidade" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -341,14 +424,15 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="Diagra&#9;PSI&#9;JAVA://javax.swing.colorchooser.DiagramComponent" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/gui/view" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -466,37 +550,46 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.20121029" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5704918" visible="true" weight="0.23524962" />
+      <window_info id="Structure" order="1" sideWeight="0.4295082" side_tool="true" weight="0.1732224" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32750398" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44262296" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3262295" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.46393442" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39836067" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32750398" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295082" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3262295" />
       <window_info anchor="bottom" id="Changes" order="8" />
       <window_info anchor="bottom" id="Profiler" order="9" />
       <window_info anchor="bottom" id="Problems" order="10" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Application Servers" order="12" />
-      <window_info anchor="bottom" id="Terminal" order="13" />
-      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.3295082" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" weight="0.32786885" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980332" />
       <window_info anchor="right" id="JetGradle" order="5" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
@@ -516,360 +609,394 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/execoes/execoesRepositorio/UsuarioException.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/ComboBox.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaRelatorioVendas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3468">
-          <caret line="223" column="30" selection-start-line="223" selection-start-column="30" selection-end-line="223" selection-end-column="30" />
+        <state relative-caret-position="17">
+          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/execoes/UsuarioInvalidoException.java">
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/javax/swing/colorchooser/DiagramComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/Dialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1555">
+          <caret line="325" lean-forward="true" selection-start-line="325" selection-end-line="325" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/execoes/ProdutoJaExisteException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/execoes/DescricaoInvalidaException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositorio/IRepositorio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/execoes/UsuarioJaExisteException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/execoes/NomeInvalidoException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/execoes/CPFTamanhoException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Cliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="74" column="24" lean-forward="true" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositorio/RepositorioUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/TelaGerenciaUsuario.fxml" />
-    <entry file="file://$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/Main.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaFuncionario.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaGerenciaUsuario.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/GerenciamentoMercado/gui/view/TelaLogin.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositorio/RepositorioCliente.java">
+    <entry file="file://$PROJECT_DIR$/src/execoes/TamanhoInvalidoException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositorio/RepositorioEstoque.java">
+    <entry file="file://$PROJECT_DIR$/src/execoes/CodigoInvalidoException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="74" column="50" lean-forward="true" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/execoes/CPFApenasNumerosException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Produto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fachada/FachadaFuncionario.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaEstoque.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fachada/FachadaGerente.java" />
-    <entry file="file://$PROJECT_DIR$/src/fachada/IFachadaFuncionario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/CargosEnum.java" />
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/DepartamentoEnum.java" />
-    <entry file="file://$PROJECT_DIR$/src/fachada/IFachadaGerente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="169" selection-start-line="15" selection-start-column="169" selection-end-line="15" selection-end-column="169" />
+        <state relative-caret-position="68">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/negocio/NegocioProduto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        <state relative-caret-position="511">
+          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioCliente.java">
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/ItemEstoque.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioEstoque.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="64" column="9" lean-forward="true" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fachada/Fachada.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2465">
-          <caret line="176" column="40" selection-start-line="176" selection-start-column="40" selection-end-line="176" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3054#3055#0" expanded="true" />
-            <element signature="e#3123#3124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaVenda.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Gerente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Funcionario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaFuncionario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        <state relative-caret-position="460">
+          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/javafx.controls/javafx/scene/control/ButtonType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-272">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/execoes/ProdutoNaoExisteException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/execoes/QuantidadeNaoDisponivelException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Produto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/ItemVenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="48" column="37" lean-forward="true" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioCliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
           <folding>
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#518#519#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-            <element signature="e#648#649#0" expanded="true" />
-            <element signature="e#720#721#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#851#852#0" expanded="true" />
+            <element signature="e#979#980#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+            <element signature="e#1071#1072#0" expanded="true" />
+            <element signature="e#1118#1119#0" expanded="true" />
+            <element signature="e#1156#1157#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/execoes/DescontoInvalidoException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaFinalizaVendaComCliente.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/view/TelaFuncionario.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="300" selection-start-line="7" selection-start-column="300" selection-end-line="7" selection-end-column="300" />
+          <caret line="7" column="313" selection-start-line="7" selection-start-column="313" selection-end-line="7" selection-end-column="313" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaUsuario.fxml">
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaProduto.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+        <state relative-caret-position="901">
+          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="40" column="60" lean-forward="true" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerente.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaEstoque.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaVenda.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioVenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repositorio/RepositorioEstoque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaFinalizaVenda.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="46" lean-forward="true" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2268#2269#0" expanded="true" />
+            <element signature="e#2301#2302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/view/TelaLogin.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-        </state>
-      </provider>
+      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="-50">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioUsuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaProduto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="171" column="12" selection-start-line="171" selection-start-column="12" selection-end-line="174" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaVendas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="171" column="31" selection-start-line="171" selection-start-column="31" selection-end-line="171" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="class#VendaModelo#0;class#ControladorTelaVendas#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaUsuario.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/execoes/CampoTipoUsuarioVazioException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#126#127#0" expanded="true" />
+            <element signature="e#149#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/execoes/ApenasNumerosException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="47" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
+          <folding>
+            <element signature="e#124#125#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Endereco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="39" column="29" lean-forward="true" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaPromover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="76" column="12" selection-start-line="76" selection-start-column="12" selection-end-line="76" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioEstoque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fachada/IFachadaGerente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="119" selection-start-line="15" selection-start-column="119" selection-end-line="15" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fachada/IFachadaFuncionario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="96" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2008">
+          <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Cliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="54" column="48" lean-forward="true" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
+          <folding>
+            <element signature="e#680#681#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#995#996#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#1058#1059#0" expanded="true" />
+            <element signature="e#1091#1092#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaEstoque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaCliente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1177">
+          <caret line="157" column="36" selection-start-line="157" selection-start-column="36" selection-end-line="157" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+        <state relative-caret-position="25">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fachada/Fachada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="147" selection-start-line="147" selection-end-line="147" />
+          <folding>
+            <element signature="e#393#394#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Gerente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="51" lean-forward="true" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/repositorio/RepositorioVenda.java">
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Funcionario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerente.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/view/RelatorioVendas.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1593">
-          <caret line="135" column="9" lean-forward="true" selection-start-line="135" selection-start-column="9" selection-end-line="135" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Venda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="69" column="84" selection-start-line="69" selection-start-column="84" selection-end-line="69" selection-end-column="84" />
-          <folding>
-            <element signature="e#1684#1685#0" expanded="true" />
-            <element signature="e#1742#1743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="375">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/negocio/NegocioVenda.java">
+    <entry file="file://$PROJECT_DIR$/src/negocio/entidade/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaRelatorioVendas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="31" column="54" lean-forward="true" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.desktop/javax/swing/JOptionPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="801" selection-start-line="801" selection-end-line="801" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaGerenciaCliente.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaCliente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="101" column="8" selection-start-line="101" selection-start-column="8" selection-end-line="101" selection-end-column="8" />
+        <state relative-caret-position="-506">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

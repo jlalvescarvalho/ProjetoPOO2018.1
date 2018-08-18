@@ -8,12 +8,12 @@ package negocio.entidade;
 public class Endereco {
 
     private String rua;
-    private int numero;
+    private String numero;
     private String bairro;
     private String cep;
     private String cidade;
 
-    public Endereco(String rua, int numero, String bairro, String cep, String cidade) {
+    public Endereco(String rua, String numero, String bairro, String cep, String cidade) {
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -29,11 +29,11 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 

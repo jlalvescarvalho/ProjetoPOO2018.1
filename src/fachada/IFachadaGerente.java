@@ -1,8 +1,8 @@
 package fachada;
 
-import execoes.UsuarioInvalidoException;
-import execoes.UsuarioJaExisteException;
+import execoes.*;
 import negocio.entidade.Cliente;
+import negocio.entidade.SalarioCargoEnum;
 import negocio.entidade.Usuario;
 import negocio.entidade.Venda;
 
@@ -11,18 +11,19 @@ import java.util.Date;
 
 public interface IFachadaGerente {
 
-    int verificarLogin(String login, String senha);
-    void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, double salario, String senha) throws UsuarioJaExisteException, UsuarioInvalidoException;
-    void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, int numero, String cidade, double salario, String senha, int numFuncGerenciados) throws UsuarioJaExisteException, UsuarioInvalidoException;
-    Usuario recuperarUsuario(String cpf);
-    void removerUsuario(String cpf);
+
+    void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade, String senha) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException;
+    void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade, String senha, int numFuncGerenciados) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException;
+    Usuario recuperarUsuario(String cpf) throws UsuarioNaoExisteException;
+    void removerUsuario(String cpf) throws UsuarioNaoExisteException;
     void atualizarUsuario(String cpf, Usuario usuario);
     ArrayList<Usuario> recuperarTodosUsuarios();
     Venda recuperarVenda(String id);
     void removerVenda(String id);
     ArrayList<Venda> recuperarTodasVendas();
     ArrayList<Venda> gerarRelatorioPorDatas(Date dataInicial, Date dataFinal);
-
+    double darDesconto(String cpfGerente, String senha, double valorVenda, int desconto) throws DescontoInvalidoException, UsuarioInvalidoException;
+    void promoverParaGerente(Usuario usuario) throws UsuarioNaoExisteException, UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException;
 
 
     }
