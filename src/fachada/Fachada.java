@@ -75,8 +75,13 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente) {
-        NegocioVenda.getInstace().cadastrarVendaComCliente(funcionario, cliente);
+    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto) {
+        NegocioVenda.getInstace().cadastrarVendaComCliente(funcionario, cliente, desconto);
+    }
+
+    @Override
+    public double calcularTotalVenda(){
+        return NegocioVenda.getInstace().calcularTotalVenda();
     }
 
     @Override
@@ -201,7 +206,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
 
 
     @Override
-    public double darDesconto(String cpfGerente, String senha, double valorVenda, int desconto) throws DescontoInvalidoException, UsuarioInvalidoException {
+    public double darDesconto(String cpfGerente, String senha, double valorVenda, double desconto) throws DescontoInvalidoException, UsuarioInvalidoException {
         return NegocioUsuario.getInstace().darDesconto(cpfGerente,senha,valorVenda,desconto);
     }
 

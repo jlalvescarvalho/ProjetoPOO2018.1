@@ -18,7 +18,7 @@ public interface IFachadaFuncionario {
     void atualizarCliente(String cpf, Cliente cliente);
     void removerCliente(Cliente cliente);
     ArrayList<Cliente> recuperarTodosCliente();
-    void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente);
+    void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto);
     void cadastrarVendaSemCliente(Funcionario funcionario);
     void adicionarItem(String codigoProduto, int quantidade) throws ProdutoNaoExisteException, CodigoInvalidoException, QuantidadeNaoDisponivelException;
     void cadastrarProduto(String codigo, String descricao, double preco, String marca) throws CodigoInvalidoException, DescricaoInvalidaException, TamanhoInvalidoException, ApenasNumerosException;
@@ -28,4 +28,5 @@ public interface IFachadaFuncionario {
     void atualizarProduto(String codigo, Produto produto);
     ArrayList<ItemVenda> getListarItens();
     double verificarFrequencia(String cpf);
+    double calcularTotalVenda();
     }

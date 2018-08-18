@@ -13,10 +13,12 @@ public class Gerente extends Funcionario {
 
     public Gerente(String nome, String cpf, Endereco endereco, double salario, String senha, int numeroDeFuncionarioGerenciados) throws CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException {
         super(nome, cpf, endereco, salario, senha);
+        verificarCpf();
+        verificarNome();
         this.numeroDeFuncionariosGerenciados = numeroDeFuncionarioGerenciados;
     }
 
-    public double darDesconto(int desconto) throws DescontoInvalidoException {
+    public double darDesconto(double desconto) throws DescontoInvalidoException {
         if(desconto <= this.descontoMaximo && desconto > 0){
            return desconto/100;
         }else{

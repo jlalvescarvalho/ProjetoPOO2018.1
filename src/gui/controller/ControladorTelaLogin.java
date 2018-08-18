@@ -9,6 +9,7 @@ import gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -45,7 +46,7 @@ public class ControladorTelaLogin implements Initializable {
 
 
 
-    public void logar(ActionEvent actionEvent) {
+    public void logar() {
 
         try {
             if(fachada.verificarLogin(login.getText(), senha.getText()) == 1){
@@ -59,7 +60,10 @@ public class ControladorTelaLogin implements Initializable {
                 tela.close();
             }
         } catch (UsuarioInvalidoException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
     }
 }

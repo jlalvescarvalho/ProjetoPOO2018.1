@@ -58,7 +58,6 @@ public class ControladorTelaVendas implements Initializable {
 
     private ObservableList vendaModelos;
     private static String cpfClienteVenda;
-    private static double subTotalASerPassado;
 
 
     public void adicionarProduto(){
@@ -66,7 +65,7 @@ public class ControladorTelaVendas implements Initializable {
             try {
                 funcionario.adicionarItem(codigoProdutoVenda.getText(), Integer.parseInt(quantProdutoVenda.getText()));
 
-                subTotalVenda.setText(String.valueOf(calcularTotalVenda()));
+                subTotalVenda.setText(String.valueOf(funcionario.calcularTotalVenda()));
                 atualizarTableView();
 
 
@@ -79,17 +78,6 @@ public class ControladorTelaVendas implements Initializable {
             }
 
 
-    }
-
-    private double calcularTotalVenda(){
-        ArrayList<ItemVenda> itensVenda = funcionario.getListarItens();
-        double total = 0.0;
-
-        for (ItemVenda iv: itensVenda){
-            total += iv.getTotalItem();
-        }
-        subTotalASerPassado = total;
-        return total;
     }
 
     private void atualizarTableView(){
@@ -163,7 +151,7 @@ public class ControladorTelaVendas implements Initializable {
             tela = (Stage) this.pane.getScene().getWindow();
             tela.close();
 
-        }else{
+        }else if (cpfClienteVenda.equals("") || cpfClienteVenda.equals(" ")){
             funcionario.cadastrarVendaSemCliente((Funcionario) Login.getInstance().getUsuario());
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -181,9 +169,7 @@ public class ControladorTelaVendas implements Initializable {
     protected static String getCpfClienteVenda(){
        return cpfClienteVenda;
     }
-    protected static double getSubTotal(){
-        return subTotalASerPassado;
-    }
+
 
 
     @Override

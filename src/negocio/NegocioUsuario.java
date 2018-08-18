@@ -62,7 +62,7 @@ public class NegocioUsuario {
 
 
 
-    public double darDesconto(String cpfGerente, String senha, double valorVenda, int desconto) throws DescontoInvalidoException, UsuarioInvalidoException {
+    public double darDesconto(String cpfGerente, String senha, double valorVenda, double desconto) throws DescontoInvalidoException, UsuarioInvalidoException {
         Gerente gerente = (Gerente) repositorioUsuario.recuperar(cpfGerente);
         if(gerente.getSenha().equals(senha)) {
             if (valorVenda > 100 && desconto > 0) {

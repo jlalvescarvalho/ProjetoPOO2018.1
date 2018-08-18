@@ -22,7 +22,7 @@ public interface IFachadaGerente {
     void removerVenda(String id);
     ArrayList<Venda> recuperarTodasVendas();
     ArrayList<Venda> gerarRelatorioPorDatas(Date dataInicial, Date dataFinal);
-    double darDesconto(String cpfGerente, String senha, double valorVenda, int desconto) throws DescontoInvalidoException, UsuarioInvalidoException;
+    double darDesconto(String cpfGerente, String senha, double valorVenda, double desconto) throws DescontoInvalidoException, UsuarioInvalidoException;
     void promoverParaGerente(Usuario usuario) throws UsuarioNaoExisteException, UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException;
 
 

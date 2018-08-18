@@ -9,17 +9,21 @@ import java.util.Date;
  */
 public class Venda {
 
-    private String id;
+    private int id;
+    private static int CONTADOR = 0;
     private ArrayList<ItemVenda> listaVenda;
     private Funcionario funcionario;
     private Cliente cliente;
     private Date data;
+    private double desconto;
 
-    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente) {
+    public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario, Cliente cliente, double desconto) {
+        this.id = CONTADOR++;
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
         this.cliente = cliente;
         this.data = new Date();
+        this.desconto = desconto;
     }
 
     public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario) {
@@ -28,7 +32,7 @@ public class Venda {
         this.data = new Date();
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -55,6 +59,9 @@ public class Venda {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+    public double getDesconto() {
+        return desconto;
+    }
 
     public double getTotal(){
         double tt = 0.0;
@@ -62,11 +69,11 @@ public class Venda {
         for(ItemVenda it: listaVenda){
             tt += it.getTotalItem();
         }
-        return tt;
+        return tt-(tt*desconto);
     }
 
     @Override
     public String toString() {
-        return "Valor da venda: "+this.getTotal()+" Funcionario: "+this.funcionario;
+        return "Valor da venda: "+this.getTotal()+" Funcionario: "+this.funcionario.getNome();
     }
 }

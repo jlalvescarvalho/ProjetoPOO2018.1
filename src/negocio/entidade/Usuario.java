@@ -15,9 +15,7 @@ public abstract class Usuario {
     private double salario;
     private String senha;
 
-    public Usuario(String nome, String cpf, Endereco endereco, double salario, String senha) throws CPFApenasNumerosException, CPFTamanhoException, NomeInvalidoException {
-        verificarCpf();
-        verificarNome();
+    public Usuario(String nome, String cpf, Endereco endereco, double salario, String senha){
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;

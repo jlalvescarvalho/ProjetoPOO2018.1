@@ -88,11 +88,19 @@ public class NegocioVenda {
         return vendasSelecionadas;
     }
 
+    public double calcularTotalVenda(){
+        double total = 0.0;
+
+        for (ItemVenda iv: listaItensdaVenda){
+            total += iv.getTotalItem();
+        }
+        return total;
+    }
 
 
-    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente){
+    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto){
         cliente.incrementarFrequencia();
-        Venda venda = new Venda(this.listaItensdaVenda, funcionario, cliente);
+        Venda venda = new Venda(this.listaItensdaVenda, funcionario, cliente, desconto);
         this.repositorioVenda.cadastrar(venda);
 
         for(ItemVenda iv: listaItensdaVenda){
@@ -100,6 +108,7 @@ public class NegocioVenda {
         }
         this.listaItensdaVenda = new ArrayList<>();
     }
+
     public void cadastrarVendaSemCliente(Funcionario funcionario){
         Venda venda = new Venda(this.listaItensdaVenda, funcionario);
         this.repositorioVenda.cadastrar(venda);

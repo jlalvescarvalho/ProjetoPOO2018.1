@@ -9,6 +9,8 @@ public class Funcionario extends Usuario {
 
     public Funcionario(String nome, String cpf, Endereco endereco, double salario, String senha) throws CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException {
         super(nome, cpf, endereco, salario, senha);
+        verificarCpf();
+        verificarNome();
     }
 
     @Override

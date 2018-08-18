@@ -2,14 +2,14 @@ package execoes;
 
 public class DescontoInvalidoException extends Exception{
 
-    int valorDesconto;
+    private double valorDesconto;
 
-    public DescontoInvalidoException(int valor) {
+    public DescontoInvalidoException(double valor) {
         super("Desconto invalido! Você pode dar até 20% de desconto e você deu: "+valor);
         this.valorDesconto = valor;
     }
 
-    public int getValorDesconto() {
+    public double getValorDesconto() {
         return valorDesconto;
     }
 }
