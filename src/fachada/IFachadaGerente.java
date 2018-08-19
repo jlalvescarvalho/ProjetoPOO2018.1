@@ -20,6 +20,7 @@ public interface IFachadaGerente {
     ArrayList<Usuario> recuperarTodosUsuarios();
     Venda recuperarVenda(String id);
     void removerVenda(String id);
+    void removerItem(int id) throws ItemVendaInvalidoException;
     ArrayList<Venda> recuperarTodasVendas();
     ArrayList<Venda> gerarRelatorioPorDatas(Date dataInicial, Date dataFinal);
     double darDesconto(String cpfGerente, String senha, double valorVenda, double desconto) throws DescontoInvalidoException, UsuarioInvalidoException;

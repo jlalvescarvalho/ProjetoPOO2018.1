@@ -130,6 +130,10 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
         return NegocioCliente.getInstace().verificarFrequencia(cpf);
     }
 
+    @Override
+    public void esvaziarListaVenda(){
+        NegocioVenda.getInstace().esvaziarListaVendas();
+    }
 
 
     /**
@@ -204,6 +208,10 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
         return NegocioVenda.getInstace().gerarRelatorioVendas(dataInicial, dataFinal);
     }
 
+    @Override
+    public void removerItem(int id) throws ItemVendaInvalidoException {
+        NegocioVenda.getInstace().removerItem(id);
+    }
 
     @Override
     public double darDesconto(String cpfGerente, String senha, double valorVenda, double desconto) throws DescontoInvalidoException, UsuarioInvalidoException {

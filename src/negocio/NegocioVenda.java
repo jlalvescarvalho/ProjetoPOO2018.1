@@ -1,6 +1,7 @@
 package negocio;
 
 import execoes.CodigoInvalidoException;
+import execoes.ItemVendaInvalidoException;
 import execoes.ProdutoNaoExisteException;
 import execoes.QuantidadeNaoDisponivelException;
 import negocio.entidade.*;
@@ -53,6 +54,26 @@ public class NegocioVenda {
         }
     }
 
+    public void removerItem(int id) throws ItemVendaInvalidoException {
+        ItemVenda it = recuperarItem(id);
+
+        listaItensdaVenda.remove(it);
+    }
+
+    private ItemVenda recuperarItem(int id) throws ItemVendaInvalidoException {
+        for (ItemVenda iv: listaItensdaVenda){
+            if(iv.getId() == id){
+                return iv;
+            }
+        }
+        throw new ItemVendaInvalidoException();
+    }
+
+
+    public void esvaziarListaVendas(){
+        this.listaItensdaVenda = new ArrayList<>();
+    }
+
 
     private boolean verificarSeItemJaExiste(String codigo){
         for (ItemVenda iv: this.listaItensdaVenda){
@@ -98,15 +119,15 @@ public class NegocioVenda {
     }
 
 
-    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto){
+    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto) {
         cliente.incrementarFrequencia();
         Venda venda = new Venda(this.listaItensdaVenda, funcionario, cliente, desconto);
         this.repositorioVenda.cadastrar(venda);
 
-        for(ItemVenda iv: listaItensdaVenda){
+        for (ItemVenda iv : listaItensdaVenda) {
             NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
         }
-        this.listaItensdaVenda = new ArrayList<>();
+        esvaziarListaVendas();
     }
 
     public void cadastrarVendaSemCliente(Funcionario funcionario){
@@ -116,7 +137,7 @@ public class NegocioVenda {
         for(ItemVenda iv: listaItensdaVenda){
             NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
         }
-        this.listaItensdaVenda = new ArrayList<>();
+        esvaziarListaVendas();
     }
 
     public Venda recuperar(String  id){

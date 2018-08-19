@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import negocio.NegocioVenda;
 import negocio.entidade.*;
 
 import java.io.IOException;
@@ -126,10 +127,11 @@ public class ControladorTelaVendas implements Initializable {
         return itensConvertidos;
     }
 
-    public void cancelar(ActionEvent actionEvent) throws IOException {
+    public void cancelar(){
         tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
 
+        funcionario.esvaziarListaVenda();
         Main.chamarTela("view/TelaFuncionario.fxml", 600,400);
     }
 
@@ -215,6 +217,10 @@ public class ControladorTelaVendas implements Initializable {
                 throw new ApenasNumerosException(campo);
             }
         }
+    }
+
+    public void removerItemVenda(){
+        
     }
 
 

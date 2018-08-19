@@ -25,9 +25,4 @@ public class Funcionario extends Usuario {
     }
 
 
-    public double getBonificacao(){
-        return this.getSalario()*0.10;
-    }
-
-
 }

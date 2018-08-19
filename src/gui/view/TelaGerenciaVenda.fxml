@@ -39,5 +39,6 @@
       <Label fx:id="labelCliente" alignment="CENTER" layoutX="365.0" layoutY="42.0" prefHeight="29.0" prefWidth="237.0" />
       <Label layoutX="410.0" layoutY="351.0" text="Funcionario:" />
       <Label fx:id="labelFuncionario" layoutX="484.0" layoutY="351.0" prefHeight="17.0" prefWidth="105.0" />
+      <Button layoutX="365.0" layoutY="217.0" mnemonicParsing="false" text="Remover Item" />
    </children>
 </AnchorPane>

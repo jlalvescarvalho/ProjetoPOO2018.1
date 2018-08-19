@@ -106,7 +106,7 @@ public class ControladorTelaFinalizaVenda implements Initializable {
         }
     }
 
-    private void autenticarGerente() {
+    protected void autenticarGerente() {
         try {
             TextInputDialog inputDialog = new TextInputDialog();
             inputDialog.setTitle("Autenticação do gerente");

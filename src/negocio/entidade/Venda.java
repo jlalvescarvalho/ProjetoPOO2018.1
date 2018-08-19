@@ -27,6 +27,7 @@ public class Venda {
     }
 
     public Venda(ArrayList<ItemVenda> listaVenda, Funcionario funcionario) {
+        this.id = CONTADOR++;
         this.listaVenda = listaVenda;
         this.funcionario = funcionario;
         this.data = new Date();
@@ -59,6 +60,7 @@ public class Venda {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
     public double getDesconto() {
         return desconto;
     }
@@ -74,6 +76,6 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Valor da venda: "+this.getTotal()+" Funcionario: "+this.funcionario.getNome();
+        return "Data venda: "+this.data.toString()+ "  Valor da venda: "+this.getTotal()+"  Funcionario: "+this.funcionario.getNome();
     }
 }

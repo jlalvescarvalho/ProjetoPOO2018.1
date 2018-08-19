@@ -46,34 +46,43 @@ public class ControladorTelaGerenciaEstoque implements Initializable {
 
         try {
             verificarEntradas("Codigo", txtCodigoEntrada.getText());
-            verificarEntradas("Quantidade", txtQuantidadeEntrada.getText());
 
             funcionario.realizarEntradaEstoque(txtCodigoEntrada.getText() , Integer.parseInt(txtQuantidadeEntrada.getText()));
 
             txtCodigoEntrada.setText("");
             txtQuantidadeEntrada.setText("");
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Entrada");
+            alert.setHeaderText("Entrada realizada com sucesso !");
+            alert.showAndWait();
+
         } catch (QuantidadeInvalidaException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atenção");
+            alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         } catch (CodigoInvalidoException e) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atenção");
+            alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         } catch (ProdutoNaoExisteException e) {
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atenção");
+            alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         } catch (ApenasNumerosException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atenção");
+            alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NumberFormatException nbf){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Quantidade deve ter apenas numeros");
             alert.showAndWait();
         }
 

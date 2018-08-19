@@ -130,7 +130,13 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             gerente.cadastrarFuncionario(txtNomeCad.getText(),txtCpfCad.getText(), txtRuaCad.getText(), txtBairroCad.getText(),
                     txtCepCad.getText(), txtNumeroCad.getText(), txtCidadeCad.getText(), txtSenhaCad.getText());
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastro Usuario");
+            alert.setHeaderText("Funcionario cadastrado com sucesso !");
+            alert.showAndWait();
+
             limparCamposCadastrar();
+
         } catch (UsuarioJaExisteException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
@@ -179,7 +185,13 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
                     txtCepCad.getText(), txtNumeroCad.getText(), txtCidadeCad.getText(),
                      txtSenhaCad.getText(), Integer.parseInt(txtNumFunc.getText()));
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastro Usuario");
+            alert.setHeaderText("Gerente cadastrado com sucesso !");
+            alert.showAndWait();
+
             limparCamposCadastrar();
+
         } catch (UsuarioJaExisteException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
@@ -219,6 +231,11 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NumberFormatException nbe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Campo numero de funcionario deve ser preenchido");
             alert.showAndWait();
         }
     }

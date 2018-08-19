@@ -16,6 +16,12 @@ public class Gerente extends Funcionario {
         this.numeroDeFuncionariosGerenciados = numeroDeFuncionarioGerenciados;
     }
 
+    /**
+     * O gerente pode dar desconto em compras acimo de 300 reais
+     * @param desconto
+     * @return
+     * @throws DescontoInvalidoException
+     */
     public double darDesconto(double desconto) throws DescontoInvalidoException {
         if(desconto <= this.descontoMaximo && desconto > 0){
            return desconto/100;
@@ -30,11 +36,6 @@ public class Gerente extends Funcionario {
 
     public void setNumeroDeFuncionariosGerenciados(int numeroDeFuncionariosGerenciados) {
         this.numeroDeFuncionariosGerenciados = numeroDeFuncionariosGerenciados;
-    }
-
-    @Override
-    public double getBonificacao() {
-        return this.getSalario()*0.10+100;
     }
 
     @Override

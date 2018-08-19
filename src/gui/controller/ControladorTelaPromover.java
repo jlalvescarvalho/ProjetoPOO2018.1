@@ -116,6 +116,11 @@ public class ControladorTelaPromover implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        }catch (NullPointerException npe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cpf de funcionario nao encontrado");
+            alert.showAndWait();
         }
 
     }

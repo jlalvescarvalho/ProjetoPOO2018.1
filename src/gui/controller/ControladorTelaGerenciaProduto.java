@@ -256,7 +256,7 @@ public class ControladorTelaGerenciaProduto implements Initializable {
             }
         }
     }
-    public void cancelar(ActionEvent actionEvent){
+    public void cancelar(){
         tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
         Main.chamarTela("view/TelaFuncionario.fxml", 600,400);

@@ -11,6 +11,7 @@ public interface IFachadaFuncionario {
     void cadastrarEstoque(Produto produto, int quantidade);
     void realizarEntradaEstoque(String codigo, int quantidade) throws QuantidadeInvalidaException, ProdutoNaoExisteException, CodigoInvalidoException;
     ItemEstoque recuperarItemEstoque(String codigoProduto);
+    void esvaziarListaVenda();
     ArrayList<ItemEstoque> recuperarEstoque();
     void removerItemEstoque(String codigoProduto);
     void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade) throws CPFApenasNumerosException, CPFTamanhoException, NomeInvalidoException, ClienteJaExiteException;

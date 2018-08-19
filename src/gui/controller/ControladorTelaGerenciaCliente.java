@@ -72,6 +72,13 @@ public class ControladorTelaGerenciaCliente implements Initializable {
             funcionario.cadastrarCliente(txtNome.getText(), txtCpf.getText(), txtRua.getText(), txtBairro.getText(),txtCep.getText(),
                     txtNum.getText(),txtCidade.getText());
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cliente cadastrado com sucesso !");
+            alert.showAndWait();
+
+            limparCamposdeCadastro();
+
         } catch (CPFApenasNumerosException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
@@ -94,7 +101,7 @@ public class ControladorTelaGerenciaCliente implements Initializable {
             alert.showAndWait();
         }
 
-        limparCamposdeCadastro();
+
 
     }
 
@@ -172,6 +179,11 @@ public class ControladorTelaGerenciaCliente implements Initializable {
 
             funcionario.atualizarCliente(txtCpfAtualizar.getText(), cliente);
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cliente atualizado com sucesso !");
+            alert.showAndWait();
+
             limparCamposAtualizar();
 
         } catch (NomeInvalidoException e) {
@@ -196,6 +208,11 @@ public class ControladorTelaGerenciaCliente implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NullPointerException npe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cpf nao encontrado!");
             alert.showAndWait();
         }
 
@@ -234,6 +251,11 @@ public class ControladorTelaGerenciaCliente implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NullPointerException npe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cliente não encontrado");
             alert.showAndWait();
         }
 

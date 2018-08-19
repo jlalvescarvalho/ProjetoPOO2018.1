@@ -54,6 +54,12 @@ public class NegocioUsuario {
 
     }
 
+    /**
+     * Metodo para atualiza usuario;
+     * Obs. Atualizar é diferente de promover;
+     * @param cpf
+     * @param usuarioNew
+     */
     public void atualizar(String cpf, Usuario usuarioNew){
         this.repositorioUsuario.atualizar(cpf, usuarioNew);
     }
@@ -63,11 +69,20 @@ public class NegocioUsuario {
     }
 
 
-
+    /**
+     * O gerente pode dar desconto em compras acima de 300 reis;
+     * @param cpfGerente
+     * @param senha
+     * @param valorVenda
+     * @param desconto
+     * @return
+     * @throws DescontoInvalidoException
+     * @throws UsuarioInvalidoException
+     */
     public double darDesconto(String cpfGerente, String senha, double valorVenda, double desconto) throws DescontoInvalidoException, UsuarioInvalidoException {
         Gerente gerente = (Gerente) repositorioUsuario.recuperar(cpfGerente);
         if(gerente.getSenha().equals(senha)) {
-            if (valorVenda > 100 && desconto > 0) {
+            if (valorVenda > 300 && desconto > 0) {
                 return gerente.darDesconto(desconto);
             } else {
                 throw new DescontoInvalidoException(desconto);
