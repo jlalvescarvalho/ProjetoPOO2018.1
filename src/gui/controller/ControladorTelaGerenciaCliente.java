@@ -1,8 +1,6 @@
 package gui.controller;
 
-import execoes.CPFApenasNumerosException;
-import execoes.CPFTamanhoException;
-import execoes.NomeInvalidoException;
+import execoes.*;
 import fachada.Fachada;
 import fachada.IFachadaFuncionario;
 import gui.Main;
@@ -11,9 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import negocio.entidade.Cliente;
@@ -23,6 +19,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControladorTelaGerenciaCliente implements Initializable {
@@ -76,11 +73,25 @@ public class ControladorTelaGerenciaCliente implements Initializable {
                     txtNum.getText(),txtCidade.getText());
 
         } catch (CPFApenasNumerosException e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         } catch (CPFTamanhoException e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         } catch (NomeInvalidoException e) {
-            JOptionPane.showMessageDialog(null,e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (ClienteJaExiteException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
 
         limparCamposdeCadastro();
@@ -98,11 +109,45 @@ public class ControladorTelaGerenciaCliente implements Initializable {
     }
 
     public void removerCliente(){
-        Cliente c = funcionario.recuperarCliente(txtCpfRemover.getText());
-        int resposta = JOptionPane.showConfirmDialog(null,"Deseja realmente remover "+c.getNome()+" ? ");
-        if (resposta == 0) funcionario.removerCliente(c);
+        Cliente c = null;
+        try {
+            c = funcionario.recuperarCliente(txtCpfRemover.getText());
 
-        txtCpfRemover.setText("");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Deseja realmente remover "+c.getNome()+" ? ");
+
+
+            Optional<ButtonType> resultado = alert . showAndWait ();
+            if (((Optional) resultado).get() == ButtonType.OK){
+                funcionario.removerCliente(c);
+
+            }
+            txtCpfRemover.setText("");
+
+            Alert alerte = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Removido");
+            alert.setHeaderText("Removido com sucesso !");
+            alert.showAndWait();
+
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFApenasNumerosException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }
+
+
+
     }
 
     public void listarClientes(){
@@ -114,8 +159,10 @@ public class ControladorTelaGerenciaCliente implements Initializable {
 
     public void atualizarCliente(){
 
-        Cliente cliente = funcionario.recuperarCliente(txtCpfAtualizar.getText());
         try {
+            Cliente cliente = funcionario.recuperarCliente(txtCpfAtualizar.getText());
+
+
             cliente.setNome(txtNomeAtualizar.getText());
             cliente.getEndereco().setRua(txtRuaAtualizar.getText());
             cliente.getEndereco().setNumero(txtNumAtualizar.getText());
@@ -126,27 +173,71 @@ public class ControladorTelaGerenciaCliente implements Initializable {
             funcionario.atualizarCliente(txtCpfAtualizar.getText(), cliente);
 
             limparCamposAtualizar();
-        } catch (NomeInvalidoException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
 
+        } catch (NomeInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+
+        } catch (CPFApenasNumerosException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }
 
 
     }
 
     public void preencherCamposAtualizar(){
-        Cliente cliente = funcionario.recuperarCliente(txtCpfAtualizar.getText());
+        Cliente cliente = null;
+        try {
+            cliente = funcionario.recuperarCliente(txtCpfAtualizar.getText());
 
-        txtCpfAtualizar.setEditable(false);
-        labelCpfNome.setVisible(true);
-        labelCpf.setText(cliente.getCpf());
-        txtNomeAtualizar.setText(cliente.getNome());
-        txtCidadeAtualizar.setText(cliente.getEndereco().getCidade());
-        txtRuaAtualizar.setText(cliente.getEndereco().getRua());
-        txtNumAtualizar.setText(String.valueOf(cliente.getEndereco().getNumero()));
-        txtBairroAtualizar.setText(cliente.getEndereco().getBairro());
-        txtCepAtualizar.setText(cliente.getEndereco().getCep());
-        txtCpfAtualizar.setText("");
+            txtCpfAtualizar.setEditable(false);
+            labelCpfNome.setVisible(true);
+            labelCpf.setText(cliente.getCpf());
+            txtNomeAtualizar.setText(cliente.getNome());
+            txtCidadeAtualizar.setText(cliente.getEndereco().getCidade());
+            txtRuaAtualizar.setText(cliente.getEndereco().getRua());
+            txtNumAtualizar.setText(String.valueOf(cliente.getEndereco().getNumero()));
+            txtBairroAtualizar.setText(cliente.getEndereco().getBairro());
+            txtCepAtualizar.setText(cliente.getEndereco().getCep());
+            txtCpfAtualizar.setText("");
+
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+
+        } catch (CPFApenasNumerosException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }
+
+
     }
 
     private void limparCamposAtualizar(){

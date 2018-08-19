@@ -1,9 +1,6 @@
 package negocio.entidade;
 
-import execoes.ApenasNumerosException;
-import execoes.CodigoInvalidoException;
-import execoes.DescricaoInvalidaException;
-import execoes.TamanhoInvalidoException;
+import execoes.*;
 
 /**
  * @author Luciano/Giudicelli
@@ -16,15 +13,22 @@ public class Produto {
     private double preco;
     private String marca;
 
-    public Produto(String codigo, String descricao, double preco, String marca) throws ApenasNumerosException, TamanhoInvalidoException, DescricaoInvalidaException, CodigoInvalidoException {
+    public Produto(String codigo, String descricao, double preco, String marca) throws ApenasNumerosException, TamanhoInvalidoException, DescricaoInvalidaException, CodigoInvalidoException, PrecoInvalidoException {
         verificarCodigo(codigo);
         verificarDescricao(descricao);
+        verificaPreco(preco);
         this.codigo = codigo;
         this.descricao = descricao;
         this.preco = preco;
         this.marca = marca;
     }
 
+    /**
+     * Por norma da CNP o codigo de produtos no brasil tem no maximo 13 digitos os mais comuns;
+     * @param codigo
+     * @throws ApenasNumerosException
+     * @throws CodigoInvalidoException
+     */
     private void verificarCodigo(String codigo) throws ApenasNumerosException, CodigoInvalidoException {
         char[] codigoChar = codigo.toCharArray();
         for(int i = 0; i < codigoChar.length; i++){
@@ -37,6 +41,8 @@ public class Produto {
             }
         }
     }
+
+
     private void verificarDescricao(String descricao) throws TamanhoInvalidoException, DescricaoInvalidaException {
         if (descricao.length() < 3){
             throw new TamanhoInvalidoException("descricao", 3);
@@ -49,6 +55,12 @@ public class Produto {
                 }
             }
             if (gatilho) throw new DescricaoInvalidaException();
+        }
+    }
+
+    private void verificaPreco(double preco) throws PrecoInvalidoException {
+        if (preco < 0){
+            throw new PrecoInvalidoException();
         }
     }
 
@@ -69,7 +81,8 @@ public class Produto {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(double preco) throws PrecoInvalidoException {
+        verificaPreco(preco);
         this.preco = preco;
     }
 

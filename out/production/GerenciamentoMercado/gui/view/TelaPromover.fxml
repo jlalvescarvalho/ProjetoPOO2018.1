@@ -20,6 +20,6 @@
       <Label layoutX="71.0" layoutY="192.0" text="Promover para:" />
       <ComboBox fx:id="comboCargos" layoutX="163.0" layoutY="188.0" prefWidth="150.0" />
       <Button layoutX="100.0" layoutY="298.0" mnemonicParsing="false" onAction="#promoverFuncionario" text="Salvar" />
-      <Button layoutX="244.0" layoutY="298.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <Button layoutX="244.0" layoutY="298.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar/Volta" />
    </children>
 </AnchorPane>

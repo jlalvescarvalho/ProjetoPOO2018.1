@@ -91,6 +91,21 @@ public class ControladorTelaGerenciaProduto implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        } catch (ProdutoJaExisteException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (ProdutoInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (PrecoInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -178,6 +193,11 @@ public class ControladorTelaGerenciaProduto implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        } catch (PrecoInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
 
 
@@ -229,9 +249,9 @@ public class ControladorTelaGerenciaProduto implements Initializable {
     }
 
     private void verificarPreco(String txt) throws ApenasNumerosException {
-        char[] cpfChar = txt.toCharArray();
-        for(int i = 0; i < cpfChar.length; i++){
-            if (!Character.isDigit(cpfChar[i]) && cpfChar[i] != '.'){
+        char[] precoChar = txt.toCharArray();
+        for(int i = 0; i < precoChar.length; i++){
+            if (!Character.isDigit(precoChar[i]) && precoChar[i] != '.'){
                 throw new ApenasNumerosException("preco");
             }
         }

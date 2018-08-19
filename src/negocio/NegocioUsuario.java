@@ -1,9 +1,6 @@
 package negocio;
 
-import execoes.DescontoInvalidoException;
-import execoes.UsuarioInvalidoException;
-import execoes.UsuarioJaExisteException;
-import execoes.UsuarioNaoExisteException;
+import execoes.*;
 import negocio.entidade.Funcionario;
 import negocio.entidade.Gerente;
 import negocio.entidade.Usuario;
@@ -30,7 +27,7 @@ public class NegocioUsuario {
     }
 
 
-    public void cadastrar(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException {
+    public void cadastrar(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFInvalidoException {
 
         if(usuario.getCpf().equals("") || usuario.getNome().equals("")){
             throw new UsuarioInvalidoException();
@@ -48,8 +45,13 @@ public class NegocioUsuario {
         return null;
     }
 
-    public void remover(Usuario usuario){
-        this.repositorioUsuario.remover(usuario);
+    public void remover(Usuario usuario) throws UsuarioInvalidoException{
+        if (usuario == null){
+            throw new UsuarioInvalidoException();
+        }else{
+            this.repositorioUsuario.remover(usuario);
+        }
+
     }
 
     public void atualizar(String cpf, Usuario usuarioNew){

@@ -60,13 +60,34 @@ public class ControladorTelaFinalizaVenda implements Initializable {
      * faz-se necessario salvar a venda passando o desconto para que o total seja valido quando for calculado o total;
      */
     public void finalizarVendaComCliente() {
-        Cliente c = funcionario.recuperarCliente(getCpfClienteVenda());
-        funcionario.cadastrarVendaComCliente((Funcionario) Login.getInstance().getUsuario(), c, descontoGerente);
+        Cliente c = null;
+        try {
+            c = funcionario.recuperarCliente(getCpfClienteVenda());
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Informação");
-        alert.setHeaderText("Venda cadastrada com sucesso !");
-        alert.showAndWait();
+            funcionario.cadastrarVendaComCliente((Funcionario) Login.getInstance().getUsuario(), c, descontoGerente);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Informação");
+            alert.setHeaderText("Venda cadastrada com sucesso !");
+            alert.showAndWait();
+
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFApenasNumerosException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atenção");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }
+
 
         Main.chamarTela("view/TelaFuncionario.fxml", 600, 400);
         tela = (Stage) this.pane.getScene().getWindow();
@@ -101,9 +122,15 @@ public class ControladorTelaFinalizaVenda implements Initializable {
 
 
         } catch (CPFTamanhoException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         } catch (CPFApenasNumerosException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
 
     }
@@ -115,10 +142,9 @@ public class ControladorTelaFinalizaVenda implements Initializable {
      */
     public void DescontoGerente() {
 
-
-        Usuario gerent = null;
+        autenticarGerente();
         try {
-            gerent = gerente.recuperarUsuario(cpf[0]);
+            Usuario gerent = gerente.recuperarUsuario(cpf[0]);
 
             TextInputDialog inputDialog2 = new TextInputDialog();
             inputDialog2.setTitle("Desconto Gerente");
@@ -138,11 +164,20 @@ public class ControladorTelaFinalizaVenda implements Initializable {
             }
 
         } catch (UsuarioNaoExisteException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         } catch (UsuarioInvalidoException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         } catch (DescontoInvalidoException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
 
 
@@ -155,7 +190,29 @@ public class ControladorTelaFinalizaVenda implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        double desconto = funcionario.verificarFrequencia(getCpfClienteVenda());
-        preencherCampos(desconto);
+        double desconto = 0;
+        try {
+            desconto = funcionario.verificarFrequencia(getCpfClienteVenda());
+
+            preencherCampos(desconto);
+
+
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFApenasNumerosException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }
+
     }
 }

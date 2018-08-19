@@ -1,8 +1,6 @@
 package gui.controller;
 
-import execoes.CodigoInvalidoException;
-import execoes.ProdutoNaoExisteException;
-import execoes.QuantidadeNaoDisponivelException;
+import execoes.*;
 import fachada.Fachada;
 import fachada.IFachadaFuncionario;
 import gui.Main;
@@ -63,6 +61,8 @@ public class ControladorTelaVendas implements Initializable {
     public void adicionarProduto(){
 
             try {
+                verificarCamposVenda("Codigo",codigoProdutoVenda.getText());
+                verificarCamposVenda("Quantidade",quantProdutoVenda.getText());
                 funcionario.adicionarItem(codigoProdutoVenda.getText(), Integer.parseInt(quantProdutoVenda.getText()));
 
                 subTotalVenda.setText(String.valueOf(funcionario.calcularTotalVenda()));
@@ -70,11 +70,25 @@ public class ControladorTelaVendas implements Initializable {
 
 
             }catch (QuantidadeNaoDisponivelException e){
-                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
             }catch (CodigoInvalidoException e)  {
-                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
             }catch (ProdutoNaoExisteException e)  {
-                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            } catch (ApenasNumerosException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
             }
 
 
@@ -138,9 +152,29 @@ public class ControladorTelaVendas implements Initializable {
         if(cpfClienteVenda == null){
             labelCliente.setText("Avulso");
         }else {
-            Cliente cliente = funcionario.recuperarCliente(cpfClienteVenda);
+            Cliente cliente = null;
+            try {
+                cliente = funcionario.recuperarCliente(cpfClienteVenda);
+                labelCliente.setText(cliente.getNome());
 
-            labelCliente.setText(cliente.getNome());
+            } catch (CPFInvalidoException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            } catch (CPFTamanhoException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            } catch (CPFApenasNumerosException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            }
+
+
         }
     }
 
@@ -151,7 +185,7 @@ public class ControladorTelaVendas implements Initializable {
             tela = (Stage) this.pane.getScene().getWindow();
             tela.close();
 
-        }else if (cpfClienteVenda.equals("") || cpfClienteVenda.equals(" ")){
+        }else{
             funcionario.cadastrarVendaSemCliente((Funcionario) Login.getInstance().getUsuario());
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -170,6 +204,17 @@ public class ControladorTelaVendas implements Initializable {
        return cpfClienteVenda;
     }
 
+    private void verificarCamposVenda(String campo , String str) throws ApenasNumerosException, CodigoInvalidoException {
+        if (str.equals("") || str.equals(" ")){
+            throw new CodigoInvalidoException();
+        }
+        char[] campoChar = str.toCharArray();
+        for(int i = 0; i < campoChar.length; i++){
+            if (!Character.isDigit(campoChar[i])){
+                throw new ApenasNumerosException(campo);
+            }
+        }
+    }
 
 
     @Override

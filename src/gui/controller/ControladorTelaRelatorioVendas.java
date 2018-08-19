@@ -31,6 +31,8 @@ public class ControladorTelaRelatorioVendas implements Initializable {
     private DatePicker dtFim;
     @FXML
     private ListView<Venda> lstVendas;
+    @FXML
+    private ListView<Venda> lstVendasMes;
 
 
 
@@ -43,7 +45,13 @@ public class ControladorTelaRelatorioVendas implements Initializable {
         lstVendas.setItems(observableList);
     }
 
-    public void cancelar(ActionEvent actionEvent){
+    public void gerarRelatorioVendasGeral(){
+        ArrayList<Venda> vendas = gerente.recuperarTodasVendas();
+        ObservableList observableList = FXCollections.observableArrayList(vendas);
+        lstVendasMes.setItems(observableList);
+    }
+
+    public void cancelar(){
         tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
         Main.chamarTela("view/TelaGerente.fxml", 600,400);

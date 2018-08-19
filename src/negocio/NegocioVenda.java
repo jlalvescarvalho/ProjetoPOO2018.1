@@ -32,20 +32,24 @@ public class NegocioVenda {
     public void adicionarItem(String codigoProduto, int quantidade) throws ProdutoNaoExisteException, CodigoInvalidoException, QuantidadeNaoDisponivelException {
             Produto produto = recuperarProduto(codigoProduto);
             if (produto != null) {
-                if (verificarDisponibilidade(produto, quantidade) >= quantidade) {
+                if (verificarDisponibilidade(produto) >= quantidade) {
                     if (!verificarSeItemJaExiste(produto.getCodigo())) {
                         ItemVenda itemVenda = new ItemVenda(produto, quantidade);
                         listaItensdaVenda.add(itemVenda);
                     } else {
                         for (int i = 0; i < listaItensdaVenda.size(); i++) {
                             if (listaItensdaVenda.get(i).getProduto().getCodigo().equals(codigoProduto)) {
-                                listaItensdaVenda.get(i).setQuantidade(quantidade);
+                                if (verificarDisponibilidade(produto) >= quantidade) {
+                                    listaItensdaVenda.get(i).setQuantidade(quantidade);
+                                }else{
+                                    throw new QuantidadeNaoDisponivelException(quantidade, verificarDisponibilidade(produto));
+                                }
                             }
                         }
                     }
 
                 } else {
-                    throw new QuantidadeNaoDisponivelException(quantidade, verificarDisponibilidade(produto,quantidade));
+                    throw new QuantidadeNaoDisponivelException(quantidade, verificarDisponibilidade(produto));
                 }
             }else{
                 throw new CodigoInvalidoException();
@@ -68,7 +72,7 @@ public class NegocioVenda {
     }
 
 
-    private int verificarDisponibilidade(Produto produto, int quantidade){
+    private int verificarDisponibilidade(Produto produto){
         ItemEstoque item = NegocioEstoque.getInstace().recuperarItemEstoque(produto.getCodigo());
         if(item != null){
            return item.getQuantidade();

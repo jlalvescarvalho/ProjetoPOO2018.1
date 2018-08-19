@@ -179,6 +179,11 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -218,6 +223,11 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
 
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -305,6 +315,11 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
 
 
                     } catch (UsuarioNaoExisteException e) {
+                        Alert alert = new Alert(Alert.AlertType.WARNING);
+                        alert.setTitle("Atencao");
+                        alert.setHeaderText(e.getMessage());
+                        alert.showAndWait();
+                    } catch (UsuarioInvalidoException e) {
                         Alert alert = new Alert(Alert.AlertType.WARNING);
                         alert.setTitle("Atencao");
                         alert.setHeaderText(e.getMessage());

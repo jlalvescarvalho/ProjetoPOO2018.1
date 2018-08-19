@@ -1,6 +1,8 @@
 package negocio;
 
 import execoes.CodigoInvalidoException;
+import execoes.ProdutoInvalidoException;
+import execoes.ProdutoJaExisteException;
 import execoes.ProdutoNaoExisteException;
 import negocio.entidade.ItemEstoque;
 import negocio.entidade.Produto;
@@ -25,15 +27,23 @@ public class NegocioProduto {
         return mySelf;
     }
 
-    public void cadastrar(Produto produto) throws CodigoInvalidoException {
+    public void cadastrar(Produto produto) throws ProdutoJaExisteException, ProdutoInvalidoException {
 
-        if (produto != null) {
+        if (produto != null && verificarSeJaExiste(produto)) {
                 repositorioProduto.cadastrar(produto);
                 ItemEstoque it = new ItemEstoque(0,produto);
                 NegocioEstoque.getInstace().cadastrarEstoque(it);
 
         } else {
-            throw new CodigoInvalidoException();
+            throw new ProdutoInvalidoException();
+        }
+    }
+
+    private boolean verificarSeJaExiste(Produto produto) throws ProdutoJaExisteException {
+        if (repositorioProduto.recuperar(produto.getCodigo()) == null){
+            return true;
+        }else{
+            throw new ProdutoJaExisteException();
         }
     }
 
@@ -60,6 +70,7 @@ public class NegocioProduto {
 
         if (produto != null){
             repositorioProduto.remover(produto);
+            NegocioEstoque.getInstace().removerItemEstoque(produto.getCodigo());
         }else{
             throw new CodigoInvalidoException();
         }
