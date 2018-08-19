@@ -54,8 +54,6 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
     @FXML
     private Label labelNumFunc;
     @FXML
-    private ComboBox<String> comBoxUp;
-    @FXML
     private TextField txtNumFuncUP;
     @FXML
     private Label labelNumFuncUP;
@@ -99,17 +97,6 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
         }
     }
 
-    public void actionComboBoxUpdate(){
-
-        SingleSelectionModel<String> selectionModel = comBoxUp.getSelectionModel();
-        if(selectionModel.getSelectedItem().equals(SalarioCargoEnum.Gerente.name())){
-            labelNumFuncUP.setVisible(true);
-            txtNumFuncUP.setVisible(true);
-        }else{
-            labelNumFuncUP.setVisible(false);
-            txtNumFuncUP.setVisible(false);
-        }
-    }
 
     private void preencherComboBox(){
        ArrayList<String> list = new ArrayList<>();
@@ -117,30 +104,24 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
        list.add(SalarioCargoEnum.Funcionario.name());
 
        ObservableList observableList = FXCollections.observableList(list);
-        comBoxUsuario.setItems(observableList);
-        comBoxUp.setItems(observableList);
+       comBoxUsuario.setItems(observableList);
     }
 
-    private void preencherComboBoxUpdate(){
 
-        ArrayList<String> list = new ArrayList<>();
-        list.add(SalarioCargoEnum.Gerente.name());
-        list.add(SalarioCargoEnum.Funcionario.name());
-
-        ObservableList observableList = FXCollections.observableList(list);
-        comBoxUp.setItems(observableList);
-    }
-
-    public void cadastrarUsuario() throws CampoTipoUsuarioVazioException {
-        if (comBoxUsuario.getValue().equals("")){
-            throw new CampoTipoUsuarioVazioException();
-        }else {
-            if (comBoxUsuario.getValue().equals(SalarioCargoEnum.Gerente.name())) {
+    public void cadastrarUsuario(){
+       try{
+           if (comBoxUsuario.getValue().equals(SalarioCargoEnum.Gerente.name())) {
                 cadastrarGerente();
             } else if (comBoxUsuario.getValue().equals(SalarioCargoEnum.Funcionario.name())) {
                 cadastrarFuncionario();
             }
-        }
+        }catch(NullPointerException ne){
+           Alert alert = new Alert(Alert.AlertType.WARNING);
+           alert.setTitle("Atencao");
+           alert.setHeaderText("Nao é possivel cadastar !");
+           alert.showAndWait();
+       }
+
     }
 
 
@@ -149,7 +130,7 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             gerente.cadastrarFuncionario(txtNomeCad.getText(),txtCpfCad.getText(), txtRuaCad.getText(), txtBairroCad.getText(),
                     txtCepCad.getText(), txtNumeroCad.getText(), txtCidadeCad.getText(), txtSenhaCad.getText());
 
-
+            limparCamposCadastrar();
         } catch (UsuarioJaExisteException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
@@ -180,6 +161,11 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (SenhaInvalidaException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
@@ -193,6 +179,7 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
                     txtCepCad.getText(), txtNumeroCad.getText(), txtCidadeCad.getText(),
                      txtSenhaCad.getText(), Integer.parseInt(txtNumFunc.getText()));
 
+            limparCamposCadastrar();
         } catch (UsuarioJaExisteException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
@@ -228,10 +215,15 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        } catch (SenhaInvalidaException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
-    public void atualuzarUsuario(){
+    public void atualizarUsuario(){
 
 
             Usuario usuario = buscarUsuario(txtCpfAtualizar.getText());
@@ -257,13 +249,12 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
     public void preencherCamposAtualizar(){
 
             Usuario usuario = buscarUsuario(txtCpfAtualizar.getText());
-            if (usuario instanceof Gerente){
-                comBoxUp.setValue(SalarioCargoEnum.Gerente.name());
-
-                labelNumFunc.setVisible(true);
+            if (usuario instanceof Gerente) {
+                labelNumFuncUP.setVisible(true);
                 txtNumFuncUP.setVisible(true);
                 txtNumFuncUP.setText(String.valueOf(((Gerente) usuario).getNumeroDeFuncionariosGerenciados()));
             }
+
 
             txtCpfAtualizar.setEditable(false);
             txtNomeAtualizar.setText(usuario.getNome());
@@ -278,8 +269,6 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
     }
 
     private void limparCamposAtualizar(){
-
-            comBoxUp.setValue("");
 
             labelNumFunc.setVisible(false);
             txtNumFuncUP.setVisible(false);
@@ -347,6 +336,19 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
         return usuario;
     }
 
+    private void limparCamposCadastrar(){
+        txtNomeCad.setText("");
+        txtCpfCad.setText("");
+        txtSenhaCad.setText("");
+        comBoxUsuario.setValue("");
+        txtRuaCad.setText("");
+        txtNumeroCad.setText("");
+        txtBairroCad.setText("");
+        txtCidadeCad.setText("");
+        txtBairroCad.setText("");
+        txtCepCad.setText("");
+    }
+
     public void cancelar(ActionEvent actionEvent){
         tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
@@ -358,6 +360,5 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         preencherComboBox();
-        preencherComboBoxUpdate();
     }
 }

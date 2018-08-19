@@ -131,6 +131,11 @@ public class ControladorTelaFinalizaVenda implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        }catch (NullPointerException ne){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cpf nao identificado");
+            alert.showAndWait();
         }
 
     }
@@ -178,6 +183,11 @@ public class ControladorTelaFinalizaVenda implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        }catch (NullPointerException ne){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Nao é possivel localizar o cliente");
+            alert.showAndWait();
         }
 
 
@@ -202,6 +212,7 @@ public class ControladorTelaFinalizaVenda implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+
         } catch (CPFApenasNumerosException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");

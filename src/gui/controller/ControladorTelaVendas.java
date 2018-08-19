@@ -149,7 +149,7 @@ public class ControladorTelaVendas implements Initializable {
     }
 
     private void preencherLabelNomeCliente(){
-        if(cpfClienteVenda == null){
+        if(cpfClienteVenda == null || cpfClienteVenda.equals("") || cpfClienteVenda.equals(" ")){
             labelCliente.setText("Avulso");
         }else {
             Cliente cliente = null;
@@ -179,13 +179,7 @@ public class ControladorTelaVendas implements Initializable {
     }
 
     public void finalizarVenda(){
-        if (cpfClienteVenda != null) {
-
-            Main.chamarTela("view/TelaFinalizaVendaComCliente.fxml", 600, 400);
-            tela = (Stage) this.pane.getScene().getWindow();
-            tela.close();
-
-        }else{
+        if (cpfClienteVenda == null || cpfClienteVenda.equals(" ") || cpfClienteVenda.equals("")) {
             funcionario.cadastrarVendaSemCliente((Funcionario) Login.getInstance().getUsuario());
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -194,6 +188,13 @@ public class ControladorTelaVendas implements Initializable {
             alert.showAndWait();
 
             Main.chamarTela("view/TelaFuncionario.fxml", 600, 400);
+            tela = (Stage) this.pane.getScene().getWindow();
+            tela.close();
+
+
+
+        }else{
+            Main.chamarTela("view/TelaFinalizaVendaComCliente.fxml", 600, 400);
             tela = (Stage) this.pane.getScene().getWindow();
             tela.close();
         }

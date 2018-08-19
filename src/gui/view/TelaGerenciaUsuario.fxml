@@ -61,7 +61,6 @@
                         <TextField fx:id="txtCpfAtualizar" layoutX="208.0" layoutY="31.0" />
                         <Label layoutX="79.0" layoutY="77.0" text="Nome:" />
                         <TextField fx:id="txtNomeAtualizar" layoutX="158.0" layoutY="73.0" />
-                         <ComboBox fx:id="comBoxUp" layoutX="370.0" layoutY="91.0" onAction="#actionComboBoxUpdate" prefWidth="150.0" />
                         <TextField fx:id="txtSenhaAtualizar" layoutX="158.0" layoutY="113.0" />
                         <TextField fx:id="txtRuaAtualizar" layoutX="125.0" layoutY="242.0" />
                         <TextField fx:id="txtNumAtualizar" layoutX="315.0" layoutY="242.0" prefHeight="25.0" prefWidth="37.0" />
@@ -75,10 +74,9 @@
                         <Label layoutX="77.0" layoutY="290.0" text="Cidade:" />
                         <TextField fx:id="txtCidadeAtualizar" layoutX="125.0" layoutY="286.0" />
                         <TextField fx:id="txtCepAtualizar" layoutX="325.0" layoutY="286.0" prefHeight="25.0" prefWidth="90.0" />
-                        <Button fx:id="btAtualizar" layoutX="157.0" layoutY="325.0" mnemonicParsing="false" onAction="#atualuzarUsuario" text="Atualizar!" />
+                        <Button fx:id="btAtualizar" layoutX="157.0" layoutY="325.0" mnemonicParsing="false" onAction="#atualizarUsuario" text="Atualizar!" />
                         <Label layoutX="376.0" layoutY="246.0" text="Bairro:" />
                         <Button layoutX="284.0" layoutY="325.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar/Sair" />
-                        <Label layoutX="393.0" layoutY="68.0" text="Tipo de funcionario" />
                         <TextField fx:id="txtNumFuncUP" layoutX="520.0" layoutY="144.0" prefHeight="25.0" prefWidth="44.0" visible="false" />
                         <Label fx:id="labelNumFuncUP" layoutX="313.0" layoutY="143.0" prefHeight="28.0" prefWidth="204.0" text="Número de funcionario gerendiados:" visible="false" />
                         <Button layoutX="390.0" layoutY="31.0" mnemonicParsing="false" onAction="#preencherCamposAtualizar" text="Buscar" />

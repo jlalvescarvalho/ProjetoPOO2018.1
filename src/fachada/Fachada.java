@@ -139,7 +139,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     @Override
     public void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade,
                                      String senha)
-            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException {
+            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException, SenhaInvalidaException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Usuario funcionario = new Funcionario(nome, cpf, end, SalarioCargoEnum.Funcionario.getSalario(), senha);
         NegocioUsuario.getInstace().cadastrar(funcionario);
@@ -148,14 +148,14 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     @Override
     public void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, String numero,
                                  String cidade, String senha, int numFuncGerenciados)
-            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException, CPFInvalidoException {
+            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException, CPFInvalidoException, SenhaInvalidaException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Usuario gerente = new Gerente(nome, cpf, end, SalarioCargoEnum.Gerente.getSalario(), senha, numFuncGerenciados);
         NegocioUsuario.getInstace().cadastrar(gerente);
     }
 
     @Override
-    public void promoverParaGerente(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException {
+    public void promoverParaGerente(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException, SenhaInvalidaException {
         removerUsuario(usuario.getCpf());
 
         cadastrarGerente(usuario.getNome(), usuario.getCpf(), usuario.getEndereco().getRua(),usuario.getEndereco().getBairro(),

@@ -1,20 +1,18 @@
 package negocio.entidade;
 
 
-import execoes.CPFApenasNumerosException;
-import execoes.CPFTamanhoException;
-import execoes.DescontoInvalidoException;
-import execoes.NomeInvalidoException;
+import execoes.*;
 
 public class Gerente extends Funcionario {
 
     private int numeroDeFuncionariosGerenciados;
     private int descontoMaximo = 20;
 
-    public Gerente(String nome, String cpf, Endereco endereco, double salario, String senha, int numeroDeFuncionarioGerenciados) throws CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException {
+    public Gerente(String nome, String cpf, Endereco endereco, double salario, String senha, int numeroDeFuncionarioGerenciados) throws CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, SenhaInvalidaException {
         super(nome, cpf, endereco, salario, senha);
-        verificarCpf();
-        verificarNome();
+        super.verificarCpf();
+        super.verificarNome();
+        super.verificarSenha();
         this.numeroDeFuncionariosGerenciados = numeroDeFuncionarioGerenciados;
     }
 
@@ -48,13 +46,5 @@ public class Gerente extends Funcionario {
         }
     }
 
-    @Override
-    public void verificarNome() throws NomeInvalidoException {
-        super.verificarNome();
-    }
 
-    @Override
-    public void verificarCpf() throws CPFApenasNumerosException, CPFTamanhoException {
-        super.verificarCpf();
-    }
 }

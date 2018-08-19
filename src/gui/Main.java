@@ -71,6 +71,11 @@ public class Main extends Application{
             alert.setTitle("Atenção");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        } catch (SenhaInvalidaException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
 
         launch(args);

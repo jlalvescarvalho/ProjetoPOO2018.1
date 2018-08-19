@@ -30,31 +30,27 @@ public class NegocioVenda {
     }
 
     public void adicionarItem(String codigoProduto, int quantidade) throws ProdutoNaoExisteException, CodigoInvalidoException, QuantidadeNaoDisponivelException {
-            Produto produto = recuperarProduto(codigoProduto);
-            if (produto != null) {
-                if (verificarDisponibilidade(produto) >= quantidade) {
-                    if (!verificarSeItemJaExiste(produto.getCodigo())) {
-                        ItemVenda itemVenda = new ItemVenda(produto, quantidade);
-                        listaItensdaVenda.add(itemVenda);
-                    } else {
-                        for (int i = 0; i < listaItensdaVenda.size(); i++) {
-                            if (listaItensdaVenda.get(i).getProduto().getCodigo().equals(codigoProduto)) {
-                                if (verificarDisponibilidade(produto) >= quantidade) {
-                                    listaItensdaVenda.get(i).setQuantidade(quantidade);
-                                }else{
-                                    throw new QuantidadeNaoDisponivelException(quantidade, verificarDisponibilidade(produto));
-                                }
-                            }
+        Produto produto = recuperarProduto(codigoProduto);
+
+        if (produto != null && verificarDisponibilidade(produto) >= quantidade) {
+            if (!verificarSeItemJaExiste(produto.getCodigo())) {
+                ItemVenda itemVenda = new ItemVenda(produto, quantidade);
+                listaItensdaVenda.add(itemVenda);
+            } else {
+                for (int i = 0; i < listaItensdaVenda.size(); i++) {
+                    if (listaItensdaVenda.get(i).getProduto().getCodigo().equals(codigoProduto)) {
+                        if (verificarDisponibilidade(produto) >= listaItensdaVenda.get(i).getQuantidade()+quantidade) {
+                            listaItensdaVenda.get(i).setQuantidade(quantidade);
+                        } else {
+                            throw new QuantidadeNaoDisponivelException(quantidade, verificarDisponibilidade(produto));
                         }
                     }
-
-                } else {
-                    throw new QuantidadeNaoDisponivelException(quantidade, verificarDisponibilidade(produto));
                 }
-            }else{
-                throw new CodigoInvalidoException();
             }
 
+        } else {
+            throw new QuantidadeNaoDisponivelException(quantidade, verificarDisponibilidade(produto));
+        }
     }
 
 

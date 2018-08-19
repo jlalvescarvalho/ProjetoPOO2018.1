@@ -2,6 +2,7 @@ package negocio.entidade;
 import execoes.CPFApenasNumerosException;
 import execoes.CPFTamanhoException;
 import execoes.NomeInvalidoException;
+import execoes.SenhaInvalidaException;
 
 /**
  * @author Luciano/Giudicelli
@@ -88,5 +89,9 @@ public abstract class Usuario {
     }
     public void verificarNome() throws NomeInvalidoException {
         if(this.nome.equals(" ") || this.nome.length() < 3) throw new NomeInvalidoException();
+    }
+
+    public void verificarSenha() throws SenhaInvalidaException {
+        if(this.senha.equals(" ") || this.senha.length() < 3) throw new SenhaInvalidaException();
     }
 }
