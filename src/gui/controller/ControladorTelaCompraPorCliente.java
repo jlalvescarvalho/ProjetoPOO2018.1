@@ -56,7 +56,7 @@ public class ControladorTelaCompraPorCliente implements Initializable {
     private void preencherListView(){
 
             if (cpfCliente == null || cpfCliente.equals("") || cpfCliente.equals(" ")){
-                
+
             }else{
                 try {
                     Cliente c = funcionario.recuperarCliente(cpfCliente);

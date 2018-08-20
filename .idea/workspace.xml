@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaCompraPorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaCompraPorCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,26 +83,26 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="94" />
+          <entry key="fxml" value="95" />
           <entry key="java" value="458" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="458" />
-          <entry key="XML" value="94" />
+          <entry key="XML" value="95" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="98" />
           <entry key="fxml" value="79" />
-          <entry key="java" value="25629" />
+          <entry key="java" value="25638" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="25629" />
+          <entry key="JAVA" value="25638" />
           <entry key="PLAIN_TEXT" value="98" />
           <entry key="XML" value="79" />
         </counts>
@@ -118,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="356" column="42" lean-forward="true" selection-start-line="356" selection-start-column="42" selection-end-line="356" selection-end-column="42" />
+            <state relative-caret-position="307">
+              <caret line="355" column="32" selection-start-line="355" selection-start-column="32" selection-end-line="355" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -127,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaCompraPorCliente.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="40" />
+            <state relative-caret-position="59">
+              <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2656#2657#0" expanded="true" />
@@ -250,10 +249,10 @@
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaProduto.java" />
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java" />
         <option value="$PROJECT_DIR$/src/gui/view/TelaGerente.fxml" />
-        <option value="$PROJECT_DIR$/src/gui/view/TelaCompraPorCliente.fxml" />
         <option value="$PROJECT_DIR$/src/negocio/entidade/Venda.java" />
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaCliente.java" />
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java" />
+        <option value="$PROJECT_DIR$/src/gui/view/TelaCompraPorCliente.fxml" />
         <option value="$PROJECT_DIR$/src/gui/controller/ControladorTelaCompraPorCliente.java" />
       </list>
     </option>
@@ -868,14 +867,6 @@
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaCompraPorCliente.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerente.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -927,15 +918,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaGerenciaUsuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="356" column="42" lean-forward="true" selection-start-line="356" selection-start-column="42" selection-end-line="356" selection-end-column="42" />
+        <state relative-caret-position="307">
+          <caret line="355" column="32" selection-start-line="355" selection-start-column="32" selection-end-line="355" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/view/TelaCompraPorCliente.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/controller/ControladorTelaCompraPorCliente.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="64" column="20" selection-start-line="64" selection-start-column="20" selection-end-line="64" selection-end-column="40" />
+        <state relative-caret-position="59">
+          <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2656#2657#0" expanded="true" />
