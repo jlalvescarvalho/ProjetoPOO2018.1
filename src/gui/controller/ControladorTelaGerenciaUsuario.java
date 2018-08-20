@@ -345,6 +345,7 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             txtCepAtualizar.setText(usuario.getEndereco().getCep());
             txtCidadeAtualizar.setText(usuario.getEndereco().getCidade());
             txtSalarioUP.setText(String.valueOf(usuario.getSalario()));
+            txtSalarioUP.setEditable(false);
             txtSenhaAtualizar.setText(usuario.getSenha());
 
 

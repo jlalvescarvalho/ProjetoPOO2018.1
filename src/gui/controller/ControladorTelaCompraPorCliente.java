@@ -37,52 +37,57 @@ public class ControladorTelaCompraPorCliente implements Initializable {
     private Label labelCliente;
     @FXML
     private ListView lstCompras;
+    private static String cpfCliente;
 
 
     private void solicitarCpfCliente(){
-        final String[] cpf = new String[1];
+            final String[] cpf = new String[1];
 
-
-        Cliente c = null;
-        try {
             TextInputDialog inputDialog = new TextInputDialog();
-
             inputDialog.setTitle("Solicitacao Cpf");
             inputDialog.setHeaderText("Digite o cpf do cliente ");
             inputDialog.setContentText("Cpf: ");
 
             inputDialog.showAndWait().ifPresent(v -> cpf[0] = v);
-
-            c = funcionario.recuperarCliente(cpf[0]);
-
-            labelCliente.setText(c.getNome());
-
-            preencherListView(cpf[0]);
-
-        } catch (CPFInvalidoException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atencao");
-            alert.setHeaderText(e.getMessage());
-            alert.showAndWait();
-        } catch (CPFTamanhoException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atencao");
-            alert.setHeaderText(e.getMessage());
-            alert.showAndWait();
-        } catch (CPFApenasNumerosException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atencao");
-            alert.setHeaderText(e.getMessage());
-            alert.showAndWait();
-        }
-
+            cpfCliente = cpf[0];
+            preencherListView();
     }
 
-    private void preencherListView(String cpfCliente){
+    private void preencherListView(){
 
-            ArrayList<Venda> vendas = filtrarVendas(cpfCliente);
-            ObservableList<Venda> ob = FXCollections.observableArrayList(vendas);
-            lstCompras.setItems(ob);
+            if (cpfCliente == null || cpfCliente.equals("") || cpfCliente.equals(" ")){
+                
+            }else{
+                try {
+                    Cliente c = funcionario.recuperarCliente(cpfCliente);
+
+                    labelCliente.setText(c.getNome());
+
+                    ArrayList<Venda> vendas = filtrarVendas(cpfCliente);
+                    ObservableList<Venda> ob = FXCollections.observableArrayList(vendas);
+                    lstCompras.setItems(ob);
+
+
+                } catch (CPFInvalidoException e) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Atencao");
+                    alert.setHeaderText(e.getMessage());
+                    alert.showAndWait();
+                } catch (CPFTamanhoException e) {
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Atencao");
+                    alert.setHeaderText(e.getMessage());
+                    alert.showAndWait();
+                } catch (CPFApenasNumerosException e) {
+                    e.printStackTrace();Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Atencao");
+                    alert.setHeaderText(e.getMessage());
+                    alert.showAndWait();
+                }
+
+            }
+
+
 
     }
 
@@ -102,8 +107,6 @@ public class ControladorTelaCompraPorCliente implements Initializable {
     public void cancelar(){
         tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
-
-        funcionario.esvaziarListaVenda();
         Main.chamarTela("view/TelaGerente.fxml", 600,400);
     }
 
