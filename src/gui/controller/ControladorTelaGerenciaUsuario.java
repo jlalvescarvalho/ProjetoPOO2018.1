@@ -469,5 +469,7 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         preencherComboBox();
+        txtCpfCad.setPromptText("(ex: 12312312345)");
+        txtCepCad.setPromptText("ex. 12345000");
     }
 }

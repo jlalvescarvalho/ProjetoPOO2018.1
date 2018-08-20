@@ -305,6 +305,8 @@ public class ControladorTelaGerenciaCliente implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        txtCpf.setPromptText("(ex: 12312312345)");
+        txtCep.setPromptText("ex. 12345000");
+        txtCpfRemover.setPromptText("(ex: 12312312345)");
     }
 }
