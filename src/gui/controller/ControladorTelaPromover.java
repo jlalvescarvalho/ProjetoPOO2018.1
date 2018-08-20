@@ -57,6 +57,16 @@ public class ControladorTelaPromover implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText("Usuario nao encontrado !");
             alert.showAndWait();
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
@@ -120,6 +130,16 @@ public class ControladorTelaPromover implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText("Cpf de funcionario nao encontrado");
+            alert.showAndWait();
+        } catch (CampoEnderecoVazioException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CepInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         }
 

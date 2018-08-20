@@ -38,9 +38,9 @@ public class RepositorioUsuario implements IRepositorio<Usuario> {
 
     @Override
     public void remover(Usuario usuario) {
-        if (this.usuarios.contains(usuario)){
-            this.usuarios.remove(usuario);
-        }
+        int indice = recuperarIndice(usuario.getCpf());
+        this.usuarios.remove(indice);
+
     }
 
     @Override

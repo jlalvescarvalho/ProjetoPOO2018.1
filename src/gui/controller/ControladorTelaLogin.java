@@ -1,5 +1,7 @@
 package gui.controller;
 
+import execoes.CPFInvalidoException;
+import execoes.CPFTamanhoException;
 import execoes.UsuarioInvalidoException;
 import execoes.UsuarioNaoExisteException;
 import fachada.Fachada;
@@ -39,7 +41,8 @@ public class ControladorTelaLogin implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        login.setPromptText("Cpf");
+        senha.setPromptText("Senha");
     }
 
 
@@ -60,6 +63,16 @@ public class ControladorTelaLogin implements Initializable {
                 tela.close();
             }
         } catch (UsuarioInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());

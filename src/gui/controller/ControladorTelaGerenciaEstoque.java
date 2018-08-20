@@ -103,16 +103,21 @@ public class ControladorTelaGerenciaEstoque implements Initializable {
     }
 
     public void listarEstoque(){
-        ArrayList<ItemEstoque> estoque = funcionario.recuperarEstoque();
-        ObservableList observableList = FXCollections.observableArrayList(estoque);
-        lstEstoque.setItems(observableList);
+        try {
+            ArrayList<ItemEstoque> estoque = funcionario.recuperarEstoque();
+            ObservableList observableList = FXCollections.observableArrayList(estoque);
+            lstEstoque.setItems(observableList);
+        }catch (NullPointerException npe){
+
+        }
+
     }
 
     public void removerItemEstoque(){
         funcionario.removerItemEstoque(txtCodigoRemover.getText());
     }
 
-    public void cancelar(ActionEvent actionEvent){
+    public void cancelar(){
         tela = (Stage) this.pane.getScene().getWindow();
         tela.close();
         Main.chamarTela("view/TelaFuncionario.fxml", 600,400);

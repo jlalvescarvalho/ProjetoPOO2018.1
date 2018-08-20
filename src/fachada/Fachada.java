@@ -10,7 +10,7 @@ import java.util.Date;
 public class Fachada implements IFachadaGerente, IFachadaFuncionario{
 
 
-    public int verificarLogin(String login, String senha) throws UsuarioInvalidoException {
+    public int verificarLogin(String login, String senha) throws UsuarioInvalidoException, CPFInvalidoException, CPFTamanhoException {
         return Login.getInstance().verificarLogin(login, senha);
     }
     public void logoff(){
@@ -48,7 +48,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade) throws CPFApenasNumerosException, CPFTamanhoException, NomeInvalidoException, ClienteJaExiteException {
+    public void cadastrarCliente(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade) throws CPFApenasNumerosException, CPFTamanhoException, NomeInvalidoException, ClienteJaExiteException, CampoEnderecoVazioException, CepInvalidoException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Cliente cliente = new Cliente(nome,cpf,end);
 
@@ -75,7 +75,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto) {
+    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto) throws VendaVaziaException {
         NegocioVenda.getInstace().cadastrarVendaComCliente(funcionario, cliente, desconto);
     }
 
@@ -85,7 +85,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void cadastrarVendaSemCliente(Funcionario funcionario) {
+    public void cadastrarVendaSemCliente(Funcionario funcionario) throws VendaVaziaException {
         NegocioVenda.getInstace().cadastrarVendaSemCliente(funcionario);
     }
 
@@ -136,6 +136,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
 
+
     /**
      * Apartir daqui metodos referentes a Gerente
     */
@@ -143,7 +144,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     @Override
     public void cadastrarFuncionario(String nome, String cpf, String rua, String bairro, String cep, String numero, String cidade,
                                      String senha)
-            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException, SenhaInvalidaException {
+            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException, SenhaInvalidaException, CampoEnderecoVazioException, CepInvalidoException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Usuario funcionario = new Funcionario(nome, cpf, end, SalarioCargoEnum.Funcionario.getSalario(), senha);
         NegocioUsuario.getInstace().cadastrar(funcionario);
@@ -152,14 +153,14 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     @Override
     public void cadastrarGerente(String nome, String cpf, String rua, String bairro, String cep, String numero,
                                  String cidade, String senha, int numFuncGerenciados)
-            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException, CPFInvalidoException, SenhaInvalidaException {
+            throws UsuarioJaExisteException, UsuarioInvalidoException, CPFTamanhoException, NomeInvalidoException, CPFApenasNumerosException, CPFInvalidoException, SenhaInvalidaException, CampoEnderecoVazioException, CepInvalidoException {
         Endereco end = new Endereco(rua, numero, bairro, cep, cidade);
         Usuario gerente = new Gerente(nome, cpf, end, SalarioCargoEnum.Gerente.getSalario(), senha, numFuncGerenciados);
         NegocioUsuario.getInstace().cadastrar(gerente);
     }
 
     @Override
-    public void promoverParaGerente(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException, SenhaInvalidaException {
+    public void promoverParaGerente(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFApenasNumerosException, NomeInvalidoException, CPFTamanhoException, CPFInvalidoException, SenhaInvalidaException, CampoEnderecoVazioException, CepInvalidoException {
         removerUsuario(usuario.getCpf());
 
         cadastrarGerente(usuario.getNome(), usuario.getCpf(), usuario.getEndereco().getRua(),usuario.getEndereco().getBairro(),
@@ -167,12 +168,12 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public Usuario recuperarUsuario(String cpf){
+    public Usuario recuperarUsuario(String cpf) throws CPFInvalidoException, CPFTamanhoException {
         return NegocioUsuario.getInstace().recuperar(cpf);
     }
 
     @Override
-    public void removerUsuario(String cpf) throws UsuarioInvalidoException {
+    public void removerUsuario(String cpf) throws UsuarioInvalidoException, CPFInvalidoException, CPFTamanhoException {
         Usuario usu = recuperarUsuario(cpf);
         NegocioUsuario.getInstace().remover(usu);
     }
@@ -209,7 +210,7 @@ public class Fachada implements IFachadaGerente, IFachadaFuncionario{
     }
 
     @Override
-    public void removerItem(int id) throws ItemVendaInvalidoException {
+    public void removerItem(int id) throws CodigoInvalidoException {
         NegocioVenda.getInstace().removerItem(id);
     }
 

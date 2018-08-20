@@ -22,7 +22,8 @@ import java.util.ResourceBundle;
 public class ControladorTelaGerenciaProduto implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        txtPreco.setPromptText("ex: 9.99");
+        txtCodigo.setPromptText("Apenas nnumeros");
     }
     IFachadaFuncionario funcionario = new Fachada();
 
@@ -105,6 +106,11 @@ public class ControladorTelaGerenciaProduto implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NumberFormatException nfe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Preco deve conter numeros");
             alert.showAndWait();
         }
     }

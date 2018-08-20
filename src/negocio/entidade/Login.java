@@ -1,5 +1,7 @@
 package negocio.entidade;
 
+import execoes.CPFInvalidoException;
+import execoes.CPFTamanhoException;
 import execoes.UsuarioInvalidoException;
 import negocio.NegocioUsuario;
 
@@ -17,7 +19,7 @@ public class Login {
         return mySelf;
     }
 
-    public int verificarLogin(String cpf, String senha) throws UsuarioInvalidoException {
+    public int verificarLogin(String cpf, String senha) throws UsuarioInvalidoException, CPFInvalidoException, CPFTamanhoException {
         final int funcionario = 0;
         final int gerente = 1;
 

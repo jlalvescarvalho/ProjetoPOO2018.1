@@ -3,6 +3,7 @@ package gui.controller;
 import execoes.*;
 import fachada.Fachada;
 import fachada.IFachadaFuncionario;
+import fachada.IFachadaGerente;
 import gui.Main;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -27,6 +28,7 @@ import java.util.ResourceBundle;
 public class ControladorTelaVendas implements Initializable {
 
     IFachadaFuncionario funcionario = new Fachada();
+    IFachadaGerente gerente = new Fachada();
     private Stage tela;
 
 
@@ -68,7 +70,8 @@ public class ControladorTelaVendas implements Initializable {
 
                 subTotalVenda.setText(String.valueOf(funcionario.calcularTotalVenda()));
                 atualizarTableView();
-
+                codigoProdutoVenda.setText("");
+                quantProdutoVenda.setText("");
 
             }catch (QuantidadeNaoDisponivelException e){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -117,9 +120,11 @@ public class ControladorTelaVendas implements Initializable {
     private ArrayList<VendaModelo> converterParaVendaModelo(){
         ArrayList<ItemVenda> itemVendas = funcionario.getListarItens();
         ArrayList<VendaModelo> itensConvertidos = new ArrayList<>();
+        int contador = 0;
+
 
         for (ItemVenda iv: itemVendas){
-            VendaModelo vendaModelo = new VendaModelo(iv.getId(), iv.getProduto().getDescricao(), iv.getQuantidade(),
+            VendaModelo vendaModelo = new VendaModelo(contador++, iv.getProduto().getDescricao(), iv.getQuantidade(),
                     iv.getProduto().getPreco(), iv.getTotalItem());
             itensConvertidos.add(vendaModelo);
         }
@@ -180,20 +185,26 @@ public class ControladorTelaVendas implements Initializable {
         }
     }
 
-    public void finalizarVenda(){
+    public void finalizarVenda() {
         if (cpfClienteVenda == null || cpfClienteVenda.equals(" ") || cpfClienteVenda.equals("")) {
-            funcionario.cadastrarVendaSemCliente((Funcionario) Login.getInstance().getUsuario());
+            try {
+                funcionario.cadastrarVendaSemCliente((Funcionario) Login.getInstance().getUsuario());
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Informação");
-            alert.setHeaderText("Venda cadastrada com sucesso !");
-            alert.showAndWait();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Informacao");
+                alert.setHeaderText("Venda cadastrada com sucesso !");
+                alert.showAndWait();
 
-            Main.chamarTela("view/TelaFuncionario.fxml", 600, 400);
-            tela = (Stage) this.pane.getScene().getWindow();
-            tela.close();
+                Main.chamarTela("view/TelaFuncionario.fxml", 600, 400);
+                tela = (Stage) this.pane.getScene().getWindow();
+                tela.close();
 
-
+            } catch (VendaVaziaException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            }
 
         }else{
             Main.chamarTela("view/TelaFinalizaVendaComCliente.fxml", 600, 400);
@@ -220,7 +231,79 @@ public class ControladorTelaVendas implements Initializable {
     }
 
     public void removerItemVenda(){
-        
+        int indice = identificarItemARemover();
+
+            try {
+                gerente.removerItem(indice);
+                subTotalVenda.setText(String.valueOf(funcionario.calcularTotalVenda()));
+                atualizarTableView();
+
+            }catch (NullPointerException npe){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText("Numero de item nao existe");
+                alert.showAndWait();
+            } catch (CodigoInvalidoException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            }catch (IndexOutOfBoundsException iobe){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText("Indice do item invalido !");
+                alert.showAndWait();
+            }
+
+    }
+
+    private int identificarItemARemover(){
+        final String[] numeroItem = new String[1];
+        try {
+            String cpf = ControladorTelaFinalizaVenda.autenticarGerente();
+
+            Usuario usuario = (Gerente)gerente.recuperarUsuario(cpf);
+
+            TextInputDialog inputDialog2 = new TextInputDialog();
+            inputDialog2.setTitle("Remover Item");
+            inputDialog2.setHeaderText(usuario.getNome());
+            inputDialog2.setContentText("Numero do item a ser removido: ");
+            inputDialog2.showAndWait().ifPresent(v -> numeroItem[0] = v);
+
+            return Integer.parseInt(numeroItem[0]);
+
+        } catch (UsuarioInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (UsuarioNaoExisteException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (ClassCastException cce){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Os dados inseridos nao pertencem a um Gerente");
+            alert.showAndWait();
+        }catch (NumberFormatException nfe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Digite apenas numeros");
+            alert.showAndWait();
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }
+        return -1;
     }
 
 

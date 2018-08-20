@@ -8,21 +8,14 @@ package negocio.entidade;
  */
     public class ItemVenda {
 
-        private int id;
-        private static int CONTADOR = 0;
         private Produto produto;
         private int quantidade;
         private double totalItem;
 
     public ItemVenda(Produto produto, int quantidade) {
-        this.id = CONTADOR++;
         this.produto = produto;
         this.quantidade = quantidade;
         this.totalItem = quantidade*produto.getPreco();
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Produto getProduto() {

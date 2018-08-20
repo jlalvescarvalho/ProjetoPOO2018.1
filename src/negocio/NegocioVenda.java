@@ -1,9 +1,6 @@
 package negocio;
 
-import execoes.CodigoInvalidoException;
-import execoes.ItemVendaInvalidoException;
-import execoes.ProdutoNaoExisteException;
-import execoes.QuantidadeNaoDisponivelException;
+import execoes.*;
 import negocio.entidade.*;
 import repositorio.RepositorioVenda;
 
@@ -15,6 +12,7 @@ public class NegocioVenda {
     private RepositorioVenda repositorioVenda;
     public ArrayList<ItemVenda> listaItensdaVenda;
     private static NegocioVenda mySelf;
+
 
 
     private NegocioVenda(){
@@ -54,19 +52,9 @@ public class NegocioVenda {
         }
     }
 
-    public void removerItem(int id) throws ItemVendaInvalidoException {
-        ItemVenda it = recuperarItem(id);
-
-        listaItensdaVenda.remove(it);
-    }
-
-    private ItemVenda recuperarItem(int id) throws ItemVendaInvalidoException {
-        for (ItemVenda iv: listaItensdaVenda){
-            if(iv.getId() == id){
-                return iv;
-            }
-        }
-        throw new ItemVendaInvalidoException();
+    public void removerItem(int id) throws CodigoInvalidoException {
+        if (id >= 0) listaItensdaVenda.remove(id);
+        throw new CodigoInvalidoException();
     }
 
 
@@ -119,25 +107,34 @@ public class NegocioVenda {
     }
 
 
-    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto) {
-        cliente.incrementarFrequencia();
-        Venda venda = new Venda(this.listaItensdaVenda, funcionario, cliente, desconto);
-        this.repositorioVenda.cadastrar(venda);
+    public void cadastrarVendaComCliente(Funcionario funcionario, Cliente cliente, double desconto) throws VendaVaziaException {
+        if (!listaItensdaVenda.isEmpty()) {
+            cliente.incrementarFrequencia();
+            Venda venda = new Venda(this.listaItensdaVenda, funcionario, cliente, desconto);
+            this.repositorioVenda.cadastrar(venda);
 
-        for (ItemVenda iv : listaItensdaVenda) {
-            NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
+            for (ItemVenda iv : listaItensdaVenda) {
+                NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
+            }
+            esvaziarListaVendas();
+        }else{
+            throw new VendaVaziaException();
         }
-        esvaziarListaVendas();
     }
 
-    public void cadastrarVendaSemCliente(Funcionario funcionario){
-        Venda venda = new Venda(this.listaItensdaVenda, funcionario);
-        this.repositorioVenda.cadastrar(venda);
+    public void cadastrarVendaSemCliente(Funcionario funcionario) throws VendaVaziaException {
+        if (!listaItensdaVenda.isEmpty()) {
 
-        for(ItemVenda iv: listaItensdaVenda){
-            NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
+            Venda venda = new Venda(this.listaItensdaVenda, funcionario);
+            this.repositorioVenda.cadastrar(venda);
+
+            for (ItemVenda iv : listaItensdaVenda) {
+                NegocioEstoque.getInstace().realizarSaidaEstoque(iv.getProduto(), iv.getQuantidade());
+            }
+            esvaziarListaVendas();
+        }else{
+            throw new VendaVaziaException();
         }
-        esvaziarListaVendas();
     }
 
     public Venda recuperar(String  id){

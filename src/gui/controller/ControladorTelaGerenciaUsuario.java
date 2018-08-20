@@ -21,6 +21,7 @@ import negocio.entidade.Usuario;
 import javax.swing.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControladorTelaGerenciaUsuario implements Initializable {
@@ -62,7 +63,7 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
     @FXML
     private TextField txtNomeAtualizar;
     @FXML
-    private TextField txtSenhaAtualizar;
+    private PasswordField txtSenhaAtualizar;
     @FXML
     private TextField txtRuaAtualizar;
     @FXML
@@ -176,6 +177,21 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        } catch (CampoEnderecoVazioException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CepInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NumberFormatException nfe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cep Apenas numero");
+            alert.showAndWait();
         }
     }
 
@@ -237,16 +253,27 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText("Campo numero de funcionario deve ser preenchido");
             alert.showAndWait();
+        } catch (CampoEnderecoVazioException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CepInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
     }
 
     public void atualizarUsuario(){
 
-
-            Usuario usuario = buscarUsuario(txtCpfAtualizar.getText());
+        try {
+            Usuario usuario = gerente.recuperarUsuario(txtCpfAtualizar.getText());
             if (usuario instanceof Gerente){
                 ((Gerente) usuario).setNumeroDeFuncionariosGerenciados(Integer.parseInt(txtNumFuncUP.getText()));
             }
+
             usuario.setNome(txtNomeAtualizar.getText());
             usuario.setSenha(txtSenhaAtualizar.getText());
             usuario.setSalario(Double.parseDouble(txtSalarioUP.getText()));
@@ -259,13 +286,50 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             gerente.atualizarUsuario(txtCpfAtualizar.getText(), usuario);
 
             limparCamposAtualizar();
+        } catch (CampoEnderecoVazioException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CepInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NumberFormatException nfe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cep Apenas numero");
+            alert.showAndWait();
+        }catch (NullPointerException npe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Campos Vazios");
+            alert.showAndWait();
+        } catch (UsuarioNaoExisteException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }
 
 
     }
 
     public void preencherCamposAtualizar(){
+        try {
+            Usuario usuario = gerente.recuperarUsuario(txtCpfAtualizar.getText());
 
-            Usuario usuario = buscarUsuario(txtCpfAtualizar.getText());
             if (usuario instanceof Gerente) {
                 labelNumFuncUP.setVisible(true);
                 txtNumFuncUP.setVisible(true);
@@ -277,11 +341,40 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
             txtNomeAtualizar.setText(usuario.getNome());
             txtRuaAtualizar.setText(usuario.getEndereco().getRua());
             txtNumAtualizar.setText(String.valueOf(usuario.getEndereco().getNumero()));
-            txtBairroAtualizar.setText(usuario.getEndereco().getCidade());
-            txtCepAtualizar.setText(usuario.getEndereco().getBairro());
-            txtCidadeAtualizar.setText(usuario.getEndereco().getCep());
+            txtBairroAtualizar.setText(usuario.getEndereco().getBairro());
+            txtCepAtualizar.setText(usuario.getEndereco().getCep());
+            txtCidadeAtualizar.setText(usuario.getEndereco().getCidade());
             txtSalarioUP.setText(String.valueOf(usuario.getSalario()));
             txtSenhaAtualizar.setText(usuario.getSenha());
+
+
+        } catch (UsuarioNaoExisteException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        }catch (NumberFormatException nfe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cpf apenas numeros");
+            alert.showAndWait();
+        }catch (NullPointerException npe){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Usuario não encontrado !");
+            alert.showAndWait();
+        }
+
 
     }
 
@@ -304,53 +397,52 @@ public class ControladorTelaGerenciaUsuario implements Initializable {
 
     public void removerUsuario(){
 
-            Usuario usuario = buscarUsuario(txtCpfRemover.getText());
 
-            Alert alerte = new Alert(Alert.AlertType.CONFIRMATION);
-            ButtonType btSim = new ButtonType("Sim");
-            ButtonType btNao = new ButtonType("Nao");
+            try {
+                Usuario usuario = gerente.recuperarUsuario(txtCpfRemover.getText());
 
-            alerte.setTitle("Remover");
-            alerte.setHeaderText("Voce deseja realmente remover "+usuario.getNome()+" ?");
-            alerte.showAndWait().ifPresent(b -> {
-                if (b == btSim){
+                Alert alerte = new Alert(Alert.AlertType.CONFIRMATION);
+                alerte.setTitle("Remover");
+                alerte.setHeaderText("Voce deseja realmente remover " + usuario.getNome() + " ?");
+                Optional<ButtonType> resultado = alerte.showAndWait();
 
-                    try {
-                        gerente.removerUsuario(txtCpfRemover.getText());
-                        txtCpfRemover.setText("");
+                if (((Optional) resultado).get() == ButtonType.OK) {
 
+                    gerente.removerUsuario(txtCpfRemover.getText());
+                    txtCpfRemover.setText("");
 
-                    } catch (UsuarioNaoExisteException e) {
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Atencao");
-                        alert.setHeaderText(e.getMessage());
-                        alert.showAndWait();
-                    } catch (UsuarioInvalidoException e) {
-                        Alert alert = new Alert(Alert.AlertType.WARNING);
-                        alert.setTitle("Atencao");
-                        alert.setHeaderText(e.getMessage());
-                        alert.showAndWait();
-                    }
-
-                }else if (b == btNao){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setHeaderText("Usuario removido com sucesso !");
+                    alert.showAndWait();
+                } else{
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText("Usuario nao removido !");
                     alert.showAndWait();
                 }
-            });
-    }
-    private Usuario buscarUsuario(String cpf){
-        Usuario usuario = null;
-        try {
-            usuario = gerente.recuperarUsuario(cpf);
 
-        } catch (UsuarioNaoExisteException e) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atencao");
-            alert.setHeaderText(e.getMessage());
-            alert.showAndWait();
-        }
-        return usuario;
+            } catch (UsuarioNaoExisteException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            } catch (UsuarioInvalidoException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            } catch (CPFInvalidoException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            } catch (CPFTamanhoException e) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Atencao");
+                alert.setHeaderText(e.getMessage());
+                alert.showAndWait();
+            }
+
+
     }
 
     private void limparCamposCadastrar(){

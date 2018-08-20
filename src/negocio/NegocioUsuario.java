@@ -27,7 +27,7 @@ public class NegocioUsuario {
     }
 
 
-    public void cadastrar(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFInvalidoException {
+    public void cadastrar(Usuario usuario) throws UsuarioJaExisteException, UsuarioInvalidoException, CPFInvalidoException, CPFTamanhoException {
 
         if(usuario.getCpf().equals("") || usuario.getNome().equals("")){
             throw new UsuarioInvalidoException();
@@ -38,11 +38,26 @@ public class NegocioUsuario {
         }
     }
 
-    public Usuario recuperar(String cpf) {
-        if(this.repositorioUsuario.recuperar(cpf) != null){
+    private boolean verificarCpfIsDigit(String cpf){
+        char[] cpfChar = cpf.toCharArray();
+        for (int i = 0; i < cpfChar.length; i++){
+            if (!Character.isDigit(cpfChar[i])){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Usuario recuperar(String cpf) throws CPFInvalidoException, CPFTamanhoException {
+        if (cpf.length() != 11) {
+            throw new CPFTamanhoException(cpf.length());
+        }else if (!verificarCpfIsDigit(cpf)){
+            throw new CPFInvalidoException();
+        }else if(this.repositorioUsuario.recuperar(cpf) == null){
+           return null;
+        }else{
             return (Usuario) this.repositorioUsuario.recuperar(cpf);
         }
-        return null;
     }
 
     public void remover(Usuario usuario) throws UsuarioInvalidoException{

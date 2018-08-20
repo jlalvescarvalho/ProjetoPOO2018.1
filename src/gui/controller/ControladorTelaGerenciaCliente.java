@@ -99,8 +99,17 @@ public class ControladorTelaGerenciaCliente implements Initializable {
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
+        } catch (CampoEnderecoVazioException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CepInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
         }
-
 
 
     }
@@ -122,7 +131,6 @@ public class ControladorTelaGerenciaCliente implements Initializable {
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setContentText("Deseja realmente remover "+c.getNome()+" ? ");
-
 
             Optional<ButtonType> resultado = alert . showAndWait ();
             if (((Optional) resultado).get() == ButtonType.OK){
@@ -213,6 +221,21 @@ public class ControladorTelaGerenciaCliente implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText("Cpf nao encontrado!");
+            alert.showAndWait();
+        } catch (CampoEnderecoVazioException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cpf nao encontrado!");
+            alert.showAndWait();
+        } catch (CepInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cpf nao encontrado!");
+            alert.showAndWait();
+        }catch (NumberFormatException nfe){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Cep Apenas numero");
             alert.showAndWait();
         }
 

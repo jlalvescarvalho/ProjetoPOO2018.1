@@ -7,17 +7,13 @@ import fachada.IFachadaGerente;
 import gui.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import negocio.entidade.Cliente;
-import negocio.entidade.Funcionario;
-import negocio.entidade.Login;
-import negocio.entidade.Usuario;
+import negocio.entidade.*;
 
 import java.net.URL;
+import java.time.format.TextStyle;
 import java.util.ResourceBundle;
 
 import static gui.controller.ControladorTelaVendas.*;
@@ -39,9 +35,7 @@ public class ControladorTelaFinalizaVenda implements Initializable {
     private Label labelTotalApagar;
 
     private double descontoGerente;
-    final String[] cpf = new String[1];
-    final String[] senha = new String[1];
-    final String[] desconto = new String[1];
+
 
 
     /**
@@ -73,17 +67,22 @@ public class ControladorTelaFinalizaVenda implements Initializable {
 
         } catch (CPFInvalidoException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atenção");
+            alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         } catch (CPFTamanhoException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atenção");
+            alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         } catch (CPFApenasNumerosException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Atenção");
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (VendaVaziaException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         }
@@ -94,7 +93,7 @@ public class ControladorTelaFinalizaVenda implements Initializable {
         tela.close();
     }
 
-    private void verificarCampoCpf(String cpf) throws CPFTamanhoException, CPFApenasNumerosException {
+    private static void verificarCampoCpf(String cpf) throws CPFTamanhoException, CPFApenasNumerosException {
         char[] cpfChar = cpf.toCharArray();
         for (int i = 0; i < cpfChar.length; i++) {
             if (!Character.isDigit(cpfChar[i])) {
@@ -106,20 +105,25 @@ public class ControladorTelaFinalizaVenda implements Initializable {
         }
     }
 
-    protected void autenticarGerente() {
+    protected static String autenticarGerente() throws UsuarioInvalidoException {
+        final String[] cpf = new String[1];
+        final String[] senha = new String[1];
+
         try {
             TextInputDialog inputDialog = new TextInputDialog();
-            inputDialog.setTitle("Autenticação do gerente");
+            inputDialog.setTitle("Autenticacao do gerente");
             inputDialog.setContentText("Login/CPF: ");
             inputDialog.showAndWait().ifPresent(v -> cpf[0] = v);
 
             verificarCampoCpf(cpf[0]);
 
+
             TextInputDialog inputDialog1 = new TextInputDialog();
-            inputDialog1.setTitle("Autenticação do gerente");
+            inputDialog1.setTitle("Autenticacao do gerente");
             inputDialog1.setContentText("senha: ");
             inputDialog1.showAndWait().ifPresent(v -> senha[0] = v);
 
+            return cpf[0];
 
         } catch (CPFTamanhoException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -137,7 +141,7 @@ public class ControladorTelaFinalizaVenda implements Initializable {
             alert.setHeaderText("Cpf nao identificado");
             alert.showAndWait();
         }
-
+        throw new UsuarioInvalidoException();
     }
 
 
@@ -147,9 +151,9 @@ public class ControladorTelaFinalizaVenda implements Initializable {
      */
     public void DescontoGerente() {
 
-        autenticarGerente();
+        final String[] desconto = new String[1];
         try {
-            Usuario gerent = gerente.recuperarUsuario(cpf[0]);
+            Usuario gerent = (Gerente)gerente.recuperarUsuario(autenticarGerente());
 
             TextInputDialog inputDialog2 = new TextInputDialog();
             inputDialog2.setTitle("Desconto Gerente");
@@ -157,16 +161,10 @@ public class ControladorTelaFinalizaVenda implements Initializable {
             inputDialog2.setContentText("% de desconto: ");
             inputDialog2.showAndWait().ifPresent(v -> desconto[0] = v);
 
-            Usuario usuarioTemp = Login.getInstance().getUsuario();
+            descontoGerente = gerente.darDesconto(gerent.getCpf(), gerent.getSenha(), funcionario.calcularTotalVenda(), Double.parseDouble(desconto[0]));
 
-            if (Login.getInstance().verificarLogin(cpf[0], senha[0]) == 1) {
+            preencherCampos(descontoGerente);
 
-                descontoGerente = gerente.darDesconto(cpf[0], senha[0], funcionario.calcularTotalVenda(), Double.parseDouble(desconto[0]));
-
-                preencherCampos(descontoGerente);
-
-                Login.getInstance().setUsuario(usuarioTemp);
-            }
 
         } catch (UsuarioNaoExisteException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -187,6 +185,21 @@ public class ControladorTelaFinalizaVenda implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText("Nao é possivel localizar o cliente");
+            alert.showAndWait();
+        }catch (ClassCastException cce){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText("Dados inseridos nao sao de Gerente");
+            alert.showAndWait();
+        } catch (CPFInvalidoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CPFTamanhoException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         }
 

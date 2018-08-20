@@ -1,4 +1,5 @@
 package negocio.entidade;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 /**
@@ -65,6 +66,12 @@ public class Venda {
         return desconto;
     }
 
+    private String converterData(Date dt){
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String str = fmt.format(dt);
+        return str;
+    }
+
     public double getTotal(){
         double tt = 0.0;
 
@@ -76,6 +83,6 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Data venda: "+this.data.toString()+ "  Valor da venda: "+this.getTotal()+"  Funcionario: "+this.funcionario.getNome();
+        return "Data venda: "+converterData(this.data)+ "  Valor da venda: "+this.getTotal()+"  Funcionario: "+this.funcionario.getNome();
     }
 }

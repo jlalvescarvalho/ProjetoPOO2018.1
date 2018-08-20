@@ -40,7 +40,7 @@ public class Main extends Application{
         IFachadaGerente gerente = new Fachada();
 
         try {
-            gerente.cadastrarGerente("Admin", "11122233345", "centro","centro","09090","0","ai dentro","0000",8);
+            gerente.cadastrarGerente("Admin", "11122233345", "Av St Antonio","centro","55294000","0","Garanhuns","0000",8);
         } catch (UsuarioJaExisteException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atenção");
@@ -72,6 +72,16 @@ public class Main extends Application{
             alert.setHeaderText(e.getMessage());
             alert.showAndWait();
         } catch (SenhaInvalidaException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CampoEnderecoVazioException e) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atencao");
+            alert.setHeaderText(e.getMessage());
+            alert.showAndWait();
+        } catch (CepInvalidoException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Atencao");
             alert.setHeaderText(e.getMessage());

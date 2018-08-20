@@ -16,5 +16,6 @@
       <Button layoutX="313.0" layoutY="114.0" mnemonicParsing="false" onAction="#abrirTelaRelatoriosVenda" prefHeight="38.0" prefWidth="151.0" text="Relatorios de vendas" />
       <Button layoutX="313.0" layoutY="181.0" mnemonicParsing="false" onAction="#abrirTelaPromover" prefHeight="38.0" prefWidth="151.0" text="Promover" />
       <Button layoutX="503.0" layoutY="19.0" mnemonicParsing="false" onAction="#deslogar" text="Sair" />
+      <Button layoutX="102.0" layoutY="181.0" mnemonicParsing="false" onAction="#abrirTelaComprasPorCliente" prefHeight="38.0" prefWidth="151.0" text="Clientes vs Compras" />
    </children>
 </Pane>

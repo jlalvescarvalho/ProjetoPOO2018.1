@@ -36,7 +36,7 @@
                         <Label layoutX="77.0" layoutY="290.0" text="Cidade:" />
                         <TextField fx:id="txtCidadeCad" layoutX="125.0" layoutY="286.0" />
                         <TextField fx:id="txtCepCad" layoutX="325.0" layoutY="286.0" prefHeight="25.0" prefWidth="90.0" />
-                         <Button fx:id="btCadastrar" layoutX="191.0" layoutY="326.0" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadsatrar" />
+                         <Button fx:id="btCadastrar" layoutX="191.0" layoutY="326.0" mnemonicParsing="false" onAction="#cadastrarUsuario" text="Cadastrar" />
                         <Button fx:id="btCancelarCad" layoutX="299.0" layoutY="326.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar/Sair" />
                         <Label layoutX="387.0" layoutY="246.0" text="Bairro:" />
                         <Label layoutX="59.0" layoutY="165.0" text="Tipo de usuario" />
@@ -61,7 +61,7 @@
                         <TextField fx:id="txtCpfAtualizar" layoutX="208.0" layoutY="31.0" />
                         <Label layoutX="79.0" layoutY="77.0" text="Nome:" />
                         <TextField fx:id="txtNomeAtualizar" layoutX="158.0" layoutY="73.0" />
-                        <TextField fx:id="txtSenhaAtualizar" layoutX="158.0" layoutY="113.0" />
+                        <PasswordField fx:id="txtSenhaAtualizar" layoutX="158.0" layoutY="113.0" />
                         <TextField fx:id="txtRuaAtualizar" layoutX="125.0" layoutY="242.0" />
                         <TextField fx:id="txtNumAtualizar" layoutX="315.0" layoutY="242.0" prefHeight="25.0" prefWidth="37.0" />
                         <TextField fx:id="txtBairroAtualizar" layoutX="415.0" layoutY="242.0" prefHeight="25.0" prefWidth="177.0" />
